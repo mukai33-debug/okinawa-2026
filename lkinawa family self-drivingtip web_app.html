@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>沖繩親子自駕遊｜2026.11.23 — 11.27 旅遊手帳</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Japanese Handbook Flat Vector Aesthetic Custom Styles */
+    :root {
+      --bg-cream: #F5F3EB;
+      --card-white: #FFFFFF;
+      --ink-dark: #222222;
+      --accent-yellow: #F6D365;
+      --soft-pink: #F8EAE8;
+      --soft-mint: #E3EFE0;
+      --sky-blue: #CBE2F6;
+      --emergency-red: #E05252;
+    }
+
+    body {
+      background-color: #EAE6DA;
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink-dark);
+      -webkit-tap-highlight-color: transparent;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Mobile App Container matching screenshot */
+    .app-shell {
+      max-width: 440px;
+      min-height: 100vh;
+      margin: 0 auto;
+      background-color: var(--bg-cream);
+      position: relative;
+      box-shadow: 0 0 0 2px #222222;
+    }
+
+    @media (min-width: 460px) {
+      body {
+        padding: 12px 0;
+      }
+      .app-shell {
+        min-height: calc(100vh - 24px);
+        border-radius: 32px;
+        overflow-x: hidden;
+      }
+    }
+
+    /* Flat 2px Charcoal Borders & Tactile Press */
+    .hb-card {
+      background-color: #FFFFFF;
+      border: 2px solid #222222;
+      border-radius: 22px;
+    }
+
+    .hb-pill {
+      border: 1.5px solid #222222;
+      border-radius: 9999px;
+    }
+
+    .hb-btn {
+      transition: transform 0.12s ease, background-color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .hb-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* Hide scrollbars cleanly for horizontal pill bars */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Subtle floating animation for airplane & clouds */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+    }
+    .animate-float {
+      animation: floatSlow 3.5s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell flex flex-col pb-8" id="app">
+    <!-- Top 7-Tab Navigation Bar (Exact Reference Layout) -->
+    <header class="sticky top-0 z-30 bg-[#F5F3EB]/95 backdrop-blur-sm pt-3 px-3 pb-2">
+      <nav aria-label="主導覽列" class="bg-white border-2 border-[#222222] rounded-[22px] p-1.5 grid grid-cols-7 gap-0.5">
+        <!-- Tab 1: 首頁 -->
+        <button onclick="switchTab('home')" data-tab="home" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight">首頁</span>
+        </button>
+
+        <!-- Tab 2: 行程 -->
+        <button onclick="switchTab('itinerary')" data-tab="itinerary" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="3"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight">行程</span>
+        </button>
+
+        <!-- Tab 3: 景點美食 -->
+        <button onclick="switchTab('spots')" data-tab="spots" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 11h16a1 1 0 0 1 1 1v.5a7.5 7.5 0 0 1-7.5 7.5h-3A7.5 7.5 0 0 1 3 12.5V12a1 1 0 0 1 1-1z"></path>
+            <path d="M8 7c0-1 1-1.5 1-2.5S8 3 8 3"></path>
+            <path d="M12 7c0-1 1-1.5 1-2.5S12 3 12 3"></path>
+            <path d="M16 7c0-1 1-1.5 1-2.5S16 3 16 3"></path>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight">景點美食</span>
+        </button>
+
+        <!-- Tab 4: 清單 -->
+        <button onclick="switchTab('checklist')" data-tab="checklist" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+            <polyline points="9 12 11 14 15 10"></polyline>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight">清單</span>
+        </button>
+
+        <!-- Tab 5: 工具 -->
+        <button onclick="switchTab('tools')" data-tab="tools" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            <path d="M16 7V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v2"></path>
+            <circle cx="16.5" cy="14" r="1.2" fill="#222222"></circle>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight">工具</span>
+        </button>
+
+        <!-- Tab 6: 資訊 -->
+        <button onclick="switchTab('info')" data-tab="info" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight">資訊</span>
+        </button>
+
+        <!-- Tab 7: 緊急 -->
+        <button onclick="switchTab('emergency')" data-tab="emergency" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent text-[#E05252]">
+          <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#E05252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span class="text-[11px] font-black leading-none tracking-tight text-[#E05252]">緊急</span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main id="main-content" class="px-3.5 pt-1 flex-1 space-y-4">
+      <!-- Views will be dynamically rendered here -->
+    </main>
+
+    <!-- Toast Notification Banner (No alert() ever used) -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-200 translate-y-2">
+      <div class="bg-[#222222] text-white border-2 border-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-2 whitespace-nowrap">
+        <span id="toast-icon">✅</span>
+        <span id="toast-text">已複製到剪貼簿</span>
+      </div>
+    </div>
+
+    <!-- Edit Trip Modal -->
+    <div id="edit-modal" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-[1px] hidden items-center justify-center p-4">
+      <div class="bg-white border-2 border-[#222222] rounded-[24px] w-full max-w-[390px] p-5 space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-black flex items-center gap-1.5">✏️ 編輯旅遊手帳資訊</h3>
+          <button onclick="closeEditModal()" class="w-8 h-8 rounded-full border-2 border-[#222222] flex items-center justify-center font-black text-sm hb-btn">✕</button>
+        </div>
+        <div class="space-y-3 text-xs font-bold">
+          <div>
+            <label class="block mb-1 text-[#555555]">旅遊標題</label>
+            <input id="edit-title" type="text" class="w-full border-2 border-[#222222] rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:bg-[#FFFDF5]" />
+          </div>
+          <div>
+            <label class="block mb-1 text-[#555555]">日期副標題</label>
+            <input id="edit-subtitle" type="text" class="w-full border-2 border-[#222222] rounded-xl px-3 py-2 text-sm font-bold focus:outline-none focus:bg-[#FFFDF5]" />
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block mb-1 text-[#555555]">地區標籤</label>
+              <input id="edit-regions" type="text" class="w-full border-2 border-[#222222] rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:bg-[#FFFDF5]" />
+            </div>
+            <div>
+              <label class="block mb-1 text-[#555555]">成員標籤</label>
+              <input id="edit-travelers" type="text" class="w-full border-2 border-[#222222] rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:bg-[#FFFDF5]" />
+            </div>
+          </div>
+          <div>
+            <label class="block mb-1 text-[#555555]">個人備忘錄（顯示於首頁）</label>
+            <input id="edit-memo" type="text" placeholder="例如：記得帶首里城脫鞋塑膠袋、11/25 慶生！" class="w-full border-2 border-[#222222] rounded-xl px-3 py-2 text-xs font-bold focus:outline-none focus:bg-[#FFFDF5]" />
+          </div>
+        </div>
+        <div class="flex gap-2 pt-1">
+          <button onclick="resetTripMeta()" class="flex-1 py-2.5 rounded-xl border-2 border-[#222222] bg-[#F5F3EB] text-xs font-black hb-btn">恢復預設</button>
+          <button onclick="saveTripMeta()" class="flex-1 py-2.5 rounded-xl border-2 border-[#222222] bg-[#F6D365] text-xs font-black hb-btn">儲存變更</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Japanese Phrase Fullscreen Zoom Modal -->
+    <div id="phrase-modal" class="fixed inset-0 z-50 bg-black/50 hidden items-center justify-center p-4" onclick="closePhraseModal()">
+      <div class="bg-white border-2 border-[#222222] rounded-[26px] w-full max-w-[400px] p-6 text-center space-y-4" onclick="event.stopPropagation()">
+        <span id="pm-badge" class="inline-block bg-[#F6D365] border-[1.5px] border-[#222222] rounded-full px-3 py-0.5 text-xs font-black">指差溝通卡</span>
+        <p id="pm-jp" class="text-2xl font-black leading-relaxed text-[#222222] tracking-wide"></p>
+        <p id="pm-romaji" class="text-xs font-bold text-[#666666]"></p>
+        <div class="bg-[#F5F3EB] border-2 border-[#222222] rounded-2xl p-3">
+          <p id="pm-zh" class="text-sm font-black text-[#222222]"></p>
+        </div>
+        <button onclick="closePhraseModal()" class="w-full py-2.5 rounded-xl border-2 border-[#222222] bg-[#F6D365] text-xs font-black hb-btn">關閉畫面</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // 1. STATE & PERSISTENT STORAGE
+    // ==========================================
+    const DEFAULT_META = {
+      title: '沖繩親子自駕遊',
+      subtitle: '2026.11.23 — 11.27・5天4夜',
+      regions: '那霸・名護・恩納・南城',
+      travelers: '2 大人 + 1 寶寶 (3歲)',
+      memo: '11/25 16:45 琉球の牛生日大餐｜FunPASS 四大景點制霸'
+    };
+
+    let state = {
+      activeTab: 'home',
+      weatherMode: localStorage.getItem('oki_weather') || 'sunny', // 'sunny' | 'rainy'
+      flightDir: 'outbound', // 'outbound' | 'inbound'
+      selectedDay: 1,
+      spotFilter: 'all',
+      tripMeta: JSON.parse(localStorage.getItem('oki_meta') || 'null') || { ...DEFAULT_META },
+      checklist: JSON.parse(localStorage.getItem('oki_checklist') || 'null') || null,
+      funpassRedeemed: JSON.parse(localStorage.getItem('oki_funpass') || 'null') || {
+        churaumi: false,
+        fruits: false,
+        okinawaworld: false,
+        littleuniverse: false
+      },
+      exchangeRate: parseFloat(localStorage.getItem('oki_rate')) || 0.215,
+      jpyAmount: 10000,
+      taxFree: false,
+      expenses: JSON.parse(localStorage.getItem('oki_expenses') || '[]')
+    };
+
+    // ==========================================
+    // 2. COMPLETE 5-DAY ITINERARY DATA
+    // ==========================================
+    const ITINERARY_DATA = {
+      1: {
+        dayLabel: 'Day 1 (11/23 一)',
+        title: '台中出發 → 抵達那霸',
+        shoppingTag: '無購物日',
+        shoppingColor: '#E3EFE0',
+        rainyNote: '第一天主要為搭機移動、機場取車與室內拉麵晚餐，晴天與雨天動線完全一致！',
+        sunny: [
+          {
+            time: '09:40',
+            title: '台中大里家裡出發',
+            desc: '從台中市大里區塗城路52巷14號出發，走國道3號前往臺中國際機場（車程約 40 分鐘，預留兒童安全座椅與停車緩衝）。',
+            badges: ['🏠 出發起點'],
+            stay: '車程約 40 分',
+            mapQuery: '台中市大里區塗城路52巷14號'
+          },
+          {
+            time: '10:35',
+            title: '抵達臺中國際機場 (RMQ)',
+            desc: '辦理星宇航空登機手續、托運大型行李與折疊嬰兒推車，出境後帶 3 歲寶寶上廁所與裝溫水。',
+            badges: ['✈️ 提早2.5hr報到'],
+            stay: '候機約 2.5 小時',
+            mapQuery: '臺中國際機場'
+          },
+          {
+            time: '13:05 – 15:30',
+            title: '星宇航空 JX302 飛往沖繩',
+            desc: '13:05 台中起飛 → 15:30 抵達那霸機場國際線（航程 1 小時 25 分）。下機後依指標前往租車接駁區。',
+            badges: ['🛫 星宇 JX302'],
+            stay: '飛行 1h 25m',
+            mapQuery: '那霸機場 國際線'
+          },
+          {
+            time: '17:00',
+            title: '那霸機場領車 → THE NEST那覇 入住',
+            desc: '確認兒童安全座椅安裝穩固與車身刮痕檢查，開車約 10 分鐘抵達連住 4 晚的「THE NEST那覇」辦理 Check-in 卸行李。',
+            badges: ['🚗 17:00取車', '🏨 連住4晚'],
+            stay: '辦理入住',
+            mapQuery: 'THE NEST NAHA'
+          },
+          {
+            time: '18:30',
+            title: '晚餐：琉球新麵 通堂 小祿本店',
+            desc: '品嚐招牌男人麵（濃郁豚骨）與女人麵（清爽鹽味），店內設有榻榻米座位區，帶 3 歲寶寶用餐非常輕鬆（營業至 24:00）。',
+            badges: ['🍜 必吃拉麵', '👶 榻榻米座位'],
+            stay: '建議停留 1 小時',
+            mapQuery: '琉球新麺 通堂 小禄本店'
+          },
+          {
+            time: '20:00',
+            title: 'LOISIR HOTEL NAHA 天然溫泉放鬆',
+            desc: '就在 THE NEST那覇 旁邊步行範圍內，可體驗沖繩少見的天然海鹽溫泉，消除第一天搭機疲勞。',
+            badges: ['♨️ 天然溫泉'],
+            stay: '自由放鬆',
+            mapQuery: 'LOISIR HOTEL NAHA'
+          }
+        ],
+        rainy: null // Same as sunny
+      },
+      2: {
+        dayLabel: 'Day 2 (11/24 二)',
+        title: '親子動物園＋中部海岸（無購物日）',
+        shoppingTag: '無購物日・純玩樂美食',
+        shoppingColor: '#E3EFE0',
+        rainyNote: '☔ 雨天備案啟動：上午「沖繩兒童王國」改主攻室內神奇博物館與有遮雨棚動物區；下午戶外美國村改為全室內「永旺夢樂城沖繩來客夢＋寶可夢中心」，吹冷氣看大水槽不淋雨！',
+        sunny: [
+          {
+            time: '08:45',
+            title: 'THE NEST那覇 出發北上',
+            desc: '走沖繩自動車道前往沖繩市，車程約 40 分鐘，讓寶寶在車上聽音樂看風景。',
+            badges: ['🚗 高速公路約40分'],
+            stay: '車程 40 分',
+            mapQuery: 'THE NEST NAHA'
+          },
+          {
+            time: '09:30 – 12:30',
+            title: '沖繩兒童王國 (Okinawa Zoo & Museum)',
+            desc: '09:30 開園第一批入場！早上動物最有精神（長頸鹿、大象、河馬與可愛動物區），後半段進室內「神奇博物館」玩互動科學遊戲，3 小時放電剛剛好。',
+            badges: ['👶 3歲寶寶首選', '⏱️ 建議停留 3 小時'],
+            stay: '建議停留 3 小時',
+            mapQuery: '沖縄こどもの国'
+          },
+          {
+            time: '13:15 – 15:30',
+            title: '美國村 海濱木棧道看海＆下午茶',
+            desc: '車程約 20 分鐘抵達北谷町美國村，沿著彩色歐風建築與海濱木棧道散步吹海風、吃冰淇淋與午餐（今天不排購物，純享受海景與美食）。',
+            badges: ['🌊 海景下午茶', '📸 親子美拍'],
+            stay: '建議停留 2 小時',
+            mapQuery: '美浜タウンリゾート・アメリカンビレッジ'
+          },
+          {
+            time: '16:00 – 17:15',
+            title: '港川外人住宅 文青聚落散步',
+            desc: '南返途中順遊浦添市美軍宿舍改造的白色平房聚落拍照散步（提醒：hoppepan 麵包週二公休，已安排週四再專程來買）。',
+            badges: ['🏡 文青散步'],
+            stay: '建議停留 1 小時',
+            mapQuery: '港川ステイツサイドタウン'
+          },
+          {
+            time: '18:00',
+            title: '返回那霸市區享用阿古豬晚餐',
+            desc: '回那霸市區品嚐沖繩特色阿古豬涮涮鍋或沖繩家庭料理，早點回飯店讓寶寶休息備戰明天。',
+            badges: ['🐷 沖繩阿古豬'],
+            stay: '晚餐時間',
+            mapQuery: 'THE NEST NAHA'
+          }
+        ],
+        rainy: [
+          {
+            time: '08:45',
+            title: 'THE NEST那覇 出發北上',
+            desc: '走沖繩自動車道前往沖繩市，車程約 40 分鐘。',
+            badges: ['🚗 高速公路約40分'],
+            stay: '車程 40 分',
+            mapQuery: 'THE NEST NAHA'
+          },
+          {
+            time: '09:30 – 12:00',
+            title: '沖繩兒童王國（主攻室內神奇博物館）',
+            desc: '雨天重點攻略全室內的「神奇博物館 (Wonder Museum)」，超大球池、光影互動與科學體驗讓 3 歲寶寶玩翻天！',
+            badges: ['☔ 室內親子館', '⏱️ 建議停留 2.5 小時'],
+            stay: '建議停留 2.5 小時',
+            mapQuery: '沖縄こどもの国'
+          },
+          {
+            time: '12:30 – 16:00',
+            title: '永旺夢樂城沖繩來客夢 ＋ 沖繩寶可夢中心',
+            desc: '雨天最佳避難所！一樓有巨大熱帶魚水槽，2 樓有超好逛的「沖繩寶可夢中心」，美食街午餐選擇多，推車全室內無障礙。',
+            badges: ['☔ 全室內備案', '⚡ 寶可夢中心'],
+            stay: '建議停留 3.5 小時',
+            mapQuery: 'イオンモール沖縄ライカム'
+          },
+          {
+            time: '17:30',
+            title: '返回那霸市區享用晚餐',
+            desc: '從高速公路直接返回那霸市區用餐，免去雨中上下車折騰。',
+            badges: ['🐷 沖繩料理'],
+            stay: '晚餐時間',
+            mapQuery: 'THE NEST NAHA'
+          }
+        ]
+      },
+      3: {
+        dayLabel: 'Day 3 (11/25 三)',
+        title: '北部經典大景＋16:45 生日燒肉',
+        shoppingTag: '🛍️ 購物日 1（晚上國際通）',
+        shoppingColor: '#F6D365',
+        rainyNote: '☔ 雨天備案啟動：上午「沖繩美麗海水族館」全室內不受影響，中午改在館內看鯨鯊吃午餐，並加入全室內的「Orion 啤酒工廠」＋「OKINAWA 水果樂園」，同樣準時 14:55 發車回那霸慶生！',
+        sunny: [
+          {
+            time: '07:15',
+            title: '早起發車北上 ＋ CAMEL 三明治早餐',
+            desc: '務必 07:15 從飯店出發走高速公路北上（約 1.5 小時），途中外帶「CAMEL SANDWICH & SMOOTHIE 本部店」（07:00 開門）當早餐。',
+            badges: ['🥪 07:00開門', '⏰ 關鍵早起日'],
+            stay: '外帶早餐',
+            mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
+          },
+          {
+            time: '09:00 – 11:30',
+            title: '沖繩美麗海水族館',
+            desc: '開館第一批入場看震撼的「黑潮之海」巨型鯨鯊水槽，並欣賞 10:30 戶外海豚劇場（使用 FunPASS 第 1 站）。',
+            badges: ['🎫 FunPASS 第1站', '🦈 10:30海豚秀'],
+            stay: '建議停留 2.5 小時',
+            mapQuery: '沖縄美ら海水族館'
+          },
+          {
+            time: '12:00 – 13:30',
+            title: '古宇利大橋 南端觀景台 ＋ 古宇利蝦蝦飯',
+            desc: '開車跨越湛藍的古宇利大橋拍全家福，午餐享用蒜香濃郁的「古宇利蝦蝦飯」。',
+            badges: ['🌉 畢生必看絕景', '🍤 必吃蝦蝦飯'],
+            stay: '建議停留 1.5 小時',
+            mapQuery: 'KOURI SHRIMP'
+          },
+          {
+            time: '13:50 – 14:50',
+            title: 'OKINAWA 水果樂園（務必 14:55 前發車！）',
+            desc: '南返順路使用 FunPASS 第 2 站！全區有遮雨頂棚，帶 3 歲寶寶玩繪本蓋章尋寶與看熱帶大嘴鳥。⚠️ 14:55 準時發車走高速公路回那霸！',
+            badges: ['🎫 FunPASS 第2站', '⚠️ 14:55必發車'],
+            stay: '建議停留 1 小時',
+            mapQuery: 'OKINAWAフルーツらんど'
+          },
+          {
+            time: '16:45',
+            title: '🎂 生日晚餐：燒肉 琉球の牛 那霸國際通店',
+            desc: '預約 ID：JCGE2L（逾 15 分鐘即 17:00 取消！）。建議 16:15 停妥牧志周邊停車場或搭計程車過來。記得點 0 元越光米，飯後向店員索取免費小甜點！',
+            badges: ['🎂 生日重頭戲', '⚠️ 逾15分取消'],
+            stay: '用餐限時 2 小時',
+            mapQuery: '焼肉 琉球の牛 那覇国際通り店'
+          },
+          {
+            time: '19:00',
+            title: '🛍️ 購物日 1：那霸國際通商店街＆Palette Kumoji',
+            desc: '吃飽後直接散步消化，集中採買沖繩限定伴手禮、黑糖、雪鹽餅乾與藥妝。',
+            badges: ['🛍️ 購物日 1'],
+            stay: '自由採買',
+            mapQuery: '国際通り 那覇'
+          }
+        ],
+        rainy: [
+          {
+            time: '07:15',
+            title: '早起發車北上 ＋ CAMEL 三明治早餐',
+            desc: '從飯店出發走高速公路北上（約 1.5 小時），外帶 CAMEL 三明治當早餐。',
+            badges: ['🥪 07:00開門'],
+            stay: '外帶早餐',
+            mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
+          },
+          {
+            time: '09:00 – 12:00',
+            title: '沖繩美麗海水族館 ＋ 館內海景餐廳午餐',
+            desc: '全室內吹冷氣看鯨鯊與深海魚群（FunPASS 第 1 站），雨天免去古宇利吹風淋雨，直接在館內「Ocean Blue」或餐廳悠閒吃午餐。',
+            badges: ['🎫 FunPASS 第1站', '☔ 全室內無雨'],
+            stay: '建議停留 3 小時',
+            mapQuery: '沖縄美ら海水族館'
+          },
+          {
+            time: '12:30 – 13:35',
+            title: 'Orion Happy Park 名護啤酒工廠',
+            desc: '全室內參觀路線，了解沖繩生啤製程，大人可試飲新鮮生啤（駕駛喝無酒精啤酒），3 歲寶寶也有免費果汁！',
+            badges: ['☔ 全室內備案', '🍺 免費試飲'],
+            stay: '建議停留 1 小時',
+            mapQuery: 'オリオンハッピーパーク'
+          },
+          {
+            time: '13:50 – 14:50',
+            title: 'OKINAWA 水果樂園（務必 14:55 前發車！）',
+            desc: '全區有遮雨連廊不怕淋雨（FunPASS 第 2 站），帶寶寶蓋印章尋寶。⚠️ 14:55 準時發車南返那霸！',
+            badges: ['🎫 FunPASS 第2站', '⚠️ 14:55必發車'],
+            stay: '建議停留 1 小時',
+            mapQuery: 'OKINAWAフルーツらんど'
+          },
+          {
+            time: '16:45',
+            title: '🎂 生日晚餐：燒肉 琉球の牛 那霸國際通店',
+            desc: '預約 ID：JCGE2L（逾 15 分鐘即 17:00 取消！）。點 0 元越光米＋餐後索取免費慶生小甜點！',
+            badges: ['🎂 生日重頭戲', '⚠️ 逾15分取消'],
+            stay: '用餐限時 2 小時',
+            mapQuery: '焼肉 琉球の牛 那覇国際通り店'
+          },
+          {
+            time: '19:00',
+            title: '🛍️ 購物日 1：平和通商店街（有頂棚）＆Palette Kumoji',
+            desc: '下雨天可走有遮雨天幕的平和通、市場本通商店街與 Palette Kumoji 百貨，完全不淋雨完成第一天採買！',
+            badges: ['🛍️ 購物日 1', '☔ 遮雨商店街'],
+            stay: '自由採買',
+            mapQuery: '平和通り商店街 那覇'
+          }
+        ]
+      },
+      4: {
+        dayLabel: 'Day 4 (11/26 四)',
+        title: '海岸奇岩＋地底鐘乳石（無購物日）',
+        shoppingTag: '無購物日・奇岩與鐘乳石',
+        shoppingColor: '#E3EFE0',
+        rainyNote: '☔ 雨天備案啟動：取消戶外萬座毛，上午直接前往地底全室內的「沖繩世界（含玉泉洞）」避雨看鐘乳石與太鼓舞，下午輕鬆外帶 hoppepan 麵包並回市區泡溫泉！',
+        sunny: [
+          {
+            time: '09:00',
+            title: 'THE NEST那覇 出發沿國道58號北上',
+            desc: '沿著西海岸線欣賞湛藍海景前往恩納村，車程約 55 分鐘。',
+            badges: ['🚗 58號海景公路'],
+            stay: '車程 55 分',
+            mapQuery: '万座毛'
+          },
+          {
+            time: '10:00 – 10:50',
+            title: '萬座毛 象鼻岩海岸步道',
+            desc: '沖繩必訪經典地標！珊瑚礁斷崖與翡翠色海水超壯觀，園區步道平坦寬敞，推嬰兒車非常輕鬆。',
+            badges: ['🐘 經典象鼻岩', '👶 推車友善'],
+            stay: '建議停留 50 分',
+            mapQuery: '万座毛'
+          },
+          {
+            time: '11:15 – 12:30',
+            title: '恩納村海邊享用沖繩麵午餐',
+            desc: '在恩納村品嚐軟嫩三層肉沖繩麵或海葡萄丼飯，吃飽後走高速公路南下南城市。',
+            badges: ['🍜 恩納美食'],
+            stay: '午餐時間',
+            mapQuery: '恩納村 沖縄そば'
+          },
+          {
+            time: '13:30 – 15:45',
+            title: '沖繩世界（含玉泉洞）',
+            desc: '使用 FunPASS 第 3 站！探索全長 890 公尺的地底鐘乳石奇觀與「青之泉」，並看 14:30 震撼的超級太鼓舞。⚠️ 洞內階梯濕滑勿推車，建議牽手或用背巾！',
+            badges: ['🎫 FunPASS 第3站', '⚠️ 洞內勿用推車'],
+            stay: '建議停留 2–2.5 小時',
+            mapQuery: 'おきなわワールド'
+          },
+          {
+            time: '16:30',
+            title: '浦添市 hoppepan 超人氣麵包',
+            desc: '特地排在週四有營業的日子（週一～三公休）！必買現烤鹽奶油捲與明太子法國麵包，隨後返回那霸用晚餐。',
+            badges: ['🥖 週四有營業！'],
+            stay: '外帶點心',
+            mapQuery: 'hoppepan 浦添'
+          }
+        ],
+        rainy: [
+          {
+            time: '09:30',
+            title: '沖繩世界（含玉泉洞）地底奇觀',
+            desc: '雨天最佳景點（FunPASS 第 3 站）！地底鐘乳石洞穴完全不受風雨影響，還能看室内劇場太鼓舞與琉球玻璃體驗。⚠️ 洞內濕滑請用背巾或牽好寶寶。',
+            badges: ['🎫 FunPASS 第3站', '☔ 地底全室內'],
+            stay: '建議停留 2.5 小時',
+            mapQuery: 'おきなわワールド'
+          },
+          {
+            time: '12:30 – 14:00',
+            title: '南城市／那霸市區室內餐廳午餐',
+            desc: '在室內餐廳悠閒享用沖繩料理或塔可飯，讓寶寶午睡補充體力。',
+            badges: ['🍛 室內午餐'],
+            stay: '午餐時間',
+            mapQuery: 'おきなわワールド'
+          },
+          {
+            time: '15:00',
+            title: '浦添市 hoppepan 超人氣麵包',
+            desc: '週四有營業（10:00–19:00）！下車快速外帶招牌鹽奶油捲當隔天早餐或點心。',
+            badges: ['🥖 週四有營業！'],
+            stay: '外帶點心',
+            mapQuery: 'hoppepan 浦添'
+          },
+          {
+            time: '16:30',
+            title: '回飯店休息 ＋ LOISIR 天然溫泉',
+            desc: '雨天提早回飯店休憩，帶 3 歲寶寶泡泡室內湯池、整理戰利品，輕鬆享受晚餐。',
+            badges: ['♨️ 室內泡湯放鬆'],
+            stay: '自由放鬆',
+            mapQuery: 'LOISIR HOTEL NAHA'
+          }
+        ]
+      },
+      5: {
+        dayLabel: 'Day 5 (11/27 五)',
+        title: '全新首里城＋微縮世界＋返程',
+        shoppingTag: '🛍️ 購物日 2（豐崎最後採買）',
+        shoppingColor: '#F6D365',
+        rainyNote: '☔ 雨天備案啟動：首里城正殿內部與 Little Universe OKINAWA 均為全室內空間！下午取消戶外瀬長島，直接留在「iiAS 豐崎」室內商場吃美食與最後購物，輕鬆銜接 15:00 還車。',
+        sunny: [
+          {
+            time: '08:45',
+            title: 'THE NEST那覇 退房出發',
+            desc: '行李全部上車，退房前往首里城公園停車場（車程約 20 分鐘）。',
+            badges: ['🧳 退房行李上車'],
+            stay: '車程 20 分',
+            mapQuery: '首里城公園'
+          },
+          {
+            time: '09:00 – 10:30',
+            title: '全新重建「首里城正殿」歷史朝聖',
+            desc: '見證 2026/11/23 剛重新開放的朱紅正殿（預約 09:00 場次）！⚠️ 入內需脫鞋，記得拿出自備的塑膠袋裝全家的鞋子。',
+            badges: ['🏯 11/23全新開放', '⚠️ 入內脫鞋自備袋'],
+            stay: '建議停留 1.5 小時',
+            mapQuery: '首里城公園'
+          },
+          {
+            time: '11:00',
+            title: '抹茶カフェ SUGURI 宇治抹茶小憩',
+            desc: '下山至那霸市區享用濃厚抹茶拿鐵與甜點（週四公休，排週五上午 10:00–12:00 營業時段剛剛好）。',
+            badges: ['🍵 週五有營業'],
+            stay: '建議停留 45 分',
+            mapQuery: '抹茶カフェ SUGURI'
+          },
+          {
+            time: '12:30 – 14:30',
+            title: 'Little Universe OKINAWA ＋ 🛍️ 購物日 2',
+            desc: '位於「iiAS 豐崎」3F（FunPASS 第 4 站，全室內微縮世界與 3D 掃描分身互動，停留 1.5–2 小時），並於同棟商場或對面 Outlet Mall ASHIBINAA 完成最後採買與午餐！',
+            badges: ['🎫 FunPASS 第4站', '🛍️ 購物日 2'],
+            stay: '建議停留 2 小時',
+            mapQuery: 'Little Universe OKINAWA'
+          },
+          {
+            time: '14:30 – 15:00',
+            title: '瀬長島外帶 幸福鬆餅 看飛機起降（選配）',
+            desc: '若採買提前結束，可順路開 5 分鐘到旁邊瀬長島看海與飛機起降（若時間緊湊建議直接還車）。',
+            badges: ['🥞 選配海景', '✈️ 近距離看飛機'],
+            stay: '彈性 30 分',
+            mapQuery: '幸せのパンケーキ ウミカジテラス沖縄店'
+          },
+          {
+            time: '15:00',
+            title: '準時前往機場周邊還車 → 搭接駁車赴機場',
+            desc: '⚠️ 最晚 15:00 必須抵達還車點（加滿 Regular 汽油），搭接駁車至那霸機場辦理登機。',
+            badges: ['⛽ 加滿油還車', '⚠️ 15:00準時'],
+            stay: '還車與報到',
+            mapQuery: '那霸機場 國際線'
+          },
+          {
+            time: '16:30 – 17:15',
+            title: '星宇航空 JX303 飛返台中 → 約 18:20 到家',
+            desc: '16:30 那霸起飛 → 17:15 抵達臺中國際機場，取車後走國道 3 號約 18:20 回到大里塗城路溫暖的家！',
+            badges: ['🛬 星宇 JX303', '🏠 平安返家'],
+            stay: '飛行 1h 45m',
+            mapQuery: '台中市大里區塗城路52巷14號'
+          }
+        ],
+        rainy: [
+          {
+            time: '08:45',
+            title: 'THE NEST那覇 退房出發',
+            desc: '行李全部上車，前往首里城公園室內停車場。',
+            badges: ['🧳 退房行李上車'],
+            stay: '車程 20 分',
+            mapQuery: '首里城公園'
+          },
+          {
+            time: '09:00 – 10:30',
+            title: '全新重建「首里城正殿」（正殿內部全室內）',
+            desc: '正殿內部為全室內參觀動線，雨天也能從容欣賞全新漆藝與王座（⚠️ 入內需脫鞋，請自備塑膠袋裝鞋）。',
+            badges: ['🏯 11/23全新開放', '☔ 正殿內部室內'],
+            stay: '建議停留 1.5 小時',
+            mapQuery: '首里城公園'
+          },
+          {
+            time: '11:00',
+            title: '抹茶カフェ SUGURI 宇治抹茶小憩',
+            desc: '室內質感抹茶咖啡廳躲雨喝熱抹茶、吃甜點。',
+            badges: ['🍵 週五有營業'],
+            stay: '建議停留 45 分',
+            mapQuery: '抹茶カフェ SUGURI'
+          },
+          {
+            time: '12:15 – 14:50',
+            title: 'iiAS 豐崎（Little Universe ＋ 🛍️ 購物日 2）',
+            desc: '雨天直接把全部時間留給「iiAS 豐崎」大型室內商場！先玩 3F 的 Little Universe OKINAWA（FunPASS 第 4 站），接著同棟吃美食街、逛超市與伴手禮，全程零淋雨！',
+            badges: ['🎫 FunPASS 第4站', '☔ 全室內購物日2'],
+            stay: '建議停留 2.5 小時',
+            mapQuery: 'イーアス沖縄豊崎'
+          },
+          {
+            time: '15:00',
+            title: '準時前往機場周邊還車 → 赴那霸機場',
+            desc: '從 iiAS 豐崎開到機場周邊還車點僅需 10 分鐘，加滿 Regular 汽油還車後搭接駁車赴機場。',
+            badges: ['⛽ 加滿油還車', '⚠️ 15:00準時'],
+            stay: '還車與報到',
+            mapQuery: '那霸機場 國際線'
+          },
+          {
+            time: '16:30 – 17:15',
+            title: '星宇航空 JX303 飛返台中 → 約 18:20 到家',
+            desc: '16:30 那霸起飛 → 17:15 抵達台中機場，約 18:20 回到大里溫暖的家！',
+            badges: ['🛬 星宇 JX303', '🏠 平安返家'],
+            stay: '飛行 1h 45m',
+            mapQuery: '台中市大里區塗城路52巷14號'
+          }
+        ]
+      }
+    };
+
+    // ==========================================
+    // 3. SPOTS & FOOD DIRECTORY WITH MAPCODES
+    // ==========================================
+    const SPOTS_DATA = [
+      {
+        name: '沖繩美麗海水族館',
+        category: 'funpass',
+        catLabel: '🎫 FunPASS 第1站',
+        region: '北部・本部町',
+        day: 'Day 3 上午',
+        hours: '08:30–18:30（全年無休）',
+        alert: '',
+        stay: '建議停留 2.5 小時',
+        tip: '09:00 第一批入館人最少，10:30 戶外海豚劇場免費必看，館內全區推車無障礙。',
+        mapcode: '553 075 797*74',
+        phone: '0980-48-3748',
+        mapQuery: '沖縄美ら海水族館'
+      },
+      {
+        name: 'OKINAWA 水果樂園',
+        category: 'funpass',
+        catLabel: '🎫 FunPASS 第2站',
+        region: '北部・名護市',
+        day: 'Day 3 下午',
+        hours: '10:00–18:00',
+        alert: '⚠️ 務必 14:55 前發車南返',
+        stay: '建議停留 1 小時',
+        tip: '全區有遮雨連廊，繪本解謎蓋印章 3 歲寶寶超愛，就在回程高速公路交流道旁。',
+        mapcode: '206 716 584*14',
+        phone: '0980-52-1568',
+        mapQuery: 'OKINAWAフルーツらんど'
+      },
+      {
+        name: '沖繩世界（含玉泉洞）',
+        category: 'funpass',
+        catLabel: '🎫 FunPASS 第3站',
+        region: '南部・南城市',
+        day: 'Day 4 下午',
+        hours: '09:00–17:30（14:30 太鼓舞）',
+        alert: '⚠️ 玉泉洞階梯濕滑勿推車',
+        stay: '建議停留 2–2.5 小時',
+        tip: '進鐘乳石洞前請將推車寄放入口處，改用背巾或牽好 3 歲寶寶慢慢走。',
+        mapcode: '232 495 330*28',
+        phone: '098-949-7421',
+        mapQuery: 'おきなわワールド'
+      },
+      {
+        name: 'Little Universe OKINAWA',
+        category: 'funpass',
+        catLabel: '🎫 FunPASS 第4站',
+        region: '南部・豐見城 (iiAS 3F)',
+        day: 'Day 5 中午',
+        hours: '11:00–20:00（週末 10:00 開）',
+        alert: '',
+        stay: '建議停留 1.5–2 小時',
+        tip: '位於 iiAS 豐崎 3 樓全室內冷氣空間，微縮火車與光影互動超吸睛，距機場僅 10 分鐘。',
+        mapcode: '232 543 400*25',
+        phone: '098-851-3200',
+        mapQuery: 'Little Universe OKINAWA'
+      },
+      {
+        name: '沖繩兒童王國',
+        category: 'kids',
+        catLabel: '👶 親子動物園',
+        region: '中部・沖繩市',
+        day: 'Day 2 上午',
+        hours: '09:30–17:30（週二有營業）',
+        alert: '',
+        stay: '建議停留 3 小時',
+        tip: '09:30 開園先看長頸鹿、大象與可愛動物，11:00 進室內神奇博物館吹冷氣放電。',
+        mapcode: '33 561 798*26',
+        phone: '098-933-4190',
+        mapQuery: '沖縄こどもの国'
+      },
+      {
+        name: '首里城正殿（2026/11/23 全新開放）',
+        category: 'kids',
+        catLabel: '🏯 歷史必訪大景',
+        region: '那霸・首里',
+        day: 'Day 5 09:00',
+        hours: '08:30–18:00（正殿採預約梯次）',
+        alert: '⚠️ 入內需脫鞋，請自備鞋袋',
+        stay: '建議停留 1.5 小時',
+        tip: '歷經 7 年重建剛於 11/23 開放！務必官網預約 09:00 場次並攜帶塑膠袋裝鞋。',
+        mapcode: '33 161 526*71',
+        phone: '098-886-2020',
+        mapQuery: '首里城公園'
+      },
+      {
+        name: '萬座毛 象鼻岩',
+        category: 'kids',
+        catLabel: '🌊 畢生必看大景',
+        region: '中部・恩納村',
+        day: 'Day 4 上午',
+        hours: '08:00–20:00',
+        alert: '',
+        stay: '建議停留 50 分鐘',
+        tip: '海風較大記得幫寶寶戴帽或穿薄風衣，環形步道平坦好推車。',
+        mapcode: '206 312 039*17',
+        phone: '098-966-1280',
+        mapQuery: '万座毛'
+      },
+      {
+        name: '古宇利大橋 南端觀景台',
+        category: 'kids',
+        catLabel: '🌉 畢生必看大景',
+        region: '北部・今歸仁村',
+        day: 'Day 3 中午',
+        hours: '24 小時開放',
+        alert: '',
+        stay: '建議停留 30 分鐘',
+        tip: '過橋前南端設有免費停車場與觀景台，拍筆直跨海大橋最佳角度。',
+        mapcode: '485 601 893*55',
+        phone: '0980-56-2256',
+        mapQuery: '古宇利大橋 南端展望所'
+      },
+      {
+        name: '燒肉 琉球の牛 那霸國際通店',
+        category: 'food',
+        catLabel: '🎂 生日慶生必吃',
+        region: '那霸・國際通牧志',
+        day: 'Day 3 16:45',
+        hours: '16:30–23:00',
+        alert: '⚠️ 已訂 16:45 (ID: JCGE2L) 逾15分取消',
+        stay: '用餐限時 2 小時',
+        tip: '點餐時可點 0 元越光米給寶寶吃，餐後別忘了主動向店員索取免費小甜點！',
+        mapcode: '33 157 444*63',
+        phone: '098-987-6150',
+        mapQuery: '焼肉 琉球の牛 那覇国際通り店'
+      },
+      {
+        name: '琉球新麵 通堂 小祿本店',
+        category: 'food',
+        catLabel: '🍜 必吃美食',
+        region: '那霸・小祿',
+        day: 'Day 1 18:30',
+        hours: '11:00–24:00',
+        alert: '',
+        stay: '建議停留 1 小時',
+        tip: '有寬敞榻榻米座位與免費豆芽菜小菜，點一碗清爽女人麵分給寶寶吃剛剛好。',
+        mapcode: '33 095 245*33',
+        phone: '098-857-5577',
+        mapQuery: '琉球新麺 通堂 小禄本店'
+      },
+      {
+        name: '古宇利蝦蝦飯 (KOURI SHRIMP)',
+        category: 'food',
+        catLabel: '🍤 必吃美食',
+        region: '北部・古宇利島',
+        day: 'Day 3 12:15',
+        hours: '11:00–16:00',
+        alert: '',
+        stay: '建議停留 1 小時',
+        tip: '經典蒜香奶油蝦蝦飯，可點不辣原味給 3 歲寶寶吃白飯與鮮蝦。',
+        mapcode: '485 692 168*52',
+        phone: '0980-56-1242',
+        mapQuery: 'KOURI SHRIMP'
+      },
+      {
+        name: 'CAMEL SANDWICH & SMOOTHIE 本部店',
+        category: 'food',
+        catLabel: '🥪 必吃早餐',
+        region: '北部・本部町',
+        day: 'Day 3 08:30',
+        hours: '07:00–14:00',
+        alert: '',
+        stay: '外帶 15 分鐘',
+        tip: '07:00 就營業的超人氣厚切三明治與果昔，就在美麗海水族館南側 3 分鐘車程。',
+        mapcode: '553 046 396*25',
+        phone: '0980-43-5820',
+        mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
+      },
+      {
+        name: 'hoppepan 人氣麵包店',
+        category: 'food',
+        catLabel: '🥖 必吃美食',
+        region: '中部・浦添市',
+        day: 'Day 4 16:30',
+        hours: '10:00–19:00',
+        alert: '⚠️ 週一、週二、週三公休（週四有開！）',
+        stay: '外帶 20 分鐘',
+        tip: '招牌鹽奶油捲外酥內軟、奶香濃郁，3 歲寶寶一次可以吃掉一整顆。',
+        mapcode: '33 341 535*22',
+        phone: '098-963-9265',
+        mapQuery: 'hoppepan 浦添'
+      },
+      {
+        name: '抹茶カフェ SUGURI',
+        category: 'food',
+        catLabel: '🍵 必吃甜點',
+        region: '那霸・首里山腳',
+        day: 'Day 5 11:00',
+        hours: '10:00–12:00、13:00–16:30',
+        alert: '⚠️ 週四公休（週五有營業！）',
+        stay: '建議停留 45 分鐘',
+        tip: '逛完首里城下山順路喝現刷宇治抹茶拿鐵，店內質感極佳。',
+        mapcode: '33 159 565*06',
+        phone: '098-917-2055',
+        mapQuery: '抹茶カフェ SUGURI'
+      },
+      {
+        name: '幸福鬆餅 沖繩店（瀬長島）',
+        category: 'food',
+        catLabel: '🥞 海景甜點',
+        region: '南部・豐見城瀬長島',
+        day: 'Day 5 14:30 (選配)',
+        hours: '11:00–20:00（提前兩週官網預約）',
+        alert: '⚠️ 留意 15:00 還車時間',
+        stay: '外帶看飛機 30 分',
+        tip: '若採買提早結束可順路外帶原味鬆餅，看那霸機場飛機起降超療癒。',
+        mapcode: '33 002 602*22',
+        phone: '098-851-0009',
+        mapQuery: '幸せのパンケーキ ウミカジテラス沖縄店'
+      },
+      {
+        name: '那霸國際通商店街 ＆ Palette Kumoji',
+        category: 'shopping',
+        catLabel: '🛍️ 購物日 1',
+        region: '那霸市中心',
+        day: 'Day 3 19:00',
+        hours: '10:00–22:00',
+        alert: '',
+        stay: '自由採買',
+        tip: '吃完琉球の牛直接開逛，一網打盡御菓子御殿紅芋塔、鹽屋、藥妝與百貨。',
+        mapcode: '33 156 264*74',
+        phone: '098-867-1171',
+        mapQuery: 'パレットくもじ'
+      },
+      {
+        name: 'iiAS 豐崎 ＆ Outlet Mall ASHIBINAA',
+        category: 'shopping',
+        catLabel: '🛍️ 購物日 2',
+        region: '南部・豐見城市',
+        day: 'Day 5 12:30',
+        hours: '10:00–21:00（餐廳至 22:00）',
+        alert: '⚠️ 15:00 準時出發還車',
+        stay: '建議停留 2 小時',
+        tip: '距離還車點僅 10 分鐘，有大型超市、藥妝、童裝與美食街，最後補貨最安心。',
+        mapcode: '232 543 400*25',
+        phone: '098-840-6900',
+        mapQuery: 'イーアス沖縄豊崎'
+      }
+    ];
+
+    // ==========================================
+    // 4. DEFAULT CHECKLIST & PHRASE CARDS
+    // ==========================================
+    const DEFAULT_CHECKLIST = [
+      {
+        category: '重要證件與預約憑證',
+        items: [
+          { id: 'c1', text: '護照正本（2 大人 + 1 寶寶，確認效期 6 個月以上）', done: false },
+          { id: 'c2', text: '台灣駕照正本 ＋ 監理站核發「日文譯本」', done: false },
+          { id: 'c3', text: 'Okinawa FunPASS 電子憑證（美麗海/水果樂園/玉泉洞/Little Universe）', done: false },
+          { id: 'c4', text: '首里城正殿 11/27 09:00 官網預約入場憑證', done: false },
+          { id: 'c5', text: '燒肉 琉球の牛 11/25 16:45 預約確認（ID: JCGE2L）', done: false },
+          { id: 'c6', text: '海外旅平險 ＋ 旅遊不便險保單電子檔', done: false }
+        ]
+      },
+      {
+        category: '3歲寶寶隨身與自駕用品',
+        items: [
+          { id: 'b1', text: '輕便折疊嬰兒推車（機邊托運）', done: false },
+          { id: 'b2', text: '背巾（Day 4 玉泉洞鐘乳石階梯濕滑必備！）', done: false },
+          { id: 'b3', text: '脫鞋用塑膠袋（Day 5 首里城正殿入內脫鞋必備！）', done: false },
+          { id: 'b4', text: '常備退燒藥、腸胃藥、感冒藥、防蚊液與 OK 繃', done: false },
+          { id: 'b5', text: '寶寶保溫水壺、小零食、安撫玩具／貼紙書', done: false },
+          { id: 'b6', text: '薄外套與防風帽（11 月底沖繩海邊風較涼）', done: false }
+        ]
+      },
+      {
+        category: '自駕與電子裝備',
+        items: [
+          { id: 'd1', text: '車充頭 ＋ 多合一充電線 ＋ 手機冷氣孔車架', done: false },
+          { id: 'd2', text: '日幣現金 ＋ 海外高回饋信用卡（實體卡＋Apple Pay）', done: false },
+          { id: 'd3', text: '行動電源（隨身登機，勿放托運行李）', done: false },
+          { id: 'd4', text: '日本漫遊 / eSIM 開通設定完成', done: false }
+        ]
+      }
+    ];
+
+    if (!state.checklist) {
+      state.checklist = JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));
+    }
+
+    const PHRASE_CARDS = [
+      {
+        tag: '租車取車',
+        jp: '3歳用のチャイルドシートをお願いします。',
+        romaji: 'San-sai yō no chairudo shīto o onegai shimasu.',
+        zh: '請幫我們準備 3 歲兒童使用的安全座椅。'
+      },
+      {
+        tag: '加油站還車前',
+        jp: 'レギュラー満タンで、現金でお願いします。',
+        romaji: 'Regyurā mantan de, genkin de onegai shimasu.',
+        zh: 'Regular（普通無鉛汽油）請加滿，我用現金付款。'
+      },
+      {
+        tag: '生日燒肉甜點',
+        jp: '今日は誕生日のお祝いです。予約特典のデザートをお願いします。',
+        romaji: 'Kyō wa tanjōbi no oiwai desu. Yoyaku tokuten no dezāto o onegai shimasu.',
+        zh: '今天是生日慶祝！請幫我們準備預約特典的餐後小甜點。'
+      },
+      {
+        tag: '親子餐廳需求',
+        jp: '子供用の食器とお水（氷なし）をいただけますか？',
+        romaji: 'Kodomo-yō no shokki to omizu (kōri nashi) o itadakemasu ka?',
+        zh: '請問可以給我們兒童餐具與去冰的開水嗎？'
+      },
+      {
+        tag: '景點推車寄放',
+        jp: 'ベビーカーを少しの間預かってもらえますか？',
+        romaji: 'Bebīkā o sukoshi no aida azukatte moraemasu ka?',
+        zh: '請問嬰兒車可以暫時寄放在這裡嗎？（玉泉洞/首里城實用）'
+      },
+      {
+        tag: '尋找停車場',
+        jp: '近くにコインパーキング（駐車場）はありますか？',
+        romaji: 'Chikaku ni koin pākingu (chūshajō) wa arimasu ka?',
+        zh: '請問附近有投幣式停車場嗎？（國際通牧志周邊實用）'
+      }
+    ];
+
+    // ==========================================
+    // 5. UTILITY HELPERS (CLIPBOARD, TOAST, TIME)
+    // ==========================================
+    let toastTimeout = null;
+    function showToast(text, icon = '✅') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').textContent = text;
+      document.getElementById('toast-icon').textContent = icon;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2200);
+    }
+
+    // Reliable iFrame-compatible clipboard copy using document.execCommand('copy')
+    function copyText(text, label = '內容') {
+      try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.focus();
+        textarea.select();
+        const successful = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        if (successful) {
+          showToast(`已複製${label}：${text}`, '📋');
+        } else {
+          showToast(`請手動複製：${text}`, 'ℹ️');
+        }
+      } catch (err) {
+        showToast(`複製失敗，請手動選取`, '⚠️');
+      }
+    }
+
+    function openGoogleMaps(query) {
+      const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+
+    function saveState() {
+      localStorage.setItem('oki_weather', state.weatherMode);
+      localStorage.setItem('oki_meta', JSON.stringify(state.tripMeta));
+      localStorage.setItem('oki_checklist', JSON.stringify(state.checklist));
+      localStorage.setItem('oki_funpass', JSON.stringify(state.funpassRedeemed));
+      localStorage.setItem('oki_rate', String(state.exchangeRate));
+      localStorage.setItem('oki_expenses', JSON.stringify(state.expenses));
+    }
+
+    // Live JST Clock & Countdown Updater
+    function updateLiveClocks() {
+      // 1. Japan Standard Time (Asia/Tokyo, UTC+9)
+      const jstEl = document.getElementById('jst-clock');
+      if (jstEl) {
+        try {
+          const nowJst = new Date().toLocaleTimeString('zh-TW', {
+            timeZone: 'Asia/Tokyo',
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+          });
+          jstEl.textContent = `日本時間 ${nowJst}`;
+        } catch (e) {
+          const d = new Date(Date.now() + 9 * 3600 * 1000);
+          const hh = String(d.getUTCHours()).padStart(2, '0');
+          const mm = String(d.getUTCMinutes()).padStart(2, '0');
+          jstEl.textContent = `日本時間 ${hh}:${mm}`;
+        }
+      }
+
+      // 2. Countdown to JX302 Departure: 2026-11-23T13:05:00+08:00
+      const dEl = document.getElementById('cd-days');
+      const hEl = document.getElementById('cd-hours');
+      const mEl = document.getElementById('cd-mins');
+      const sEl = document.getElementById('cd-secs');
+      const statusEl = document.getElementById('cd-caption');
+
+      if (dEl && hEl && mEl && sEl) {
+        const target = new Date('2026-11-23T13:05:00+08:00').getTime();
+        const tripEnd = new Date('2026-11-27T17:15:00+08:00').getTime();
+        const now = Date.now();
+        const diff = target - now;
+
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const mins = Math.floor((diff / (1000 * 60)) % 60);
+          const secs = Math.floor((diff / 1000) % 60);
+
+          dEl.textContent = String(days).padStart(2, '0');
+          hEl.textContent = String(hours).padStart(2, '0');
+          mEl.textContent = String(mins).padStart(2, '0');
+          sEl.textContent = String(secs).padStart(2, '0');
+        } else if (now <= tripEnd) {
+          const dayNum = Math.min(5, Math.max(1, Math.floor((now - target) / (1000 * 60 * 60 * 24)) + 1));
+          dEl.textContent = `D${dayNum}`;
+          hEl.textContent = '愉';
+          mEl.textContent = '快';
+          sEl.textContent = '玩';
+          if (statusEl) statusEl.innerHTML = `🎉 沖繩親子自駕進行中！目前為 <span class="underline font-black">Day ${dayNum}</span>`;
+        } else {
+          dEl.textContent = '00';
+          hEl.textContent = '00';
+          mEl.textContent = '00';
+          sEl.textContent = '00';
+          if (statusEl) statusEl.textContent = '✨ 2026 沖繩親子自駕回憶圓滿達成！';
+        }
+      }
+    }
+
+    // ==========================================
+    // 6. SVG VECTOR ILLUSTRATIONS (SUNNY / RAINY)
+    // ==========================================
+    function renderHeroIllustration() {
+      const isSunny = state.weatherMode === 'sunny';
+      const skyFill = isSunny ? '#CBE2F6' : '#B9CBD9';
+
+      return `
+        <div class="relative rounded-[18px] border-2 border-[#222222] overflow-hidden" style="background-color: ${skyFill};">
+          <!-- Top-right Weather Mode Toggle Button -->
+          <button onclick="toggleWeatherMode()" class="hb-btn absolute top-2.5 right-2.5 z-10 bg-white border-[1.5px] border-[#222222] rounded-full px-3 py-1 text-[11px] font-black flex items-center gap-1 shadow-xs">
+            <span>${isSunny ? '☀️' : '🌧️'}</span>
+            <span>${isSunny ? '晴天模式' : '雨天模式'}</span>
+          </button>
+
+          <!-- Cute Flat Vector Line-Art Okinawa Scene -->
+          <svg viewBox="0 0 380 165" class="w-full h-auto block" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ground Track Strip -->
+            <rect x="0" y="142" width="380" height="23" fill="#DED3C3" />
+            <line x1="0" y1="142" x2="380" y2="142" stroke="#222222" stroke-width="2.2" />
+
+            ${isSunny ? `
+              <!-- Bright Yellow Sun -->
+              <circle cx="332" cy="44" r="21" fill="#F6D365" stroke="#222222" stroke-width="2.2" />
+            ` : `
+              <!-- Rainy Mode Raindrops -->
+              <g stroke="#222222" stroke-width="2" stroke-linecap="round">
+                <line x1="120" y1="62" x2="115" y2="74" />
+                <line x1="138" y1="64" x2="133" y2="76" />
+                <line x1="156" y1="62" x2="151" y2="74" />
+                <line x1="258" y1="64" x2="253" y2="76" />
+                <line x1="276" y1="64" x2="271" y2="76" />
+              </g>
+            `}
+
+            <!-- Cute Outline Airplane Top Left -->
+            <g class="animate-float" transform="translate(18, 12)">
+              <path d="M8 22 L28 19 L44 6 L51 7 L40 19 L56 18 L62 12 L67 13 L62 22 L66 26 L60 27 L55 24 L38 25 L47 36 L40 37 L27 25 L10 26 C6 26 5 22 8 22 Z"
+                    fill="#FFFFFF" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
+            </g>
+
+            <!-- Left Puffy Cloud -->
+            <path d="M108 54 H164 C169 54 173 50 173 45 C173 40 169 36 164 36 C163 28 156 23 148 23 C142 23 136 26 133 32 C131 30 128 29 125 29 C119 29 114 34 114 40 C109 40 105 44 105 48 C105 51 106 54 108 54 Z"
+                  fill="${isSunny ? '#FFFFFF' : '#E2E8F0'}" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
+
+            <!-- Right Puffy Cloud -->
+            <path d="M242 56 H286 C290 56 293 53 293 49 C293 45 290 42 286 42 C285 36 280 32 274 32 C269 32 264 35 262 40 C259 38 255 39 253 42 C249 42 246 45 246 49 C246 53 243 56 242 56 Z"
+                  fill="${isSunny ? '#FFFFFF' : '#E2E8F0'}" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
+
+            <!-- Left Buildings -->
+            <rect x="34" y="84" width="28" height="58" rx="2" fill="#F6D365" stroke="#222222" stroke-width="2.2" />
+            <line x1="42" y1="98" x2="54" y2="98" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="42" y1="108" x2="54" y2="108" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+
+            <rect x="62" y="70" width="32" height="72" rx="2" fill="#D5E4F0" stroke="#222222" stroke-width="2.2" />
+            <line x1="70" y1="84" x2="86" y2="84" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="70" y1="95" x2="86" y2="95" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="70" y1="106" x2="86" y2="106" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+
+            <!-- Cute Round Green Tree -->
+            <circle cx="122" cy="129" r="13" fill="#B5D8B3" stroke="#222222" stroke-width="2.2" />
+
+            <!-- Naha Airport Control Tower / Landmark Spire -->
+            <line x1="176" y1="44" x2="176" y2="62" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+            <circle cx="176" cy="42" r="4" fill="#F4A69E" stroke="#222222" stroke-width="2" />
+            <polygon points="164,62 188,62 198,142 154,142" fill="#D5E4F0" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
+
+            <!-- Right Buildings -->
+            <rect x="282" y="88" width="32" height="54" rx="2" fill="#F4B8A8" stroke="#222222" stroke-width="2.2" />
+            <rect x="314" y="72" width="34" height="70" rx="2" fill="#B8D4D8" stroke="#222222" stroke-width="2.2" />
+            <line x1="323" y1="86" x2="338" y2="86" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="323" y1="97" x2="338" y2="97" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
+
+            <!-- Cute Pink Okinawa Yui Rail Monorail -->
+            <path d="M188 122 C188 117 192 114 198 114 H284 C290 114 294 118 294 124 V142 H182 V132 C182 126 184 122 188 122 Z"
+                  fill="#F4A69E" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
+            <!-- Monorail Windows -->
+            <rect x="200" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
+            <rect x="219" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
+            <rect x="238" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
+            <rect x="257" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
+            <rect x="276" y="120" width="11" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
+          </svg>
+        </div>
+      `;
+    }
+
+    // ==========================================
+    // 7. TAB RENDERERS
+    // ==========================================
+    function renderHomeTab() {
+      const isOut = state.flightDir === 'outbound';
+      return `
+        <!-- Page Title & Live JST Pill -->
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-[26px] font-black tracking-tight text-[#222222]">首頁</h1>
+          <div id="jst-clock" class="bg-white border-2 border-[#222222] rounded-full px-3.5 py-1 text-xs font-black tracking-wide">
+            日本時間 --:--
+          </div>
+        </div>
+
+        <!-- Hero Card -->
+        <section class="hb-card p-4">
+          ${renderHeroIllustration()}
+
+          <!-- Tags Row -->
+          <div class="flex items-center justify-between gap-1.5 mt-3.5 flex-wrap">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="bg-[#F8EAE8] hb-pill px-2.5 py-1 text-[11px] font-black text-[#222222]">
+                ${escapeHtml(state.tripMeta.regions)}
+              </span>
+              <span class="bg-[#E3EFE0] hb-pill px-2.5 py-1 text-[11px] font-black text-[#222222]">
+                ${escapeHtml(state.tripMeta.travelers)}
+              </span>
+            </div>
+            <button onclick="openEditModal()" class="hb-btn bg-white hb-pill px-2.5 py-1 text-[11px] font-black flex items-center gap-1">
+              <span>✏️</span>
+              <span>編輯</span>
+            </button>
+          </div>
+
+          <!-- Title & Subtitle -->
+          <div class="mt-3">
+            <h2 class="text-[26px] font-black text-[#222222] leading-tight tracking-tight">
+              ${escapeHtml(state.tripMeta.title)}
+            </h2>
+            <p class="text-xs font-bold text-[#666666] mt-1">
+              ${escapeHtml(state.tripMeta.subtitle)}
+            </p>
+          </div>
+
+          <!-- Live 4-Box Countdown Timer -->
+          <div class="grid grid-cols-4 gap-2.5 mt-4">
+            <div class="bg-[#F6D365] border-2 border-[#222222] rounded-[18px] py-3 text-center">
+              <div id="cd-days" class="text-[26px] font-black leading-none text-[#222222] tabular-nums">--</div>
+              <div class="text-[11px] font-black text-[#222222] mt-1.5">天</div>
+            </div>
+            <div class="bg-white border-2 border-[#222222] rounded-[18px] py-3 text-center">
+              <div id="cd-hours" class="text-[26px] font-black leading-none text-[#222222] tabular-nums">--</div>
+              <div class="text-[11px] font-black text-[#666666] mt-1.5">時</div>
+            </div>
+            <div class="bg-white border-2 border-[#222222] rounded-[18px] py-3 text-center">
+              <div id="cd-mins" class="text-[26px] font-black leading-none text-[#222222] tabular-nums">--</div>
+              <div class="text-[11px] font-black text-[#666666] mt-1.5">分</div>
+            </div>
+            <div class="bg-white border-2 border-[#222222] rounded-[18px] py-3 text-center">
+              <div id="cd-secs" class="text-[26px] font-black leading-none text-[#222222] tabular-nums">--</div>
+              <div class="text-[11px] font-black text-[#666666] mt-1.5">秒</div>
+            </div>
+          </div>
+
+          <!-- Countdown Footer Caption -->
+          <div class="mt-3 flex items-center justify-between text-xs font-bold text-[#555555]">
+            <p id="cd-caption">距離 <span class="underline decoration-2 decoration-[#F6D365] font-black text-[#222222]">JX302</span> 台中起飛 (11/23 13:05)</p>
+          </div>
+
+          ${state.tripMeta.memo ? `
+            <div class="mt-2.5 bg-[#F5F3EB] border-[1.5px] border-[#222222] rounded-xl px-3 py-2 text-[11px] font-bold text-[#222222] flex items-center gap-1.5">
+              <span>📌</span>
+              <span>${escapeHtml(state.tripMeta.memo)}</span>
+            </div>
+          ` : ''}
+        </section>
+
+        <!-- Flight Info Section Header -->
+        <section class="pt-1">
+          <div class="flex items-center justify-between mb-2.5">
+            <div class="flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full border-2 border-[#222222] bg-white flex items-center justify-center text-xs font-black">➔</span>
+              <h3 class="text-lg font-black text-[#222222]">航班資訊</h3>
+            </div>
+            <!-- Outbound / Inbound Pill Switcher -->
+            <div class="bg-white border-2 border-[#222222] rounded-full p-0.5 flex items-center">
+              <button onclick="setFlightDir('outbound')" class="hb-btn px-3.5 py-1 rounded-full text-xs font-black transition ${isOut ? 'bg-[#F6D365] border-[1.5px] border-[#222222] text-[#222222]' : 'text-[#666666] border-[1.5px] border-transparent'}">
+                去程
+              </button>
+              <button onclick="setFlightDir('inbound')" class="hb-btn px-3.5 py-1 rounded-full text-xs font-black transition ${!isOut ? 'bg-[#F6D365] border-[1.5px] border-[#222222] text-[#222222]' : 'text-[#666666] border-[1.5px] border-transparent'}">
+                回程
+              </button>
+            </div>
+          </div>
+
+          <!-- Flight Card (#F8EAE8 Pink Fill) -->
+          <div class="bg-[#F8EAE8] border-2 border-[#222222] rounded-[24px] p-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span class="bg-white hb-pill px-3 py-0.5 text-xs font-black flex items-center gap-1">
+                  <span>${isOut ? '🛫' : '🛬'}</span>
+                  <span>${isOut ? '去程' : '回程'}</span>
+                </span>
+                <span class="text-xs font-black text-[#222222]">${isOut ? '11/23 (一)' : '11/27 (五)'}</span>
+                <span class="bg-[#222222] text-white rounded-full px-2.5 py-0.5 text-xs font-black">${isOut ? 'JX302' : 'JX303'}</span>
+                <span class="text-[11px] font-bold text-[#555555]">星宇航空</span>
+              </div>
+              <!-- Weather Mini Icon -->
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
+              </svg>
+            </div>
+
+            <!-- Airport Times Row -->
+            <div class="grid grid-cols-3 items-center mt-4 pt-1">
+              <div>
+                <div class="text-[28px] font-black leading-none text-[#222222] tabular-nums">${isOut ? '13:05' : '16:30'}</div>
+                <div class="text-xs font-black text-[#E05252] mt-1.5">${isOut ? 'RMQ 台中' : 'OKA 那霸'}</div>
+                <div class="text-[11px] font-bold text-[#555555] mt-0.5">${isOut ? '臺中國際機場' : '那霸機場 國際線'}</div>
+              </div>
+
+              <div class="flex flex-col items-center justify-center px-1">
+                <svg class="w-4 h-4 mb-1 text-[#222222]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"></path>
+                </svg>
+                <div class="w-full border-t-2 border-dashed border-[#222222]/50"></div>
+                <span class="text-[11px] font-black text-[#555555] mt-1">${isOut ? '1h 25m' : '1h 45m'}</span>
+              </div>
+
+              <div class="text-right">
+                <div class="text-[28px] font-black leading-none text-[#222222] tabular-nums">${isOut ? '15:30' : '17:15'}</div>
+                <div class="text-xs font-black text-[#222222] mt-1.5">${isOut ? 'OKA 那霸' : 'RMQ 台中'}</div>
+                <div class="text-[11px] font-bold text-[#555555] mt-0.5">${isOut ? '那霸機場 國際線' : '臺中國際機場'}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Home Departure & Car Rental Quick Strip -->
+          <div class="hb-card p-3.5 mt-2.5 space-y-2 text-xs font-bold">
+            <div class="flex items-start justify-between gap-2">
+              <div class="flex items-start gap-1.5">
+                <span>🏠</span>
+                <div>
+                  <span class="font-black text-[#222222]">09:40 台中市大里區塗城路52巷14號出發</span>
+                  <span class="text-[#666666] block text-[11px] mt-0.5">走國道3號約 40 分 → 10:35 抵達臺中國際機場</span>
+                </div>
+              </div>
+              <button onclick="openGoogleMaps('台中市大里區塗城路52巷14號')" class="hb-btn shrink-0 bg-[#F5F3EB] hb-pill px-2.5 py-1 text-[10px] font-black">
+                導航
+              </button>
+            </div>
+            <div class="border-t border-dashed border-[#222222]/25 pt-2 flex items-center justify-between text-[11px]">
+              <span>🚗 <strong class="font-black">11/23 17:00</strong> 那霸機場領車</span>
+              <span>⛽ <strong class="font-black">11/27 15:00</strong> 準時還車</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Shortcuts Row -->
+        <section class="grid grid-cols-2 gap-2.5 pt-1">
+          <button onclick="switchTab('itinerary')" class="hb-btn hb-card p-3.5 text-left flex items-center justify-between bg-white">
+            <div>
+              <div class="text-[11px] font-bold text-[#666666]">5天4夜完整動線</div>
+              <div class="text-sm font-black text-[#222222] mt-0.5">查看每日行程</div>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-[#F6D365] border-[1.5px] border-[#222222] flex items-center justify-center text-sm font-black">➔</span>
+          </button>
+          <button onclick="switchTab('info')" class="hb-btn hb-card p-3.5 text-left flex items-center justify-between bg-[#E3EFE0]">
+            <div>
+              <div class="text-[11px] font-bold text-[#555555]">燒肉預約＆FunPASS</div>
+              <div class="text-sm font-black text-[#222222] mt-0.5">重要憑證夾</div>
+            </div>
+            <span class="w-8 h-8 rounded-full bg-white border-[1.5px] border-[#222222] flex items-center justify-center text-sm font-black">🎫</span>
+          </button>
+        </section>
+      `;
+    }
+
+    function renderItineraryTab() {
+      const dayObj = ITINERARY_DATA[state.selectedDay];
+      const isRainy = state.weatherMode === 'rainy';
+      const items = (isRainy && dayObj.rainy) ? dayObj.rainy : dayObj.sunny;
+
+      const dayButtons = [
+        { d: 1, label: 'Day 1', date: '11/23' },
+        { d: 2, label: 'Day 2', date: '11/24' },
+        { d: 3, label: 'Day 3 🎂', date: '11/25' },
+        { d: 4, label: 'Day 4', date: '11/26' },
+        { d: 5, label: 'Day 5', date: '11/27' }
+      ];
+
+      return `
+        <!-- Header & Weather Sync Switch -->
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-2xl font-black text-[#222222]">每日行程</h1>
+          <button onclick="toggleWeatherMode()" class="hb-btn bg-white border-2 border-[#222222] rounded-full px-3 py-1 text-xs font-black flex items-center gap-1.5">
+            <span>${isRainy ? '🌧️' : '☀️'}</span>
+            <span>${isRainy ? '雨天備案中' : '晴天模式中'}</span>
+          </button>
+        </div>
+
+        <!-- 5-Day Selector Pills -->
+        <div class="grid grid-cols-5 gap-1.5">
+          ${dayButtons.map(b => {
+            const active = state.selectedDay === b.d;
+            return `
+              <button onclick="selectDay(${b.d})" class="hb-btn py-2 px-1 rounded-[16px] border-2 border-[#222222] text-center transition ${active ? 'bg-[#F6D365]' : 'bg-white'}">
+                <div class="text-[11px] font-black leading-tight text-[#222222]">${b.label}</div>
+                <div class="text-[10px] font-bold text-[#555555] mt-0.5">${b.date}</div>
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Day Header Card -->
+        <div class="hb-card p-3.5 space-y-2">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <span class="text-xs font-black text-[#666666]">${dayObj.dayLabel}</span>
+            <span class="hb-pill px-2.5 py-0.5 text-[11px] font-black" style="background-color: ${dayObj.shoppingColor};">
+              ${dayObj.shoppingTag}
+            </span>
+          </div>
+          <h2 class="text-lg font-black text-[#222222]">${dayObj.title}</h2>
+
+          ${isRainy ? `
+            <div class="bg-[#CBE2F6] border-[1.5px] border-[#222222] rounded-xl p-2.5 text-[11px] font-bold text-[#222222] leading-relaxed">
+              ${dayObj.rainyNote}
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Timeline Cards -->
+        <div class="space-y-3 relative">
+          ${items.map((item, idx) => `
+            <div class="hb-card p-3.5 relative">
+              <div class="flex items-start justify-between gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="bg-[#222222] text-white rounded-full px-2.5 py-0.5 text-xs font-black tabular-nums">
+                    ${item.time}
+                  </span>
+                  <span class="text-[11px] font-bold text-[#666666]">⏱️ ${item.stay}</span>
+                </div>
+                <button onclick="openGoogleMaps('${item.mapQuery.replace(/'/g, "\\'")}')" class="hb-btn shrink-0 bg-[#F5F3EB] hb-pill px-2.5 py-1 text-[11px] font-black flex items-center gap-1">
+                  <span>📍</span>
+                  <span>導航</span>
+                </button>
+              </div>
+
+              <h3 class="text-[15px] font-black text-[#222222] mt-2 leading-snug">
+                ${item.title}
+              </h3>
+
+              <p class="text-xs font-bold text-[#555555] mt-1.5 leading-relaxed">
+                ${item.desc}
+              </p>
+
+              <!-- Badges -->
+              <div class="flex items-center gap-1.5 flex-wrap mt-2.5">
+                ${item.badges.map(badge => {
+                  let bg = '#F5F3EB';
+                  if (badge.includes('FunPASS')) bg = '#E3EFE0';
+                  else if (badge.includes('🎂') || badge.includes('⚠️')) bg = '#F8EAE8';
+                  else if (badge.includes('🛍️')) bg = '#F6D365';
+                  else if (badge.includes('☔')) bg = '#CBE2F6';
+                  return `<span class="hb-pill px-2.5 py-0.5 text-[10px] font-black" style="background-color: ${bg};">${badge}</span>`;
+                }).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderSpotsTab() {
+      const filters = [
+        { id: 'all', label: '全部 (17)' },
+        { id: 'funpass', label: '🎫 FunPASS (4)' },
+        { id: 'kids', label: '👶 親子大景' },
+        { id: 'food', label: '🍖 必吃美食' },
+        { id: 'shopping', label: '🛍️ 購物(限2日)' }
+      ];
+
+      const filtered = state.spotFilter === 'all'
+        ? SPOTS_DATA
+        : SPOTS_DATA.filter(s => s.category === state.spotFilter);
+
+      return `
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-2xl font-black text-[#222222]">景點與美食</h1>
+          <span class="text-[11px] font-black bg-white hb-pill px-2.5 py-1">含車機 MapCode</span>
+        </div>
+
+        <!-- Horizontal Filter Pills -->
+        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+          ${filters.map(f => {
+            const active = state.spotFilter === f.id;
+            return `
+              <button onclick="setSpotFilter('${f.id}')" class="hb-btn shrink-0 hb-pill px-3 py-1.5 text-xs font-black ${active ? 'bg-[#F6D365]' : 'bg-white'}">
+                ${f.label}
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <!-- Spots List -->
+        <div class="space-y-3">
+          ${filtered.map(s => `
+            <div class="hb-card p-3.5 space-y-2.5">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="hb-pill px-2.5 py-0.5 text-[10px] font-black ${s.category === 'funpass' ? 'bg-[#E3EFE0]' : s.category === 'food' ? 'bg-[#F8EAE8]' : s.category === 'shopping' ? 'bg-[#F6D365]' : 'bg-[#CBE2F6]'}">
+                      ${s.catLabel}
+                    </span>
+                    <span class="text-[11px] font-bold text-[#666666]">${s.region}・${s.day}</span>
+                  </div>
+                  <h3 class="text-base font-black text-[#222222] mt-1.5">${s.name}</h3>
+                </div>
+                <button onclick="openGoogleMaps('${s.mapQuery.replace(/'/g, "\\'")}')" class="hb-btn shrink-0 bg-[#F6D365] hb-pill px-3 py-1 text-xs font-black">
+                  地圖 ➔
+                </button>
+              </div>
+
+              <div class="text-[11px] font-bold text-[#555555] space-y-1">
+                <div>🕒 營業：${s.hours} ｜ ⏱️ ${s.stay}</div>
+                ${s.alert ? `<div class="text-[#E05252] font-black">${s.alert}</div>` : ''}
+                <div class="bg-[#F5F3EB] rounded-xl p-2 text-[#222222]">💡 ${s.tip}</div>
+              </div>
+
+              <!-- Car GPS MapCode & Phone Copy Bar -->
+              <div class="grid grid-cols-2 gap-2 pt-0.5">
+                <button onclick="copyText('${s.mapcode}', 'MapCode')" class="hb-btn bg-white border-[1.5px] border-[#222222] rounded-xl px-2.5 py-1.5 text-left flex items-center justify-between">
+                  <div>
+                    <div class="text-[9px] font-bold text-[#666666]">車機 MapCode</div>
+                    <div class="text-xs font-black text-[#222222] tabular-nums">${s.mapcode}</div>
+                  </div>
+                  <span class="text-xs">📋</span>
+                </button>
+                <button onclick="copyText('${s.phone}', '電話')" class="hb-btn bg-white border-[1.5px] border-[#222222] rounded-xl px-2.5 py-1.5 text-left flex items-center justify-between">
+                  <div>
+                    <div class="text-[9px] font-bold text-[#666666]">導航電話</div>
+                    <div class="text-xs font-black text-[#222222] tabular-nums">${s.phone}</div>
+                  </div>
+                  <span class="text-xs">📞</span>
+                </button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderChecklistTab() {
+      let total = 0;
+      let checked = 0;
+      state.checklist.forEach(cat => {
+        cat.items.forEach(i => {
+          total++;
+          if (i.done) checked++;
+        });
+      });
+      const pct = total > 0 ? Math.round((checked / total) * 100) : 0;
+
+      return `
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-2xl font-black text-[#222222]">行前打包清單</h1>
+          <button onclick="resetChecklist()" class="hb-btn bg-white hb-pill px-3 py-1 text-[11px] font-black">重置勾選</button>
+        </div>
+
+        <!-- Progress Card -->
+        <div class="hb-card p-4 bg-[#E3EFE0]">
+          <div class="flex items-center justify-between text-xs font-black mb-2">
+            <span>準備完成度（2大人 + 3歲寶寶）</span>
+            <span class="tabular-nums">${checked} / ${total} 項 (${pct}%)</span>
+          </div>
+          <div class="w-full h-3.5 bg-white border-2 border-[#222222] rounded-full overflow-hidden">
+            <div class="h-full bg-[#F6D365] transition-all duration-300" style="width: ${pct}%;"></div>
+          </div>
+        </div>
+
+        <!-- Add Custom Item -->
+        <div class="hb-card p-3 flex items-center gap-2">
+          <input id="new-check-input" type="text" placeholder="新增自訂打包物品（如：寶寶牙刷、太陽眼鏡）" class="flex-1 text-xs font-bold bg-[#F5F3EB] border-[1.5px] border-[#222222] rounded-xl px-3 py-2 focus:outline-none" onkeydown="if(event.key==='Enter') addCheckItem()" />
+          <button onclick="addCheckItem()" class="hb-btn bg-[#F6D365] border-[1.5px] border-[#222222] rounded-xl px-3.5 py-2 text-xs font-black shrink-0">
+            ＋ 加入
+          </button>
+        </div>
+
+        <!-- Categorized Lists -->
+        <div class="space-y-3">
+          ${state.checklist.map((cat, cIdx) => `
+            <div class="hb-card p-3.5 space-y-2">
+              <h3 class="text-sm font-black text-[#222222] border-b-2 border-[#222222] pb-1.5 flex items-center justify-between">
+                <span>${cat.category}</span>
+                <span class="text-[11px] font-bold text-[#666666]">${cat.items.filter(x => x.done).length}/${cat.items.length}</span>
+              </h3>
+              <div class="space-y-1.5 pt-0.5">
+                ${cat.items.map((item, iIdx) => `
+                  <label class="flex items-start gap-2.5 p-2 rounded-xl border-[1.5px] ${item.done ? 'bg-[#F5F3EB] border-[#222222]/30' : 'bg-white border-[#222222]'} cursor-pointer select-none transition">
+                    <input type="checkbox" ${item.done ? 'checked' : ''} onchange="toggleCheckItem(${cIdx}, ${iIdx})" class="mt-0.5 w-4 h-4 accent-[#222222] rounded cursor-pointer" />
+                    <span class="text-xs font-bold leading-snug flex-1 ${item.done ? 'line-through text-[#888888]' : 'text-[#222222]'}">
+                      ${escapeHtml(item.text)}
+                    </span>
+                    ${cIdx === 0 && item.id.startsWith('custom_') ? `
+                      <button type="button" onclick="deleteCheckItem(${cIdx}, ${iIdx}); event.preventDefault();" class="text-[11px] font-black text-[#E05252] px-1">✕</button>
+                    ` : ''}
+                  </label>
+                `).join('')}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function renderToolsTab() {
+      const effectiveJpy = state.taxFree ? Math.round(state.jpyAmount / 1.1) : state.jpyAmount;
+      const twdVal = Math.round(effectiveJpy * state.exchangeRate);
+
+      let totalJpy = 0;
+      state.expenses.forEach(e => {
+        totalJpy += e.currency === 'JPY' ? e.amount : Math.round(e.amount / state.exchangeRate);
+      });
+      const totalTwd = Math.round(totalJpy * state.exchangeRate);
+
+      return `
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-2xl font-black text-[#222222]">實用旅遊工具</h1>
+          <span class="text-[11px] font-black bg-[#F6D365] hb-pill px-2.5 py-1">匯率・記帳・日文</span>
+        </div>
+
+        <!-- 1. Live Currency Converter -->
+        <section class="hb-card p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-black flex items-center gap-1.5">💴 日幣即時匯率換算</h2>
+            <div class="flex items-center gap-1 text-[11px] font-bold">
+              <span>匯率</span>
+              <input id="rate-input" type="number" step="0.001" value="${state.exchangeRate}" onchange="updateRate(this.value)" class="w-16 text-center font-black border-[1.5px] border-[#222222] rounded-lg px-1 py-0.5 bg-[#F5F3EB]" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2.5 items-center">
+            <div class="bg-[#F5F3EB] border-2 border-[#222222] rounded-2xl p-2.5">
+              <div class="text-[10px] font-black text-[#666666]">日幣 JPY (¥)</div>
+              <input id="jpy-input" type="number" value="${state.jpyAmount}" oninput="updateJpyAmount(this.value)" class="w-full bg-transparent text-xl font-black text-[#222222] focus:outline-none mt-0.5 tabular-nums" />
+            </div>
+            <div class="bg-[#E3EFE0] border-2 border-[#222222] rounded-2xl p-2.5">
+              <div class="text-[10px] font-black text-[#555555]">台幣 TWD ($) ${state.taxFree ? '· 已扣10%稅' : ''}</div>
+              <div id="twd-output" class="text-xl font-black text-[#222222] mt-0.5 tabular-nums">NT$ ${twdVal.toLocaleString()}</div>
+            </div>
+          </div>
+
+          <!-- Quick Presets & Tax Free Toggle -->
+          <div class="flex items-center justify-between gap-1 flex-wrap">
+            <div class="flex items-center gap-1">
+              ${[1000, 5000, 10000, 30000].map(amt => `
+                <button onclick="setPresetJpy(${amt})" class="hb-btn bg-white border-[1.5px] border-[#222222] rounded-lg px-2 py-1 text-[11px] font-black">
+                  ¥${amt >= 10000 ? (amt / 10000) + '萬' : amt.toLocaleString()}
+                </button>
+              `).join('')}
+            </div>
+            <button onclick="toggleTaxFree()" class="hb-btn hb-pill px-2.5 py-1 text-[11px] font-black ${state.taxFree ? 'bg-[#F6D365]' : 'bg-white'}">
+              ${state.taxFree ? '✅ 免稅計算 (-10%)' : '免稅計算 (-10%)'}
+            </button>
+          </div>
+        </section>
+
+        <!-- 2. Expense Tracker -->
+        <section class="hb-card p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-black">🧾 旅費簡易記帳本</h2>
+            <span class="text-xs font-black bg-[#F8EAE8] hb-pill px-2.5 py-0.5 tabular-nums">
+              累計 ¥${totalJpy.toLocaleString()} (≈NT$${totalTwd.toLocaleString()})
+            </span>
+          </div>
+
+          <div class="grid grid-cols-12 gap-1.5">
+            <select id="exp-cat" class="col-span-4 border-[1.5px] border-[#222222] rounded-xl px-2 py-2 text-xs font-black bg-[#F5F3EB]">
+              <option value="🍖 餐飲">🍖 餐飲</option>
+              <option value="🛍️ 購物">🛍️ 購物</option>
+              <option value="🚗 交通停車">🚗 交通</option>
+              <option value="🎫 門票體驗">🎫 體驗</option>
+            </select>
+            <input id="exp-title" type="text" placeholder="項目（如：蝦蝦飯）" class="col-span-4 border-[1.5px] border-[#222222] rounded-xl px-2.5 py-2 text-xs font-bold bg-white" />
+            <input id="exp-amt" type="number" placeholder="日幣 ¥" class="col-span-4 border-[1.5px] border-[#222222] rounded-xl px-2.5 py-2 text-xs font-black bg-white" />
+          </div>
+          <button onclick="addExpense()" class="w-full hb-btn bg-[#F6D365] border-2 border-[#222222] rounded-xl py-2 text-xs font-black">
+            ＋ 新增一筆日幣消費
+          </button>
+
+          ${state.expenses.length > 0 ? `
+            <div class="space-y-1.5 max-h-44 overflow-y-auto pt-1">
+              ${state.expenses.map((ex, idx) => `
+                <div class="flex items-center justify-between bg-[#F5F3EB] rounded-xl px-3 py-1.5 text-xs font-bold">
+                  <div>
+                    <span class="font-black">${ex.cat}</span> · ${escapeHtml(ex.title)}
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-black tabular-nums">¥${ex.amount.toLocaleString()}</span>
+                    <button onclick="deleteExpense(${idx})" class="text-[#E05252] font-black">✕</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          ` : `
+            <p class="text-[11px] font-bold text-[#888888] text-center py-1">尚無記帳紀錄，可隨時記下燒肉、加油或伴手禮花費</p>
+          `}
+        </section>
+
+        <!-- 3. Japanese Point-and-Show Cards -->
+        <section class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-black">🗣️ 自駕與親子日文指差卡</h2>
+            <span class="text-[11px] font-bold text-[#666666]">點擊卡片可全螢幕放大</span>
+          </div>
+          <div class="grid grid-cols-1 gap-2.5">
+            ${PHRASE_CARDS.map((p, idx) => `
+              <button onclick="openPhraseModal(${idx})" class="hb-btn hb-card p-3.5 text-left space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="bg-[#CBE2F6] hb-pill px-2.5 py-0.5 text-[10px] font-black">${p.tag}</span>
+                  <span class="text-[10px] font-black text-[#666666]">🔍 放大給店員看</span>
+                </div>
+                <div class="text-sm font-black text-[#222222] pt-0.5">${p.jp}</div>
+                <div class="text-xs font-bold text-[#555555]">${p.zh}</div>
+              </button>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderInfoTab() {
+      const fpList = [
+        { key: 'churaumi', name: '沖繩美麗海水族館', day: 'Day 3 (11/25) 09:00', area: '本部町' },
+        { key: 'fruits', name: 'OKINAWA 水果樂園', day: 'Day 3 (11/25) 13:50', area: '名護市' },
+        { key: 'okinawaworld', name: '沖繩世界（含玉泉洞）', day: 'Day 4 (11/26) 13:30', area: '南城市' },
+        { key: 'littleuniverse', name: 'Little Universe OKINAWA', day: 'Day 5 (11/27) 12:30', area: 'iiAS 豐崎 3F' }
+      ];
+      const redeemedCount = Object.values(state.funpassRedeemed).filter(Boolean).length;
+
+      return `
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-2xl font-black text-[#222222]">重要預約與憑證</h1>
+          <span class="text-[11px] font-black bg-[#F8EAE8] hb-pill px-2.5 py-1">一鍵複製資訊</span>
+        </div>
+
+        <!-- 1. Birthday Yakiniku Reservation Card -->
+        <section class="hb-card p-4 bg-[#F8EAE8] space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="bg-[#222222] text-white rounded-full px-3 py-0.5 text-xs font-black">🎂 生日燒肉確定預約</span>
+            <button onclick="copyText('JCGE2L', '預約ID')" class="hb-btn bg-white hb-pill px-2.5 py-0.5 text-xs font-black">
+              ID: JCGE2L 📋
+            </button>
+          </div>
+
+          <div>
+            <h2 class="text-lg font-black text-[#222222]">燒肉 琉球の牛 那霸國際通店</h2>
+            <p class="text-xs font-black text-[#E05252] mt-0.5">2026年11月25日 (週三) 16:45｜成人 2 名 ＋ 兒童 1 名</p>
+          </div>
+
+          <div class="bg-white border-[1.5px] border-[#222222] rounded-2xl p-3 space-y-2 text-xs font-bold">
+            <div class="flex items-start justify-between gap-2">
+              <span>📍 3-2-3 Makishi, Hachimine Crystal 3F, Naha-shi</span>
+              <button onclick="openGoogleMaps('焼肉 琉球の牛 那覇国際通り店')" class="hb-btn shrink-0 bg-[#F6D365] hb-pill px-2.5 py-0.5 text-[10px] font-black">導航</button>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>📞 098-987-6150</span>
+              <button onclick="copyText('098-987-6150', '餐廳電話')" class="hb-btn bg-[#F5F3EB] hb-pill px-2.5 py-0.5 text-[10px] font-black">複製電話</button>
+            </div>
+          </div>
+
+          <div class="bg-white/90 border-[1.5px] border-[#E05252] rounded-xl p-2.5 text-[11px] font-bold text-[#222222] leading-relaxed">
+            ⚠️ <strong class="text-[#E05252]">重要規定：</strong>座位限時 2 小時；逾預約時間 15 分鐘（<strong>17:00</strong>）未到將直接取消，未通知取消費每人 ¥10,000！<br/>
+            🎁 <strong>免費福利：</strong>菜單可點 0 元長野縣產越光米；用餐結束後請主動向店員索取免費小甜點！
+          </div>
+        </section>
+
+        <!-- 2. Okinawa FunPASS 4-in-1 Redemption Tracker -->
+        <section class="hb-card p-4 space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-black">🎫 Okinawa FunPASS 核銷追蹤</h2>
+            <span class="bg-[#E3EFE0] hb-pill px-2.5 py-0.5 text-xs font-black">已核銷 ${redeemedCount} / 4 站</span>
+          </div>
+          <p class="text-[11px] font-bold text-[#666666]">點擊下方景點可標記是否已掃碼入園，避免遺漏票券權益：</p>
+          <div class="space-y-2">
+            ${fpList.map(item => {
+              const used = !!state.funpassRedeemed[item.key];
+              return `
+                <button onclick="toggleFunpass('${item.key}')" class="hb-btn w-full p-3 rounded-2xl border-2 border-[#222222] flex items-center justify-between text-left ${used ? 'bg-[#E3EFE0]' : 'bg-white'}">
+                  <div>
+                    <div class="text-xs font-black text-[#222222] ${used ? 'line-through opacity-75' : ''}">${item.name}</div>
+                    <div class="text-[11px] font-bold text-[#666666] mt-0.5">${item.day}・${item.area}</div>
+                  </div>
+                  <span class="hb-pill px-2.5 py-1 text-[11px] font-black ${used ? 'bg-white text-[#222222]' : 'bg-[#F6D365]'}">
+                    ${used ? '✅ 已使用' : '待使用'}
+                  </span>
+                </button>
+              `;
+            }).join('')}
+          </div>
+        </section>
+
+        <!-- 3. Hotel & Car Rental Summary -->
+        <section class="hb-card p-4 space-y-2.5 text-xs font-bold">
+          <h2 class="text-base font-black text-[#222222]">🏨 住宿與自駕摘要</h2>
+          <div class="bg-[#F5F3EB] rounded-2xl p-3 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-sm">THE NEST那覇（連住 4 晚）</span>
+              <button onclick="openGoogleMaps('THE NEST NAHA')" class="hb-btn bg-white hb-pill px-2.5 py-0.5 text-[10px] font-black">地圖</button>
+            </div>
+            <div class="text-[#555555]">入住：2026/11/23 (一) 17:00 後 ｜ 退房：2026/11/27 (五) 08:45</div>
+          </div>
+          <div class="bg-[#F5F3EB] rounded-2xl p-3 space-y-1">
+            <div class="font-black text-[#222222]">🚗 那霸機場取還車時間</div>
+            <div class="text-[#555555]">取車：11/23 (一) 17:00（確認兒童座椅＋車身拍照）</div>
+            <div class="text-[#555555]">還車：11/27 (五) 15:00（加滿 Regular 汽油、保留收據）</div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderEmergencyTab() {
+      return `
+        <div class="flex items-center justify-between pt-1">
+          <h1 class="text-2xl font-black text-[#E05252]">緊急聯絡與救援</h1>
+          <span class="text-[11px] font-black bg-[#F8EAE8] text-[#E05252] border-[1.5px] border-[#E05252] rounded-full px-2.5 py-1">安心備用</span>
+        </div>
+
+        <!-- 1. Japan Emergency Numbers -->
+        <section class="bg-white border-2 border-[#E05252] rounded-[22px] p-4 space-y-3">
+          <h2 class="text-base font-black text-[#E05252] flex items-center gap-1.5">🚨 日本緊急救援電話</h2>
+          <div class="grid grid-cols-2 gap-2.5">
+            <a href="tel:110" class="hb-btn bg-[#F8EAE8] border-2 border-[#222222] rounded-2xl p-3 text-center block">
+              <div class="text-xs font-black text-[#222222]">🚓 日本警察局</div>
+              <div class="text-2xl font-black text-[#E05252] mt-0.5 tabular-nums">110</div>
+              <div class="text-[10px] font-bold text-[#555555]">交通事故・失竊報案</div>
+            </a>
+            <a href="tel:119" class="hb-btn bg-[#F8EAE8] border-2 border-[#222222] rounded-2xl p-3 text-center block">
+              <div class="text-xs font-black text-[#222222]">🚑 救護車 / 火警</div>
+              <div class="text-2xl font-black text-[#E05252] mt-0.5 tabular-nums">119</div>
+              <div class="text-[10px] font-bold text-[#555555]">緊急醫療救護</div>
+            </a>
+          </div>
+          <div class="bg-[#F5F3EB] border-[1.5px] border-[#222222] rounded-2xl p-3 flex items-center justify-between gap-2">
+            <div>
+              <div class="text-xs font-black text-[#222222]">🗣️ 訪日外國人醫療／旅遊專線 (JNTO)</div>
+              <div class="text-[11px] font-bold text-[#555555]">24 小時全年無休・支援繁體中文通話</div>
+            </div>
+            <button onclick="copyText('050-3816-2787', 'JNTO專線')" class="hb-btn shrink-0 bg-white hb-pill px-2.5 py-1 text-xs font-black tabular-nums">
+              050-3816-2787
+            </button>
+          </div>
+        </section>
+
+        <!-- 2. Taiwan Representative Office in Naha -->
+        <section class="hb-card p-4 space-y-2.5">
+          <h2 class="text-base font-black text-[#222222]">🇹🇼 台北駐日經濟文化代表處那霸分處</h2>
+          <p class="text-[11px] font-bold text-[#555555]">護照遺失補辦、旅外國人急難救助聯絡窗口：</p>
+          <div class="space-y-2 text-xs font-bold">
+            <div class="flex items-center justify-between bg-[#F5F3EB] rounded-xl px-3 py-2">
+              <span>一般上班時間電話</span>
+              <button onclick="copyText('098-862-7008', '那霸分處電話')" class="hb-btn bg-white hb-pill px-2.5 py-0.5 font-black tabular-nums">098-862-7008 📋</button>
+            </div>
+            <div class="flex items-center justify-between bg-[#F8EAE8] rounded-xl px-3 py-2">
+              <span class="text-[#E05252] font-black">24小時急難救助專線</span>
+              <button onclick="copyText('090-1942-1107', '急難救助專線')" class="hb-btn bg-white hb-pill px-2.5 py-0.5 font-black text-[#E05252] tabular-nums">090-1942-1107 📋</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Car Accident SOP -->
+        <section class="hb-card p-4 space-y-2.5">
+          <h2 class="text-base font-black text-[#222222]">🚗 沖繩自駕擦撞／事故處理 4 步驟</h2>
+          <ol class="space-y-2 text-xs font-bold text-[#222222]">
+            <li class="bg-[#F5F3EB] rounded-xl p-2.5">
+              <strong class="font-black">1. 確保人員安全：</strong>開啟雙黃燈、放置三角警示牌，先將大人與 3 歲寶寶移至護欄外安全處。
+            </li>
+            <li class="bg-[#F8EAE8] rounded-xl p-2.5">
+              <strong class="font-black text-[#E05252]">2. 務必撥打 110 報警：</strong>無論擦撞多輕微都必須取得警察開立的「交通事故證明書」，否則租車保險無法理賠！
+            </li>
+            <li class="bg-[#F5F3EB] rounded-xl p-2.5">
+              <strong class="font-black">3. 聯繫租車公司客服：</strong>依取車資料上的緊急電話通報事故經過。
+            </li>
+            <li class="bg-[#F5F3EB] rounded-xl p-2.5">
+              <strong class="font-black">4. 拍照存證：</strong>拍攝雙方車輛受損部位、車牌、現場標線與對方駕照資料。
+            </li>
+          </ol>
+        </section>
+
+        <!-- 4. Pediatric Emergency -->
+        <section class="hb-card p-4 space-y-2 text-xs font-bold">
+          <h2 class="text-base font-black text-[#222222]">👶 3歲寶寶夜間／假日急診參考</h2>
+          <div class="bg-[#CBE2F6]/60 rounded-xl p-3 space-y-1">
+            <div class="font-black">沖繩縣小兒救急電話諮詢：#8000 或 098-888-5230</div>
+            <div class="text-[#555555]">平日夜間 19:00–翌晨 08:00、假日 24 小時（小兒科護理師線上評估）</div>
+          </div>
+          <div class="bg-[#F5F3EB] rounded-xl p-3 flex items-center justify-between gap-2">
+            <div>
+              <div class="font-black">那霸市立醫院（急診部）</div>
+              <div class="text-[11px] text-[#555555]">那霸市古島 2-31-1 ｜ 098-884-5111</div>
+            </div>
+            <button onclick="openGoogleMaps('那覇市立病院')" class="hb-btn shrink-0 bg-white hb-pill px-2.5 py-1 text-[11px] font-black">導航</button>
+          </div>
+        </section>
+      `;
+    }
+
+    // ==========================================
+    // 8. INTERACTION CONTROLLERS
+    // ==========================================
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function switchTab(tabName) {
+      state.activeTab = tabName;
+      // Update top nav active styles
+      document.querySelectorAll('.nav-tab').forEach(btn => {
+        const isTarget = btn.getAttribute('data-tab') === tabName;
+        if (isTarget) {
+          btn.style.backgroundColor = tabName === 'emergency' ? '#F8EAE8' : '#F6D365';
+          btn.style.borderColor = '#222222';
+        } else {
+          btn.style.backgroundColor = 'transparent';
+          btn.style.borderColor = 'transparent';
+        }
+      });
+      renderCurrentTab();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderCurrentTab() {
+      const container = document.getElementById('main-content');
+      if (!container) return;
+      switch (state.activeTab) {
+        case 'home':
+          container.innerHTML = renderHomeTab();
+          updateLiveClocks();
+          break;
+        case 'itinerary':
+          container.innerHTML = renderItineraryTab();
+          break;
+        case 'spots':
+          container.innerHTML = renderSpotsTab();
+          break;
+        case 'checklist':
+          container.innerHTML = renderChecklistTab();
+          break;
+        case 'tools':
+          container.innerHTML = renderToolsTab();
+          break;
+        case 'info':
+          container.innerHTML = renderInfoTab();
+          break;
+        case 'emergency':
+          container.innerHTML = renderEmergencyTab();
+          break;
+      }
+    }
+
+    function toggleWeatherMode() {
+      state.weatherMode = state.weatherMode === 'sunny' ? 'rainy' : 'sunny';
+      saveState();
+      renderCurrentTab();
+      showToast(
+        state.weatherMode === 'sunny' ? '已切換為 ☀️ 晴天模式' : '已切換為 🌧️ 雨天備案模式',
+        state.weatherMode === 'sunny' ? '☀️' : '☔'
+      );
+    }
+
+    function setFlightDir(dir) {
+      state.flightDir = dir;
+      renderCurrentTab();
+    }
+
+    function selectDay(dayNum) {
+      state.selectedDay = dayNum;
+      renderCurrentTab();
+    }
+
+    function setSpotFilter(filterId) {
+      state.spotFilter = filterId;
+      renderCurrentTab();
+    }
+
+    // Checklist Actions
+    function toggleCheckItem(cIdx, iIdx) {
+      state.checklist[cIdx].items[iIdx].done = !state.checklist[cIdx].items[iIdx].done;
+      saveState();
+      renderCurrentTab();
+    }
+
+    function addCheckItem() {
+      const input = document.getElementById('new-check-input');
+      const val = input ? input.value.trim() : '';
+      if (!val) return;
+      state.checklist[0].items.unshift({
+        id: 'custom_' + Date.now(),
+        text: val,
+        done: false
+      });
+      saveState();
+      renderCurrentTab();
+      showToast('已加入打包清單', '📝');
+    }
+
+    function deleteCheckItem(cIdx, iIdx) {
+      state.checklist[cIdx].items.splice(iIdx, 1);
+      saveState();
+      renderCurrentTab();
+    }
+
+    function resetChecklist() {
+      state.checklist = JSON.parse(JSON.stringify(DEFAULT_CHECKLIST));
+      saveState();
+      renderCurrentTab();
+      showToast('已重置所有勾選項目', '🔄');
+    }
+
+    // FunPASS Redemption Toggle
+    function toggleFunpass(key) {
+      state.funpassRedeemed[key] = !state.funpassRedeemed[key];
+      saveState();
+      renderCurrentTab();
+      showToast(state.funpassRedeemed[key] ? '已標記為核銷使用！' : '已改回待使用狀態', '🎫');
+    }
+
+    // Tools: Currency & Expense
+    function updateRate(val) {
+      const num = parseFloat(val);
+      if (num > 0) {
+        state.exchangeRate = num;
+        saveState();
+        renderCurrentTab();
+      }
+    }
+
+    function updateJpyAmount(val) {
+      state.jpyAmount = Math.max(0, parseFloat(val) || 0);
+      const effectiveJpy = state.taxFree ? Math.round(state.jpyAmount / 1.1) : state.jpyAmount;
+      const twdVal = Math.round(effectiveJpy * state.exchangeRate);
+      const outEl = document.getElementById('twd-output');
+      if (outEl) {
+        outEl.textContent = `NT$ ${twdVal.toLocaleString()}`;
+      }
+    }
+
+    function setPresetJpy(amt) {
+      state.jpyAmount = amt;
+      renderCurrentTab();
+    }
+
+    function toggleTaxFree() {
+      state.taxFree = !state.taxFree;
+      renderCurrentTab();
+    }
+
+    function addExpense() {
+      const cat = document.getElementById('exp-cat').value;
+      const title = document.getElementById('exp-title').value.trim();
+      const amt = parseFloat(document.getElementById('exp-amt').value);
+      if (!title || !(amt > 0)) {
+        showToast('請輸入項目名稱與日幣金額', '⚠️');
+        return;
+      }
+      state.expenses.unshift({ cat, title, amount: Math.round(amt), currency: 'JPY' });
+      saveState();
+      renderCurrentTab();
+      showToast('已新增消費紀錄', '💰');
+    }
+
+    function deleteExpense(idx) {
+      state.expenses.splice(idx, 1);
+      saveState();
+      renderCurrentTab();
+    }
+
+    // Edit Modal Controls
+    function openEditModal() {
+      document.getElementById('edit-title').value = state.tripMeta.title;
+      document.getElementById('edit-subtitle').value = state.tripMeta.subtitle;
+      document.getElementById('edit-regions').value = state.tripMeta.regions;
+      document.getElementById('edit-travelers').value = state.tripMeta.travelers;
+      document.getElementById('edit-memo').value = state.tripMeta.memo || '';
+      const modal = document.getElementById('edit-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeEditModal() {
+      const modal = document.getElementById('edit-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function saveTripMeta() {
+      state.tripMeta = {
+        title: document.getElementById('edit-title').value.trim() || DEFAULT_META.title,
+        subtitle: document.getElementById('edit-subtitle').value.trim() || DEFAULT_META.subtitle,
+        regions: document.getElementById('edit-regions').value.trim() || DEFAULT_META.regions,
+        travelers: document.getElementById('edit-travelers').value.trim() || DEFAULT_META.travelers,
+        memo: document.getElementById('edit-memo').value.trim()
+      };
+      saveState();
+      closeEditModal();
+      renderCurrentTab();
+      showToast('旅遊手帳資訊已更新', '✏️');
+    }
+
+    function resetTripMeta() {
+      state.tripMeta = { ...DEFAULT_META };
+      saveState();
+      closeEditModal();
+      renderCurrentTab();
+      showToast('已恢復預設旅程設定', '🔄');
+    }
+
+    // Phrase Modal Controls
+    function openPhraseModal(idx) {
+      const p = PHRASE_CARDS[idx];
+      document.getElementById('pm-badge').textContent = p.tag;
+      document.getElementById('pm-jp').textContent = p.jp;
+      document.getElementById('pm-romaji').textContent = p.romaji;
+      document.getElementById('pm-zh').textContent = p.zh;
+      const modal = document.getElementById('phrase-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closePhraseModal() {
+      const modal = document.getElementById('phrase-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // ==========================================
+    // 9. INITIALIZATION ON WINDOW LOAD
+    // ==========================================
+    window.onload = function () {
+      switchTab('home');
+      setInterval(updateLiveClocks, 1000);
+    };
+  </script>
+</body>
+</html>
