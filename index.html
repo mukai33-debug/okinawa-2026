@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* Japanese Handbook Flat Vector Aesthetic Custom Styles */
     :root {
       --bg-cream: #F5F3EB;
       --card-white: #FFFFFF;
@@ -32,7 +31,6 @@
       padding: 0;
     }
 
-    /* Mobile App Container matching screenshot */
     .app-shell {
       max-width: 440px;
       min-height: 100vh;
@@ -53,7 +51,6 @@
       }
     }
 
-    /* Flat 2px Charcoal Borders & Tactile Press */
     .hb-card {
       background-color: #FFFFFF;
       border: 2px solid #222222;
@@ -74,7 +71,6 @@
       transform: scale(0.96);
     }
 
-    /* Hide scrollbars cleanly for horizontal pill bars */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -83,7 +79,6 @@
       scrollbar-width: none;
     }
 
-    /* Subtle floating animation for airplane & clouds */
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-3px); }
@@ -91,14 +86,20 @@
     .animate-float {
       animation: floatSlow 3.5s ease-in-out infinite;
     }
+
+    @keyframes dashFlow {
+      to { stroke-dashoffset: -24; }
+    }
+    .route-dash {
+      animation: dashFlow 1.6s linear infinite;
+    }
   </style>
 </head>
 <body>
   <div class="app-shell flex flex-col pb-8" id="app">
-    <!-- Top 7-Tab Navigation Bar (Exact Reference Layout) -->
+    <!-- Top 7-Tab Navigation Bar -->
     <header class="sticky top-0 z-30 bg-[#F5F3EB]/95 backdrop-blur-sm pt-3 px-3 pb-2">
       <nav aria-label="主導覽列" class="bg-white border-2 border-[#222222] rounded-[22px] p-1.5 grid grid-cols-7 gap-0.5">
-        <!-- Tab 1: 首頁 -->
         <button onclick="switchTab('home')" data-tab="home" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="4"></circle>
@@ -107,7 +108,6 @@
           <span class="text-[11px] font-black leading-none tracking-tight">首頁</span>
         </button>
 
-        <!-- Tab 2: 行程 -->
         <button onclick="switchTab('itinerary')" data-tab="itinerary" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="4" width="18" height="18" rx="3"></rect>
@@ -118,7 +118,6 @@
           <span class="text-[11px] font-black leading-none tracking-tight">行程</span>
         </button>
 
-        <!-- Tab 3: 景點美食 -->
         <button onclick="switchTab('spots')" data-tab="spots" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 11h16a1 1 0 0 1 1 1v.5a7.5 7.5 0 0 1-7.5 7.5h-3A7.5 7.5 0 0 1 3 12.5V12a1 1 0 0 1 1-1z"></path>
@@ -129,7 +128,6 @@
           <span class="text-[11px] font-black leading-none tracking-tight">景點美食</span>
         </button>
 
-        <!-- Tab 4: 清單 -->
         <button onclick="switchTab('checklist')" data-tab="checklist" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="4" y="4" width="16" height="16" rx="3"></rect>
@@ -138,7 +136,6 @@
           <span class="text-[11px] font-black leading-none tracking-tight">清單</span>
         </button>
 
-        <!-- Tab 5: 工具 -->
         <button onclick="switchTab('tools')" data-tab="tools" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
@@ -148,7 +145,6 @@
           <span class="text-[11px] font-black leading-none tracking-tight">工具</span>
         </button>
 
-        <!-- Tab 6: 資訊 -->
         <button onclick="switchTab('info')" data-tab="info" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"></circle>
@@ -158,7 +154,6 @@
           <span class="text-[11px] font-black leading-none tracking-tight">資訊</span>
         </button>
 
-        <!-- Tab 7: 緊急 -->
         <button onclick="switchTab('emergency')" data-tab="emergency" class="nav-tab hb-btn flex flex-col items-center justify-center py-1.5 px-0.5 rounded-[15px] border-2 border-transparent text-[#E05252]">
           <svg class="w-5 h-5 mb-0.5" viewBox="0 0 24 24" fill="none" stroke="#E05252" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
@@ -172,10 +167,9 @@
 
     <!-- Main Content Container -->
     <main id="main-content" class="px-3.5 pt-1 flex-1 space-y-4">
-      <!-- Views will be dynamically rendered here -->
     </main>
 
-    <!-- Toast Notification Banner (No alert() ever used) -->
+    <!-- Toast Notification Banner -->
     <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-200 translate-y-2">
       <div class="bg-[#222222] text-white border-2 border-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center gap-2 whitespace-nowrap">
         <span id="toast-icon">✅</span>
@@ -242,485 +236,568 @@
     const DEFAULT_META = {
       title: '沖繩親子自駕遊',
       subtitle: '2026.11.23 — 11.27・5天4夜',
-      regions: '那霸・名護・恩納・南城',
+      regions: '那霸・名護・恩納・北谷・南城',
       travelers: '2 大人 + 1 寶寶 (3歲)',
-      memo: '11/25 16:45 琉球の牛生日大餐｜FunPASS 四大景點制霸'
+      memo: '11/25 17:45 琉球の牛生日大餐｜FunPASS 四大景點制霸'
     };
 
     let state = {
       activeTab: 'home',
-      weatherMode: localStorage.getItem('oki_weather') || 'sunny', // 'sunny' | 'rainy'
-      flightDir: 'outbound', // 'outbound' | 'inbound'
+      weatherMode: localStorage.getItem('oki_weather_v2') || 'sunny',
+      flightDir: 'outbound',
       selectedDay: 1,
       spotFilter: 'all',
-      tripMeta: JSON.parse(localStorage.getItem('oki_meta') || 'null') || { ...DEFAULT_META },
-      checklist: JSON.parse(localStorage.getItem('oki_checklist') || 'null') || null,
-      funpassRedeemed: JSON.parse(localStorage.getItem('oki_funpass') || 'null') || {
+      tripMeta: JSON.parse(localStorage.getItem('oki_meta_v2') || 'null') || { ...DEFAULT_META },
+      checklist: JSON.parse(localStorage.getItem('oki_checklist_v2') || 'null') || null,
+      funpassRedeemed: JSON.parse(localStorage.getItem('oki_funpass_v2') || 'null') || {
         churaumi: false,
         fruits: false,
         okinawaworld: false,
         littleuniverse: false
       },
-      exchangeRate: parseFloat(localStorage.getItem('oki_rate')) || 0.215,
+      exchangeRate: parseFloat(localStorage.getItem('oki_rate_v2')) || 0.215,
       jpyAmount: 10000,
       taxFree: false,
-      expenses: JSON.parse(localStorage.getItem('oki_expenses') || '[]')
+      expenses: JSON.parse(localStorage.getItem('oki_expenses_v2') || '[]')
     };
 
     // ==========================================
-    // 2. COMPLETE 5-DAY ITINERARY DATA
+    // 2. COMPLETE 5-DAY ITINERARY DATA + ROUTE OVERVIEW MAPS
     // ==========================================
     const ITINERARY_DATA = {
       1: {
         dayLabel: 'Day 1 (11/23 一)',
-        title: '台中出發 → 抵達那霸',
-        shoppingTag: '無購物日',
+        title: '台中出發 → 那霸取車・拉麵・美國村夜景',
+        shoppingTag: '小採買・夜景散步',
         shoppingColor: '#E3EFE0',
-        rainyNote: '第一天主要為搭機移動、機場取車與室內拉麵晚餐，晴天與雨天動線完全一致！',
+        rainyNote: '第一天主要為搭機移動、機場取車與室內拉麵晚餐；若晚上抵達美國村遇雨，可改逛 AEON 北谷店或直接回飯店旁唐吉訶德那霸壺川店買零食！',
+        routeOverview: {
+          summary: '台中大里 → 台中機場 ✈️ 那霸機場 → 豐見城取車 → THE NEST → 通堂拉麵 → 美國村 → 回飯店',
+          totalDrive: '沖繩段總車程約 1 小時 35 分（約 52 km）',
+          gmapsUrl: 'https://www.google.com/maps/dir/155-13+Tagami,+Tomigusuku,+Okinawa/THE+NEST+NAHA/琉球新麺+通堂+小禄本店/美浜タウンリゾート・アメリカンビレッジ/THE+NEST+NAHA',
+          stops: [
+            { num: '起', name: '台中大里', x: 46, y: 42, color: '#CBE2F6' },
+            { num: '1', name: '那霸機場(3F 11號門)', x: 142, y: 128, color: '#F6D365' },
+            { num: '2', name: '豐見城門市取車', x: 148, y: 145, color: '#F8EAE8' },
+            { num: '3', name: 'THE NEST 那霸', x: 166, y: 114, color: '#E3EFE0' },
+            { num: '4', name: '通堂拉麵 小祿本店', x: 152, y: 122, color: '#F8EAE8' },
+            { num: '5', name: '北谷 美國村夜景', x: 205, y: 74, color: '#F6D365' }
+          ],
+          isFlightDay: true,
+          pathD: 'M142,128 L148,145 L166,114 L152,122 Q178,96 205,74 Q182,95 166,114'
+        },
         sunny: [
           {
             time: '09:40',
-            title: '台中大里家裡出發',
-            desc: '從台中市大里區塗城路52巷14號出發，走國道3號前往臺中國際機場（車程約 40 分鐘，預留兒童安全座椅與停車緩衝）。',
-            badges: ['🏠 出發起點'],
-            stay: '車程約 40 分',
+            title: '台中大里住家出發（塗城路52巷14號）',
+            desc: '走國道 3 號北上往沙鹿（車程約 40 分鐘，43.1 公里），預留幫 3 歲小孩上安全座椅與行李搬運時間，10:35 前抵達機場。',
+            badges: ['🏠 大里出發', '🚗 車程約40分'],
+            stay: '車程 40 分',
             mapQuery: '台中市大里區塗城路52巷14號'
           },
           {
-            time: '10:35',
-            title: '抵達臺中國際機場 (RMQ)',
-            desc: '辦理星宇航空登機手續、托運大型行李與折疊嬰兒推車，出境後帶 3 歲寶寶上廁所與裝溫水。',
+            time: '10:25 – 13:05',
+            title: '臺中國際機場 報到與候機',
+            desc: '辦理星宇航空 JX302 托運（折疊嬰兒推車可機邊托運）、過安檢與海關，讓孩子在候機室放電與裝溫水。',
             badges: ['✈️ 提早2.5hr報到'],
-            stay: '候機約 2.5 小時',
+            stay: '停留 2 小時 40 分',
             mapQuery: '臺中國際機場'
           },
           {
             time: '13:05 – 15:30',
-            title: '星宇航空 JX302 飛往沖繩',
-            desc: '13:05 台中起飛 → 15:30 抵達那霸機場國際線（航程 1 小時 25 分）。下機後依指標前往租車接駁區。',
+            title: '星宇航空 JX302 飛往沖繩那霸機場',
+            desc: '台灣時間 13:05 起飛 → 日本當地時間 15:30 抵達那霸機場（飛行 1 小時 25 分）。',
             badges: ['🛫 星宇 JX302'],
             stay: '飛行 1h 25m',
             mapQuery: '那霸機場 國際線'
           },
           {
-            time: '17:00',
-            title: '那霸機場領車 → THE NEST那覇 入住',
-            desc: '確認兒童安全座椅安裝穩固與車身刮痕檢查，開車約 10 分鐘抵達連住 4 晚的「THE NEST那覇」辦理 Check-in 卸行李。',
-            badges: ['🚗 17:00取車', '🏨 連住4晚'],
-            stay: '辦理入住',
+            time: '15:30 – 17:00',
+            title: '那霸機場 3 樓 11 號大門接駁 → 豐見城門市取車',
+            desc: '入境出關後搭電梯至「那霸機場 3 樓」，前往 C CHECK-IN 窗口對面的 11 號大門與接駁人員會合，前往豐見城門市（155-13 Tagami, Tomigusuku）辦理取車，17:00 完成取車。',
+            badges: ['🚪 3F C櫃檯對面11號門', '🚗 17:00取車完成'],
+            stay: '通關＋取車 90 分',
+            mapQuery: '155-13 Tagami, Tomigusuku, Okinawa'
+          },
+          {
+            time: '17:20 – 17:50',
+            title: 'THE NEST 那霸 Check-in 卸行李',
+            desc: '從取車門市開往飯店約 15–20 分鐘（適逢週一傍晚下班車潮），辦理入住、將大件行李推進房間卸貨，上廁所輕鬆出發。',
+            badges: ['🏨 連住4晚'],
+            stay: '停留 30 分',
             mapQuery: 'THE NEST NAHA'
           },
           {
-            time: '18:30',
+            time: '18:10 – 19:10',
             title: '晚餐：琉球新麵 通堂 小祿本店',
-            desc: '品嚐招牌男人麵（濃郁豚骨）與女人麵（清爽鹽味），店內設有榻榻米座位區，帶 3 歲寶寶用餐非常輕鬆（營業至 24:00）。',
+            desc: '車程約 15–20 分鐘。品嚐招牌男人麵（濃郁豚骨）與女人麵（清爽鹽味），店內有寬敞榻榻米座位區，帶 3 歲小孩用餐很舒適。',
             badges: ['🍜 必吃拉麵', '👶 榻榻米座位'],
-            stay: '建議停留 1 小時',
+            stay: '停留 60 分',
             mapQuery: '琉球新麺 通堂 小禄本店'
           },
           {
-            time: '20:00',
-            title: 'LOISIR HOTEL NAHA 天然溫泉放鬆',
-            desc: '就在 THE NEST那覇 旁邊步行範圍內，可體驗沖繩少見的天然海鹽溫泉，消除第一天搭機疲勞。',
-            badges: ['♨️ 天然溫泉'],
-            stay: '自由放鬆',
-            mapQuery: 'LOISIR HOTEL NAHA'
-          }
-        ],
-        rainy: null // Same as sunny
-      },
-      2: {
-        dayLabel: 'Day 2 (11/24 二)',
-        title: '親子動物園＋中部海岸（無購物日）',
-        shoppingTag: '無購物日・純玩樂美食',
-        shoppingColor: '#E3EFE0',
-        rainyNote: '☔ 雨天備案啟動：上午「沖繩兒童王國」改主攻室內神奇博物館與有遮雨棚動物區；下午戶外美國村改為全室內「永旺夢樂城沖繩來客夢＋寶可夢中心」，吹冷氣看大水槽不淋雨！',
-        sunny: [
-          {
-            time: '08:45',
-            title: 'THE NEST那覇 出發北上',
-            desc: '走沖繩自動車道前往沖繩市，車程約 40 分鐘，讓寶寶在車上聽音樂看風景。',
-            badges: ['🚗 高速公路約40分'],
-            stay: '車程 40 分',
-            mapQuery: 'THE NEST NAHA'
-          },
-          {
-            time: '09:30 – 12:30',
-            title: '沖繩兒童王國 (Okinawa Zoo & Museum)',
-            desc: '09:30 開園第一批入場！早上動物最有精神（長頸鹿、大象、河馬與可愛動物區），後半段進室內「神奇博物館」玩互動科學遊戲，3 小時放電剛剛好。',
-            badges: ['👶 3歲寶寶首選', '⏱️ 建議停留 3 小時'],
-            stay: '建議停留 3 小時',
-            mapQuery: '沖縄こどもの国'
-          },
-          {
-            time: '13:15 – 15:30',
-            title: '美國村 海濱木棧道看海＆下午茶',
-            desc: '車程約 20 分鐘抵達北谷町美國村，沿著彩色歐風建築與海濱木棧道散步吹海風、吃冰淇淋與午餐（今天不排購物，純享受海景與美食）。',
-            badges: ['🌊 海景下午茶', '📸 親子美拍'],
-            stay: '建議停留 2 小時',
+            time: '19:50 – 21:15',
+            title: '美國村（北谷町）夜景散步與小採買',
+            desc: '沿國道 58 號北上約 35–40 分鐘（建議停免費的北谷町美浜公共駐車場）。欣賞異國點燈夜景、海濱木棧道散步，順便在周邊超商或藥妝買些零食飲料。',
+            badges: ['✨ 夜景散步', '🍿 買零食補給'],
+            stay: '停留 1 小時 25 分',
             mapQuery: '美浜タウンリゾート・アメリカンビレッジ'
           },
           {
-            time: '16:00 – 17:15',
-            title: '港川外人住宅 文青聚落散步',
-            desc: '南返途中順遊浦添市美軍宿舍改造的白色平房聚落拍照散步（提醒：hoppepan 麵包週二公休，已安排週四再專程來買）。',
-            badges: ['🏡 文青散步'],
-            stay: '建議停留 1 小時',
-            mapQuery: '港川ステイツサイドタウン'
+            time: '21:15 – 21:50',
+            title: '開車返回 THE NEST 那霸休息',
+            desc: '沿國道 58 號南下返回飯店（夜間車流順暢約 30–35 分鐘），約 21:50 回到飯店洗澡休息。',
+            badges: ['🌙 平安回飯店'],
+            stay: '車程 35 分',
+            mapQuery: 'THE NEST NAHA'
+          }
+        ],
+        rainy: null
+      },
+      2: {
+        dayLabel: 'Day 2 (11/24 二)',
+        title: '北部海景線（水族館・古宇利）＋ 恩納阿古豬',
+        shoppingTag: '無購物日・純風景美食',
+        shoppingColor: '#E3EFE0',
+        rainyNote: '☔ 雨天備案啟動：上午美麗海水族館全室內不受影響；若中午雨大可取消古宇利大橋拍照，改去全室內「名護 Orion 啤酒工廠」＋遮雨「水果樂園」，下午視雨勢決定是否停留萬座毛，準時 17:00 吃阿古豬！',
+        routeOverview: {
+          summary: 'THE NEST → 許田休息站 → CAMEL → 美麗海水族館 → 古宇利大橋/蝦蝦飯 → 鳳梨園 → 萬座毛 → 恩納阿古豬 → 回飯店',
+          totalDrive: '全天縱貫北南車程約 3 小時 50 分（約 195 km）',
+          gmapsUrl: 'https://www.google.com/maps/dir/THE+NEST+NAHA/道の駅+許田/CAMEL+SANDWICH+%26+SMOOTHIE+Motobu/沖縄美ら海水族館/古宇利大橋+南端展望所/KOURI+SHRIMP/ナゴパイナップルパーク/万座毛/THE+NEST+NAHA',
+          stops: [
+            { num: '起', name: 'THE NEST 那霸', x: 145, y: 132, color: '#E3EFE0' },
+            { num: '1', name: '許田休息站', x: 224, y: 58, color: '#F6D365' },
+            { num: '2', name: 'CAMEL 早餐', x: 192, y: 34, color: '#F8EAE8' },
+            { num: '3', name: '美麗海水族館', x: 184, y: 24, color: '#CBE2F6' },
+            { num: '4', name: '古宇利大橋/蝦蝦飯', x: 232, y: 20, color: '#F6D365' },
+            { num: '5', name: '名護鳳梨園', x: 218, y: 44, color: '#E3EFE0' },
+            { num: '6', name: '萬座毛 夕陽', x: 194, y: 74, color: '#CBE2F6' },
+            { num: '7', name: '恩納阿古豬晚餐', x: 186, y: 86, color: '#F8EAE8' }
+          ],
+          isFlightDay: false,
+          pathD: 'M145,132 Q180,98 224,58 L192,34 L184,24 Q208,16 232,20 L218,44 Q205,60 194,74 L186,86 Q165,110 145,132'
+        },
+        sunny: [
+          {
+            time: '07:15',
+            title: 'THE NEST 那霸 出發北上',
+            desc: '走沖繩自動車道一路北上（車程約 55–60 分鐘），讓 3 歲小孩在車上補眠。',
+            badges: ['🚗 高速公路約60分'],
+            stay: '車程 60 分',
+            mapQuery: '道の駅 許田'
           },
           {
-            time: '18:00',
-            title: '返回那霸市區享用阿古豬晚餐',
-            desc: '回那霸市區品嚐沖繩特色阿古豬涮涮鍋或沖繩家庭料理，早點回飯店讓寶寶休息備戰明天。',
-            badges: ['🐷 沖繩阿古豬'],
-            stay: '晚餐時間',
+            time: '08:15 – 08:40',
+            title: '1. 許田休息站 補給',
+            desc: '物產店 08:30 開門！上廁所、買人氣「莎翁（沖繩開口笑）、乳酪蛋糕、布丁與抹茶飲品」放車上當點心。',
+            badges: ['🍩 08:30開門', '🍵 必買點心'],
+            stay: '停留 25 分',
+            mapQuery: '道の駅 許田'
+          },
+          {
+            time: '09:05 – 09:20',
+            title: '2. CAMEL SANDWICH & SMOOTHIE 本部店',
+            desc: '距許田約 25 分鐘車程，位於本部町，外帶現做厚切三明治與果昔當早餐墊胃。',
+            badges: ['🥪 現做早餐'],
+            stay: '外帶 15 分',
+            mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
+          },
+          {
+            time: '09:25 – 12:00',
+            title: '3. 沖繩美麗海水族館',
+            desc: '距三明治店僅 5 分鐘（停車場免費，停 P7 離入口最近）。早晨團客較少，先看黑潮之海鯨鯊，再看 10:30 或 11:30 的海豚劇場！',
+            badges: ['🎫 FunPASS 第1站', '🦈 10:30/11:30海豚秀'],
+            stay: '停留 2.5 小時',
+            mapQuery: '沖縄美ら海水族館'
+          },
+          {
+            time: '12:30 – 13:55',
+            title: '4. 古宇利大橋拍照 ＋ 古宇利蝦蝦飯午餐',
+            desc: '車程約 30 分鐘。上橋前先停「南端展望台」拍大橋全景（停留 20 分）；過橋後吃古宇利蝦蝦飯（12:55–13:55，避開 12:00 最尖峰人潮）。',
+            badges: ['🌉 南端展望台拍照', '🍤 必吃蝦蝦飯'],
+            stay: '停留 1 小時 25 分',
+            mapQuery: 'KOURI SHRIMP'
+          },
+          {
+            time: '14:20 – 15:20',
+            title: '5. 名護鳳梨園（或 OKINAWA 水果樂園）',
+            desc: '往南開回名護約 25 分鐘。搭乘自動駕駛鳳梨車、看恐龍區與熱帶植物（若要使用 FunPASS 免費入園，同區可改進隔壁的「OKINAWA 水果樂園」）。',
+            badges: ['🍍 自動鳳梨車', '🎫 可用FunPASS'],
+            stay: '停留 60 分',
+            mapQuery: 'ナゴパイナップルパーク'
+          },
+          {
+            time: '16:00 – 16:45',
+            title: '6. 萬座毛 象鼻岩夕陽海景',
+            desc: '南下恩納村約 40 分鐘。下午 4 點夕陽斜照象鼻岩光線最美，平坦環形步道可推嬰兒車，天色還亮著非常舒適。',
+            badges: ['🐘 夕陽絕美光線', '👶 推車友善'],
+            stay: '停留 45 分',
+            mapQuery: '万座毛'
+          },
+          {
+            time: '17:00 – 18:30',
+            title: '7. 晚餐：阿古豬涮涮鍋（我那霸 恩納店）',
+            desc: '距萬座毛僅 10–15 分鐘車程！天黑前輕鬆抵達，建議提前預約 17:00 或 17:30 場次，大啖鮮甜沖繩阿古豬。',
+            badges: ['🐷 恩納阿古豬', '⏰ 建議預約17:00'],
+            stay: '用餐 90 分',
+            mapQuery: '我那覇豚肉店 恩納店'
+          },
+          {
+            time: '18:30 – 19:20',
+            title: '慢慢開回 THE NEST 那霸',
+            desc: '吃飽走高速公路南下回飯店（車程約 50 分鐘），約 19:20 回到飯店讓孩子洗澡早點休息。',
+            badges: ['🌙 19:20回飯店'],
+            stay: '車程 50 分',
             mapQuery: 'THE NEST NAHA'
           }
         ],
         rainy: [
           {
-            time: '08:45',
-            title: 'THE NEST那覇 出發北上',
-            desc: '走沖繩自動車道前往沖繩市，車程約 40 分鐘。',
-            badges: ['🚗 高速公路約40分'],
-            stay: '車程 40 分',
-            mapQuery: 'THE NEST NAHA'
+            time: '07:15',
+            title: 'THE NEST 那霸 出發北上',
+            desc: '走沖繩自動車道一路北上（車程約 60 分鐘），雨天高速公路請保持安全車距。',
+            badges: ['🚗 高速公路約60分'],
+            stay: '車程 60 分',
+            mapQuery: '道の駅 許田'
           },
           {
-            time: '09:30 – 12:00',
-            title: '沖繩兒童王國（主攻室內神奇博物館）',
-            desc: '雨天重點攻略全室內的「神奇博物館 (Wonder Museum)」，超大球池、光影互動與科學體驗讓 3 歲寶寶玩翻天！',
-            badges: ['☔ 室內親子館', '⏱️ 建議停留 2.5 小時'],
-            stay: '建議停留 2.5 小時',
-            mapQuery: '沖縄こどもの国'
+            time: '08:15 – 09:20',
+            title: '許田休息站 ＋ CAMEL 外帶早餐',
+            desc: '許田買點心後至 CAMEL 本部店外帶三明治早餐。',
+            badges: ['🥪 外帶早餐'],
+            stay: '沿途補給',
+            mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
           },
           {
-            time: '12:30 – 16:00',
-            title: '永旺夢樂城沖繩來客夢 ＋ 沖繩寶可夢中心',
-            desc: '雨天最佳避難所！一樓有巨大熱帶魚水槽，2 樓有超好逛的「沖繩寶可夢中心」，美食街午餐選擇多，推車全室內無障礙。',
-            badges: ['☔ 全室內備案', '⚡ 寶可夢中心'],
-            stay: '建議停留 3.5 小時',
-            mapQuery: 'イオンモール沖縄ライカム'
+            time: '09:25 – 12:30',
+            title: '沖繩美麗海水族館（全室內＋館內午餐）',
+            desc: '全室內吹冷氣看鯨鯊（FunPASS 第 1 站），雨天免去古宇利大橋吹風淋雨，直接在館內海景餐廳吃午餐。',
+            badges: ['🎫 FunPASS 第1站', '☔ 全室內無雨'],
+            stay: '停留 3 小時',
+            mapQuery: '沖縄美ら海水族館'
           },
           {
-            time: '17:30',
-            title: '返回那霸市區享用晚餐',
-            desc: '從高速公路直接返回那霸市區用餐，免去雨中上下車折騰。',
-            badges: ['🐷 沖繩料理'],
-            stay: '晚餐時間',
+            time: '13:00 – 14:00',
+            title: 'Orion Happy Park 名護啤酒工廠',
+            desc: '全室內參觀路線，大人可試飲新鮮生啤（駕駛喝無酒精啤酒），3 歲寶寶也有免費果汁！',
+            badges: ['☔ 全室內備案', '🍺 免費試飲'],
+            stay: '停留 60 分',
+            mapQuery: 'オリオンハッピーパーク'
+          },
+          {
+            time: '14:15 – 15:20',
+            title: 'OKINAWA 水果樂園（有遮雨頂棚）',
+            desc: '全區有遮雨連廊不怕淋雨（FunPASS 第 2 站），帶寶寶蓋印章尋寶。',
+            badges: ['🎫 FunPASS 第2站', '☔ 遮雨動線'],
+            stay: '停留 65 分',
+            mapQuery: 'OKINAWAフルーツらんど'
+          },
+          {
+            time: '17:00 – 18:30',
+            title: '晚餐：阿古豬涮涮鍋（恩納店）→ 回飯店',
+            desc: '南下恩納村享用阿古豬晚餐，19:20 左右回到 THE NEST 那霸。',
+            badges: ['🐷 恩納阿古豬'],
+            stay: '晚餐＋返程',
             mapQuery: 'THE NEST NAHA'
           }
         ]
       },
       3: {
         dayLabel: 'Day 3 (11/25 三)',
-        title: '北部經典大景＋16:45 生日燒肉',
-        shoppingTag: '🛍️ 購物日 1（晚上國際通）',
+        title: '南部玉泉洞・豐崎購物・17:45 生日燒肉',
+        shoppingTag: '🛍️ 購物日 1（豐崎＋國際通）',
         shoppingColor: '#F6D365',
-        rainyNote: '☔ 雨天備案啟動：上午「沖繩美麗海水族館」全室內不受影響，中午改在館內看鯨鯊吃午餐，並加入全室內的「Orion 啤酒工廠」＋「OKINAWA 水果樂園」，同樣準時 14:55 發車回那霸慶生！',
+        rainyNote: '☔ 雨天備案啟動：上午「玉泉洞」位於地底完全不受雨天影響，中午「iias 沖繩豐崎」與「Little Universe」均為全室內吹冷氣空間；下午取消戶外瀬長島，提早回那霸逛有頂棚的「平和通商店街」銜接 17:45 琉球の牛！',
+        routeOverview: {
+          summary: 'THE NEST → 玉泉洞・王國村 → iias 豐崎 & Outlet → 瀬長島 → 17:45 琉球の牛 國際通店 → 國際通採買',
+          totalDrive: '全天南部短程移動，總車程約 1 小時 25 分（約 42 km）',
+          gmapsUrl: 'https://www.google.com/maps/dir/THE+NEST+NAHA/おきなわワールド/イーアス沖縄豊崎/ウミカジテラス/焼肉+琉球の牛+那覇国際通り店/THE+NEST+NAHA',
+          stops: [
+            { num: '起', name: 'THE NEST 那霸', x: 158, y: 112, color: '#E3EFE0' },
+            { num: '1', name: '玉泉洞・王國村', x: 224, y: 142, color: '#CBE2F6' },
+            { num: '2', name: 'iias 豐崎 / Outlet', x: 144, y: 146, color: '#F6D365' },
+            { num: '3', name: '瀬長島 看飛機夕陽', x: 136, y: 132, color: '#CBE2F6' },
+            { num: '4', name: '17:45 琉球の牛 🎂', x: 174, y: 108, color: '#F8EAE8' },
+            { num: '5', name: '那霸國際通 採買', x: 184, y: 102, color: '#F6D365' }
+          ],
+          isFlightDay: false,
+          pathD: 'M158,112 Q192,126 224,142 Q184,152 144,146 L136,132 Q154,118 174,108 L184,102 Q170,108 158,112'
+        },
         sunny: [
           {
-            time: '07:15',
-            title: '早起發車北上 ＋ CAMEL 三明治早餐',
-            desc: '務必 07:15 從飯店出發走高速公路北上（約 1.5 小時），途中外帶「CAMEL SANDWICH & SMOOTHIE 本部店」（07:00 開門）當早餐。',
-            badges: ['🥪 07:00開門', '⏰ 關鍵早起日'],
-            stay: '外帶早餐',
-            mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
+            time: '08:15',
+            title: 'THE NEST 那霸 出發前往南城',
+            desc: '車程約 30–35 分鐘，不用太早趕路，讓孩子睡飽再輕鬆出發。',
+            badges: ['🚗 車程約30分'],
+            stay: '車程 30 分',
+            mapQuery: 'おきなわワールド'
           },
           {
             time: '09:00 – 11:30',
-            title: '沖繩美麗海水族館',
-            desc: '開館第一批入場看震撼的「黑潮之海」巨型鯨鯊水槽，並欣賞 10:30 戶外海豚劇場（使用 FunPASS 第 1 站）。',
-            badges: ['🎫 FunPASS 第1站', '🦈 10:30海豚秀'],
-            stay: '建議停留 2.5 小時',
-            mapQuery: '沖縄美ら海水族館'
+            title: '1. 沖繩世界（玉泉洞・王國村）',
+            desc: '09:00–17:00 營業（可使用 FunPASS 免費入場）。參觀壯觀鐘乳石洞與 10:30 超級太鼓舞表演。⚠️ 洞內階梯濕滑，請勿帶嬰兒車，建議用背巾或牽手走。',
+            badges: ['🎫 FunPASS 免費入場', '⚠️ 洞內勿帶推車'],
+            stay: '停留 2.5 小時',
+            mapQuery: 'おきなわワールド'
           },
           {
-            time: '12:00 – 13:30',
-            title: '古宇利大橋 南端觀景台 ＋ 古宇利蝦蝦飯',
-            desc: '開車跨越湛藍的古宇利大橋拍全家福，午餐享用蒜香濃郁的「古宇利蝦蝦飯」。',
-            badges: ['🌉 畢生必看絕景', '🍤 必吃蝦蝦飯'],
-            stay: '建議停留 1.5 小時',
-            mapQuery: 'KOURI SHRIMP'
+            time: '11:55 – 15:30',
+            title: '2. iias 沖繩豐崎 ＋ Ashibinaa Outlet（含午餐）',
+            desc: '車程 25 分鐘，兩座大型商場就在正對面！建議先在 iias 吃午餐，並使用 FunPASS 逛 3 樓全室內的「Little Universe OKINAWA」微縮世界，大人再輪流逛 Outlet 採買。',
+            badges: ['🛍️ 購物日 1', '🎫 可順玩 Little Universe'],
+            stay: '停留 3.5 小時',
+            mapQuery: 'イーアス沖縄豊崎'
           },
           {
-            time: '13:50 – 14:50',
-            title: 'OKINAWA 水果樂園（務必 14:55 前發車！）',
-            desc: '南返順路使用 FunPASS 第 2 站！全區有遮雨頂棚，帶 3 歲寶寶玩繪本蓋章尋寶與看熱帶大嘴鳥。⚠️ 14:55 準時發車走高速公路回那霸！',
-            badges: ['🎫 FunPASS 第2站', '⚠️ 14:55必發車'],
-            stay: '建議停留 1 小時',
-            mapQuery: 'OKINAWAフルーツらんど'
+            time: '15:35 – 16:45',
+            title: '3. 瀬長島 Umikaji Terrace 看海與飛機',
+            desc: '車程僅 5–8 分鐘！抵達剛好銜接下午茶與最美夕陽海景，帶孩子近距離看那霸機場飛機起降（若有預約幸福鬆餅可排 15:45 場次）。',
+            badges: ['🌊 絕美海景夕陽', '✈️ 近距離看飛機'],
+            stay: '停留 70 分',
+            mapQuery: 'ウミカジテラス'
           },
           {
-            time: '16:45',
-            title: '🎂 生日晚餐：燒肉 琉球の牛 那霸國際通店',
-            desc: '預約 ID：JCGE2L（逾 15 分鐘即 17:00 取消！）。建議 16:15 停妥牧志周邊停車場或搭計程車過來。記得點 0 元越光米，飯後向店員索取免費小甜點！',
-            badges: ['🎂 生日重頭戲', '⚠️ 逾15分取消'],
-            stay: '用餐限時 2 小時',
+            time: '16:45 – 17:45',
+            title: '4. 前往國際通 ＋ 停車步行（防塞車關鍵）',
+            desc: '平日 17:00 適逢那霸下班尖峰，務必 16:45 準時離開瀬長島！建議 17:15 停妥牧志周邊停車場（或先回 THE NEST 放車再搭計程車過來約 8 分鐘）。',
+            badges: ['⚠️ 16:45準時出發', '🚕 可先回飯店搭計程車'],
+            stay: '車程＋停車 60 分',
             mapQuery: '焼肉 琉球の牛 那覇国際通り店'
           },
           {
-            time: '19:00',
-            title: '🛍️ 購物日 1：那霸國際通商店街＆Palette Kumoji',
-            desc: '吃飽後直接散步消化，集中採買沖繩限定伴手禮、黑糖、雪鹽餅乾與藥妝。',
+            time: '17:45 – 19:45',
+            title: '5. 🎂 生日晚餐：燒肉 琉球の牛（國際通店）',
+            desc: '生日慶生重頭戲！逾 15 分鐘（18:00）未到會取消並收高額取消費。記得菜單可點 0 元越光米，餐後主動向店員索取免費小甜點！',
+            badges: ['🎂 17:45生日慶生', '🎁 免費越光米＋甜點'],
+            stay: '用餐 2 小時',
+            mapQuery: '焼肉 琉球の牛 那覇国際通り店'
+          },
+          {
+            time: '19:45 – 21:30',
+            title: '6. 那霸國際通 飯後散步採買',
+            desc: '多數商店營業至 22:00、藥妝店至 23:00，吃飽剛好散步消化、買齊伴手禮再回飯店休息。',
             badges: ['🛍️ 購物日 1'],
-            stay: '自由採買',
+            stay: '停留 1.5 小時',
             mapQuery: '国際通り 那覇'
           }
         ],
         rainy: [
           {
-            time: '07:15',
-            title: '早起發車北上 ＋ CAMEL 三明治早餐',
-            desc: '從飯店出發走高速公路北上（約 1.5 小時），外帶 CAMEL 三明治當早餐。',
-            badges: ['🥪 07:00開門'],
-            stay: '外帶早餐',
-            mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
+            time: '08:15',
+            title: 'THE NEST 那霸 出發前往南城',
+            desc: '車程約 30–35 分鐘前往沖繩世界。',
+            badges: ['🚗 車程約30分'],
+            stay: '車程 30 分',
+            mapQuery: 'おきなわワールド'
           },
           {
-            time: '09:00 – 12:00',
-            title: '沖繩美麗海水族館 ＋ 館內海景餐廳午餐',
-            desc: '全室內吹冷氣看鯨鯊與深海魚群（FunPASS 第 1 站），雨天免去古宇利吹風淋雨，直接在館內「Ocean Blue」或餐廳悠閒吃午餐。',
-            badges: ['🎫 FunPASS 第1站', '☔ 全室內無雨'],
-            stay: '建議停留 3 小時',
-            mapQuery: '沖縄美ら海水族館'
+            time: '09:00 – 11:30',
+            title: '沖繩世界（玉泉洞・王國村）地底奇觀',
+            desc: '玉泉洞位於地底完全不受風雨影響（FunPASS 免費入場），看鐘乳石與室內太鼓舞表演（⚠️ 洞內濕滑請用背巾或牽手）。',
+            badges: ['🎫 FunPASS 免費入場', '☔ 地底全室內'],
+            stay: '停留 2.5 小時',
+            mapQuery: 'おきなわワールド'
           },
           {
-            time: '12:30 – 13:35',
-            title: 'Orion Happy Park 名護啤酒工廠',
-            desc: '全室內參觀路線，了解沖繩生啤製程，大人可試飲新鮮生啤（駕駛喝無酒精啤酒），3 歲寶寶也有免費果汁！',
-            badges: ['☔ 全室內備案', '🍺 免費試飲'],
-            stay: '建議停留 1 小時',
-            mapQuery: 'オリオンハッピーパーク'
+            time: '11:55 – 16:15',
+            title: 'iias 沖繩豐崎（午餐＋Little Universe＋室內購物）',
+            desc: '雨天取消戶外瀬長島，直接把時間留給全室內的 iias 豐崎！吃午餐、玩 3 樓 Little Universe（FunPASS）並逛室內商場不淋雨。',
+            badges: ['☔ 全室內備案', '🛍️ 購物日 1'],
+            stay: '停留 4 小時',
+            mapQuery: 'イーアス沖縄豊崎'
           },
           {
-            time: '13:50 – 14:50',
-            title: 'OKINAWA 水果樂園（務必 14:55 前發車！）',
-            desc: '全區有遮雨連廊不怕淋雨（FunPASS 第 2 站），帶寶寶蓋印章尋寶。⚠️ 14:55 準時發車南返那霸！',
-            badges: ['🎫 FunPASS 第2站', '⚠️ 14:55必發車'],
-            stay: '建議停留 1 小時',
-            mapQuery: 'OKINAWAフルーツらんど'
-          },
-          {
-            time: '16:45',
-            title: '🎂 生日晚餐：燒肉 琉球の牛 那霸國際通店',
-            desc: '預約 ID：JCGE2L（逾 15 分鐘即 17:00 取消！）。點 0 元越光米＋餐後索取免費慶生小甜點！',
-            badges: ['🎂 生日重頭戲', '⚠️ 逾15分取消'],
-            stay: '用餐限時 2 小時',
+            time: '16:15 – 17:45',
+            title: '返回那霸牧志停車 ＋ 17:45 燒肉 琉球の牛',
+            desc: '雨天行車較慢，16:15 從豐崎出發回那霸，準時 17:45 享用生日燒肉大餐！',
+            badges: ['🎂 17:45生日慶生'],
+            stay: '車程＋用餐',
             mapQuery: '焼肉 琉球の牛 那覇国際通り店'
           },
           {
-            time: '19:00',
-            title: '🛍️ 購物日 1：平和通商店街（有頂棚）＆Palette Kumoji',
-            desc: '下雨天可走有遮雨天幕的平和通、市場本通商店街與 Palette Kumoji 百貨，完全不淋雨完成第一天採買！',
-            badges: ['🛍️ 購物日 1', '☔ 遮雨商店街'],
-            stay: '自由採買',
+            time: '19:45 – 21:30',
+            title: '平和通商店街（有遮雨頂棚）採買伴手禮',
+            desc: '走有遮雨天幕的平和通與市場本通商店街採買伴手禮與藥妝，完全不淋雨。',
+            badges: ['☔ 遮雨商店街'],
+            stay: '停留 1.5 小時',
             mapQuery: '平和通り商店街 那覇'
           }
         ]
       },
       4: {
         dayLabel: 'Day 4 (11/26 四)',
-        title: '海岸奇岩＋地底鐘乳石（無購物日）',
-        shoppingTag: '無購物日・奇岩與鐘乳石',
-        shoppingColor: '#E3EFE0',
-        rainyNote: '☔ 雨天備案啟動：取消戶外萬座毛，上午直接前往地底全室內的「沖繩世界（含玉泉洞）」避雨看鐘乳石與太鼓舞，下午輕鬆外帶 hoppepan 麵包並回市區泡溫泉！',
+        title: '泊港早餐・波上宮・港川・兒童王國・來客夢',
+        shoppingTag: '🛍️ 購物日 2（AEON 來客夢）',
+        shoppingColor: '#F6D365',
+        rainyNote: '☔ 雨天備案啟動：泊港漁市場有遮雨棚；港川外人住宅改直接進選好的咖啡廳/餐廳內用（避開戶外久逛）；下午「沖繩兒童王國」主攻室內神奇博物館，15:45 直接進全室內「AEON 來客夢」吹冷氣逛街吃晚餐！',
+        routeOverview: {
+          summary: 'THE NEST → 泊港漁市場 → 波上宮 → 港川外人住宅(12間精選) → 沖繩兒童王國 → AEON 來客夢 → 回飯店',
+          totalDrive: '全天那霸～中部順向不回頭，總車程約 1 小時 45 分（約 62 km）',
+          gmapsUrl: 'https://www.google.com/maps/dir/THE+NEST+NAHA/泊いゆまち/波上宮/港川ステイツサイドタウン/沖縄こどもの国/イオンモール沖縄ライカム/THE+NEST+NAHA',
+          stops: [
+            { num: '起', name: 'THE NEST 那霸', x: 158, y: 116, color: '#E3EFE0' },
+            { num: '1', name: '泊港漁市場 早餐', x: 168, y: 102, color: '#F8EAE8' },
+            { num: '2', name: '波上宮・波之上海灘', x: 154, y: 106, color: '#CBE2F6' },
+            { num: '3', name: '港川外人住宅 午餐', x: 184, y: 88, color: '#F6D365' },
+            { num: '4', name: '沖繩兒童王國', x: 222, y: 66, color: '#E3EFE0' },
+            { num: '5', name: 'AEON 來客夢購物晚餐', x: 214, y: 76, color: '#F6D365' }
+          ],
+          isFlightDay: false,
+          pathD: 'M158,116 L168,102 L154,106 Q168,96 184,88 Q204,76 222,66 L214,76 Q186,96 158,116'
+        },
         sunny: [
           {
-            time: '09:00',
-            title: 'THE NEST那覇 出發沿國道58號北上',
-            desc: '沿著西海岸線欣賞湛藍海景前往恩納村，車程約 55 分鐘。',
-            badges: ['🚗 58號海景公路'],
-            stay: '車程 55 分',
-            mapQuery: '万座毛'
+            time: '08:00',
+            title: 'THE NEST 那霸 出發',
+            desc: '續住免收行李，帶齊推車、水壺與媽媽包輕裝出門即可（車程約 10–15 分鐘）。',
+            badges: ['🚗 續住免收行李'],
+            stay: '車程 15 分',
+            mapQuery: '泊いゆまち'
           },
           {
-            time: '10:00 – 10:50',
-            title: '萬座毛 象鼻岩海岸步道',
-            desc: '沖繩必訪經典地標！珊瑚礁斷崖與翡翠色海水超壯觀，園區步道平坦寬敞，推嬰兒車非常輕鬆。',
-            badges: ['🐘 經典象鼻岩', '👶 推車友善'],
-            stay: '建議停留 50 分',
-            mapQuery: '万座毛'
+            time: '08:15 – 09:00',
+            title: '1. 泊港漁市場 早餐',
+            desc: '06:00–18:00 營業，停車場免費；可買新鮮生魚片丼、熟食烤海鮮與玉子燒當豐盛早餐。',
+            badges: ['🍣 免費停車場'],
+            stay: '停留 45 分',
+            mapQuery: '泊いゆまち'
           },
           {
-            time: '11:15 – 12:30',
-            title: '恩納村海邊享用沖繩麵午餐',
-            desc: '在恩納村品嚐軟嫩三層肉沖繩麵或海葡萄丼飯，吃飽後走高速公路南下南城市。',
-            badges: ['🍜 恩納美食'],
-            stay: '午餐時間',
-            mapQuery: '恩納村 沖縄そば'
+            time: '09:10 – 10:00',
+            title: '2. 波上宮 ＋ 波之上海灘',
+            desc: '車程 8 分鐘，授與所 09:00 開放買書包御守；參拜完可順道走去旁邊的波之上海灘讓孩子踩沙看海。',
+            badges: ['⛩️ 09:00授與所開'],
+            stay: '停留 50 分',
+            mapQuery: '波上宮'
           },
           {
-            time: '13:30 – 15:45',
-            title: '沖繩世界（含玉泉洞）',
-            desc: '使用 FunPASS 第 3 站！探索全長 890 公尺的地底鐘乳石奇觀與「青之泉」，並看 14:30 震撼的超級太鼓舞。⚠️ 洞內階梯濕滑勿推車，建議牽手或用背巾！',
-            badges: ['🎫 FunPASS 第3站', '⚠️ 洞內勿用推車'],
-            stay: '建議停留 2–2.5 小時',
-            mapQuery: 'おきなわワールド'
+            time: '10:25 – 12:25',
+            title: '3. 港川外人住宅區（午餐＋咖啡＋選物）',
+            desc: '車程 25 分鐘。10:30 先拍照逛選物店，11:00 進餐廳吃午餐！推薦名單：【美食甜點】①oHacorte水果塔 ②Cocoroar Cafe舒芙蕾 ③Houki Boshi可麗露 ④鶏そば屋いしぐふー雞湯沖繩麵 ⑤OKINAWA CERRADO咖啡 ⑥UFO Burger漢堡；【選物體驗】①THE FLAVOR DESIGN香水DIY ②こどらキッチン ③AMERICAN WAVE復古選物 ④PORTRIVER MARKET ⑤ENJOY! WEDDING飾品 ⑥RAINBOW SOUL蠟燭（週四 hoppepan 麵包也有開！）。',
+            badges: ['🏡 12間精選名店', '🥖 週四hoppepan有開'],
+            stay: '停留 2 小時',
+            mapQuery: '港川ステイツサイドタウン'
           },
           {
-            time: '16:30',
-            title: '浦添市 hoppepan 超人氣麵包',
-            desc: '特地排在週四有營業的日子（週一～三公休）！必買現烤鹽奶油捲與明太子法國麵包，隨後返回那霸用晚餐。',
-            badges: ['🥖 週四有營業！'],
-            stay: '外帶點心',
-            mapQuery: 'hoppepan 浦添'
+            time: '12:55 – 15:30',
+            title: '4. 沖繩兒童王國（建議停留 2.5 小時）',
+            desc: '走國道 330 號約 25–30 分鐘抵達（孩子可在車上小睡）。09:30–17:30 營業，先看長頸鹿、大象、河馬與可愛動物區，再到室內「神奇博物館」吹冷氣玩互動科學設施。',
+            badges: ['👶 3歲寶寶最愛', '⏱️ 停留2.5小時'],
+            stay: '停留 2.5 小時',
+            mapQuery: '沖縄こどもの国'
+          },
+          {
+            time: '15:45 – 19:00',
+            title: '5. AEON Mall Okinawa Rycom（購物日 2 ＋ 晚餐）',
+            desc: '車程僅 10–15 分鐘，免費停車！一樓有巨大熱帶魚水槽，還有「沖繩寶可夢中心」、童裝、藥妝與超市，直接在美食街或餐廳吃完晚餐。',
+            badges: ['🛍️ 購物日 2', '⚡ 寶可夢中心'],
+            stay: '停留 3 小時 15 分',
+            mapQuery: 'イオンモール沖縄ライカム'
+          },
+          {
+            time: '19:00 – 19:45',
+            title: '開車返回 THE NEST 那霸 整理行李',
+            desc: '走沖繩自動車道南下回飯店（車程約 35–45 分鐘），約 19:45 回到飯店洗澡、打包戰利品與行李。',
+            badges: ['🧳 打包戰利品'],
+            stay: '車程 40 分',
+            mapQuery: 'THE NEST NAHA'
           }
         ],
-        rainy: [
-          {
-            time: '09:30',
-            title: '沖繩世界（含玉泉洞）地底奇觀',
-            desc: '雨天最佳景點（FunPASS 第 3 站）！地底鐘乳石洞穴完全不受風雨影響，還能看室内劇場太鼓舞與琉球玻璃體驗。⚠️ 洞內濕滑請用背巾或牽好寶寶。',
-            badges: ['🎫 FunPASS 第3站', '☔ 地底全室內'],
-            stay: '建議停留 2.5 小時',
-            mapQuery: 'おきなわワールド'
-          },
-          {
-            time: '12:30 – 14:00',
-            title: '南城市／那霸市區室內餐廳午餐',
-            desc: '在室內餐廳悠閒享用沖繩料理或塔可飯，讓寶寶午睡補充體力。',
-            badges: ['🍛 室內午餐'],
-            stay: '午餐時間',
-            mapQuery: 'おきなわワールド'
-          },
-          {
-            time: '15:00',
-            title: '浦添市 hoppepan 超人氣麵包',
-            desc: '週四有營業（10:00–19:00）！下車快速外帶招牌鹽奶油捲當隔天早餐或點心。',
-            badges: ['🥖 週四有營業！'],
-            stay: '外帶點心',
-            mapQuery: 'hoppepan 浦添'
-          },
-          {
-            time: '16:30',
-            title: '回飯店休息 ＋ LOISIR 天然溫泉',
-            desc: '雨天提早回飯店休憩，帶 3 歲寶寶泡泡室內湯池、整理戰利品，輕鬆享受晚餐。',
-            badges: ['♨️ 室內泡湯放鬆'],
-            stay: '自由放鬆',
-            mapQuery: 'LOISIR HOTEL NAHA'
-          }
-        ]
+        rainy: null
       },
       5: {
         dayLabel: 'Day 5 (11/27 五)',
-        title: '全新首里城＋微縮世界＋返程',
-        shoppingTag: '🛍️ 購物日 2（豐崎最後採買）',
-        shoppingColor: '#F6D365',
-        rainyNote: '☔ 雨天備案啟動：首里城正殿內部與 Little Universe OKINAWA 均為全室內空間！下午取消戶外瀬長島，直接留在「iiAS 豐崎」室內商場吃美食與最後購物，輕鬆銜接 15:00 還車。',
+        title: '全新首里城・達摩寺・iias豐崎・還車返台',
+        shoppingTag: '🛍️ 最後補貨・平安返台',
+        shoppingColor: '#CBE2F6',
+        rainyNote: '☔ 雨天備案啟動：首里城正殿內部與 iias 沖繩豐崎商場皆為全室內空間！雨天從停車場移動時記得幫寶寶穿雨衣或撐傘，12:25 抵達 iias 豐崎後全程在室內吃午餐採買，13:20 準時去加油還車！',
+        routeOverview: {
+          summary: 'THE NEST 退房 → 首里城正殿 → 達摩寺 → iias 沖繩豐崎 → 豐見城加油還車 → 那霸機場 ✈️ 台中大里家',
+          totalDrive: '沖繩段總車程約 55 分鐘（約 28 km，14:00 抵達機場）',
+          gmapsUrl: 'https://www.google.com/maps/dir/THE+NEST+NAHA/首里城公園/達磨寺+那覇/イーアス沖縄豊崎/155-13+Tagami,+Tomigusuku,+Okinawa/那霸機場+國際線',
+          stops: [
+            { num: '起', name: 'THE NEST 退房', x: 158, y: 112, color: '#E3EFE0' },
+            { num: '1', name: '首里城全新正殿', x: 196, y: 102, color: '#F8EAE8' },
+            { num: '2', name: '達摩寺 祈福', x: 204, y: 108, color: '#F6D365' },
+            { num: '3', name: 'iias 豐崎午餐採買', x: 146, y: 146, color: '#F6D365' },
+            { num: '4', name: '豐見城加油還車', x: 148, y: 136, color: '#F8EAE8' },
+            { num: '5', name: '那霸機場(14:00到)', x: 140, y: 124, color: '#CBE2F6' }
+          ],
+          isFlightDay: true,
+          pathD: 'M158,112 L196,102 L204,108 Q176,128 146,146 L148,136 L140,124'
+        },
         sunny: [
           {
-            time: '08:45',
-            title: 'THE NEST那覇 退房出發',
-            desc: '行李全部上車，退房前往首里城公園停車場（車程約 20 分鐘）。',
+            time: '09:00',
+            title: 'THE NEST 那霸 退房出發（行李放車上）',
+            desc: '確認房間無遺留物品，所有行李上車後前往首里城公園地下停車場（車程約 20 分鐘）。',
             badges: ['🧳 退房行李上車'],
             stay: '車程 20 分',
             mapQuery: '首里城公園'
           },
           {
-            time: '09:00 – 10:30',
-            title: '全新重建「首里城正殿」歷史朝聖',
-            desc: '見證 2026/11/23 剛重新開放的朱紅正殿（預約 09:00 場次）！⚠️ 入內需脫鞋，記得拿出自備的塑膠袋裝全家的鞋子。',
+            time: '09:20 – 11:20',
+            title: '1. 首里城公園（全新重建正殿朝聖）',
+            desc: '08:30–19:00 營業；11/23 剛重新開放，務必提前上官網預約 09:30 正殿入場場次！⚠️ 入內需脫鞋，記得自備塑膠袋裝全家的鞋子。',
             badges: ['🏯 11/23全新開放', '⚠️ 入內脫鞋自備袋'],
-            stay: '建議停留 1.5 小時',
+            stay: '停留 2 小時',
             mapQuery: '首里城公園'
           },
           {
-            time: '11:00',
-            title: '抹茶カフェ SUGURI 宇治抹茶小憩',
-            desc: '下山至那霸市區享用濃厚抹茶拿鐵與甜點（週四公休，排週五上午 10:00–12:00 營業時段剛剛好）。',
-            badges: ['🍵 週五有營業'],
-            stay: '建議停留 45 分',
-            mapQuery: '抹茶カフェ SUGURI'
+            time: '11:30 – 12:00',
+            title: '2. 達摩寺（西來院）參拜祈福',
+            desc: '距首里城車程僅 5–8 分鐘（07:00–18:00 營業）。可買可愛達摩御守與拍祈福牆。⚠️ 寺廟周邊巷道較窄，會車與停車請慢行。',
+            badges: ['🙏 祈福御守', '⚠️ 巷道較窄慢行'],
+            stay: '停留 30 分',
+            mapQuery: '達磨寺 那覇'
           },
           {
-            time: '12:30 – 14:30',
-            title: 'Little Universe OKINAWA ＋ 🛍️ 購物日 2',
-            desc: '位於「iiAS 豐崎」3F（FunPASS 第 4 站，全室內微縮世界與 3D 掃描分身互動，停留 1.5–2 小時），並於同棟商場或對面 Outlet Mall ASHIBINAA 完成最後採買與午餐！',
-            badges: ['🎫 FunPASS 第4站', '🛍️ 購物日 2'],
-            stay: '建議停留 2 小時',
-            mapQuery: 'Little Universe OKINAWA'
-          },
-          {
-            time: '14:30 – 15:00',
-            title: '瀬長島外帶 幸福鬆餅 看飛機起降（選配）',
-            desc: '若採買提前結束，可順路開 5 分鐘到旁邊瀬長島看海與飛機起降（若時間緊湊建議直接還車）。',
-            badges: ['🥞 選配海景', '✈️ 近距離看飛機'],
-            stay: '彈性 30 分',
-            mapQuery: '幸せのパンケーキ ウミカジテラス沖縄店'
-          },
-          {
-            time: '15:00',
-            title: '準時前往機場周邊還車 → 搭接駁車赴機場',
-            desc: '⚠️ 最晚 15:00 必須抵達還車點（加滿 Regular 汽油），搭接駁車至那霸機場辦理登機。',
-            badges: ['⛽ 加滿油還車', '⚠️ 15:00準時'],
-            stay: '還車與報到',
-            mapQuery: '那霸機場 國際線'
-          },
-          {
-            time: '16:30 – 17:15',
-            title: '星宇航空 JX303 飛返台中 → 約 18:20 到家',
-            desc: '16:30 那霸起飛 → 17:15 抵達臺中國際機場，取車後走國道 3 號約 18:20 回到大里塗城路溫暖的家！',
-            badges: ['🛬 星宇 JX303', '🏠 平安返家'],
-            stay: '飛行 1h 45m',
-            mapQuery: '台中市大里區塗城路52巷14號'
-          }
-        ],
-        rainy: [
-          {
-            time: '08:45',
-            title: 'THE NEST那覇 退房出發',
-            desc: '行李全部上車，前往首里城公園室內停車場。',
-            badges: ['🧳 退房行李上車'],
-            stay: '車程 20 分',
-            mapQuery: '首里城公園'
-          },
-          {
-            time: '09:00 – 10:30',
-            title: '全新重建「首里城正殿」（正殿內部全室內）',
-            desc: '正殿內部為全室內參觀動線，雨天也能從容欣賞全新漆藝與王座（⚠️ 入內需脫鞋，請自備塑膠袋裝鞋）。',
-            badges: ['🏯 11/23全新開放', '☔ 正殿內部室內'],
-            stay: '建議停留 1.5 小時',
-            mapQuery: '首里城公園'
-          },
-          {
-            time: '11:00',
-            title: '抹茶カフェ SUGURI 宇治抹茶小憩',
-            desc: '室內質感抹茶咖啡廳躲雨喝熱抹茶、吃甜點。',
-            badges: ['🍵 週五有營業'],
-            stay: '建議停留 45 分',
-            mapQuery: '抹茶カフェ SUGURI'
-          },
-          {
-            time: '12:15 – 14:50',
-            title: 'iiAS 豐崎（Little Universe ＋ 🛍️ 購物日 2）',
-            desc: '雨天直接把全部時間留給「iiAS 豐崎」大型室內商場！先玩 3F 的 Little Universe OKINAWA（FunPASS 第 4 站），接著同棟吃美食街、逛超市與伴手禮，全程零淋雨！',
-            badges: ['🎫 FunPASS 第4站', '☔ 全室內購物日2'],
-            stay: '建議停留 2.5 小時',
+            time: '12:20 – 13:20',
+            title: '3. iias 沖繩豐崎（午餐＋最後採買）',
+            desc: '走那霸空港自動車道約 20–25 分鐘抵達（10:00–21:00 營業）。建議直接到美食街或餐廳快速用餐，吃完做最後補貨。',
+            badges: ['🍱 午餐＋最後補貨'],
+            stay: '停留 60 分',
             mapQuery: 'イーアス沖縄豊崎'
           },
           {
-            time: '15:00',
-            title: '準時前往機場周邊還車 → 赴那霸機場',
-            desc: '從 iiAS 豐崎開到機場周邊還車點僅需 10 分鐘，加滿 Regular 汽油還車後搭接駁車赴機場。',
-            badges: ['⛽ 加滿油還車', '⚠️ 15:00準時'],
-            stay: '還車與報到',
+            time: '13:20 – 14:00',
+            title: '4. 加滿 Regular 汽油 ＋ 豐見城門市還車 → 抵達機場',
+            desc: '距 iias 豐崎僅 5–8 分鐘！還車前務必加滿 Regular（紅色油槍）並保留收據，於 155-13 Tagami, Tomigusuku 門市還車後搭接駁車，14:00 準時抵達那霸機場！',
+            badges: ['⛽ 加滿油留收據', '✈️ 14:00抵達機場'],
+            stay: '還車＋接駁 40 分',
+            mapQuery: '155-13 Tagami, Tomigusuku, Okinawa'
+          },
+          {
+            time: '14:00 – 16:30',
+            title: '那霸機場 報到托運、免稅店與候機',
+            desc: '辦理星宇航空 JX303 托運（液體與未拆封免稅品記得放托運行李）、過安檢並帶寶寶上廁所。',
+            badges: ['🛫 提早2.5hr報到'],
+            stay: '候機 2.5 小時',
             mapQuery: '那霸機場 國際線'
           },
           {
             time: '16:30 – 17:15',
-            title: '星宇航空 JX303 飛返台中 → 約 18:20 到家',
-            desc: '16:30 那霸起飛 → 17:15 抵達台中機場，約 18:20 回到大里溫暖的家！',
-            badges: ['🛬 星宇 JX303', '🏠 平安返家'],
+            title: '星宇航空 JX303 飛返臺中國際機場',
+            desc: '日本時間 16:30 起飛 → 台灣時間 17:15 抵達台中機場（飛行 1 小時 45 分）。',
+            badges: ['🛬 星宇 JX303'],
             stay: '飛行 1h 45m',
+            mapQuery: '臺中國際機場'
+          },
+          {
+            time: '17:45 – 18:25',
+            title: '開車返回台中大里溫暖的家',
+            desc: '領完行李取車走國道 3 號南下（車程約 40 分鐘），約 18:25 平安回到塗城路52巷14號！',
+            badges: ['🏠 平安返家'],
+            stay: '車程 40 分',
             mapQuery: '台中市大里區塗城路52巷14號'
           }
-        ]
+        ],
+        rainy: null
       }
     };
 
     // ==========================================
-    // 3. SPOTS & FOOD DIRECTORY WITH MAPCODES
+    // 3. SPOTS & FOOD DIRECTORY (INCLUDING 12 MINATOGAWA SPOTS)
     // ==========================================
     const SPOTS_DATA = [
       {
@@ -728,235 +805,207 @@
         category: 'funpass',
         catLabel: '🎫 FunPASS 第1站',
         region: '北部・本部町',
-        day: 'Day 3 上午',
-        hours: '08:30–18:30（全年無休）',
+        day: 'Day 2 09:25',
+        hours: '08:30–18:30（停車場免費 P7 最近）',
         alert: '',
         stay: '建議停留 2.5 小時',
-        tip: '09:00 第一批入館人最少，10:30 戶外海豚劇場免費必看，館內全區推車無障礙。',
+        tip: '早晨團客最少，先看黑潮之海鯨鯊，再看 10:30 或 11:30 戶外海豚劇場。',
         mapcode: '553 075 797*74',
         phone: '0980-48-3748',
         mapQuery: '沖縄美ら海水族館'
       },
       {
-        name: 'OKINAWA 水果樂園',
+        name: 'OKINAWA 水果樂園（或名護鳳梨園）',
         category: 'funpass',
         catLabel: '🎫 FunPASS 第2站',
         region: '北部・名護市',
-        day: 'Day 3 下午',
-        hours: '10:00–18:00',
-        alert: '⚠️ 務必 14:55 前發車南返',
-        stay: '建議停留 1 小時',
-        tip: '全區有遮雨連廊，繪本解謎蓋印章 3 歲寶寶超愛，就在回程高速公路交流道旁。',
+        day: 'Day 2 14:20',
+        hours: '10:00–18:00（停車場免費）',
+        alert: '⚠️ 15:20 發車前往萬座毛看夕陽',
+        stay: '建議停留 60 分鐘',
+        tip: '全區遮雨連廊，繪本解謎蓋印章 3 歲寶寶超愛；隔壁即是名護鳳梨園。',
         mapcode: '206 716 584*14',
         phone: '0980-52-1568',
         mapQuery: 'OKINAWAフルーツらんど'
       },
       {
-        name: '沖繩世界（含玉泉洞）',
+        name: '沖繩世界（玉泉洞・王國村）',
         category: 'funpass',
         catLabel: '🎫 FunPASS 第3站',
         region: '南部・南城市',
-        day: 'Day 4 下午',
-        hours: '09:00–17:30（14:30 太鼓舞）',
+        day: 'Day 3 09:00',
+        hours: '09:00–17:00（10:30 超級太鼓舞）',
         alert: '⚠️ 玉泉洞階梯濕滑勿推車',
-        stay: '建議停留 2–2.5 小時',
+        stay: '建議停留 2.5 小時',
         tip: '進鐘乳石洞前請將推車寄放入口處，改用背巾或牽好 3 歲寶寶慢慢走。',
         mapcode: '232 495 330*28',
         phone: '098-949-7421',
         mapQuery: 'おきなわワールド'
       },
       {
-        name: 'Little Universe OKINAWA',
+        name: 'Little Universe OKINAWA (iiAS 3F)',
         category: 'funpass',
         catLabel: '🎫 FunPASS 第4站',
-        region: '南部・豐見城 (iiAS 3F)',
-        day: 'Day 5 中午',
+        region: '南部・豐見城 iias 3F',
+        day: 'Day 3 中午',
         hours: '11:00–20:00（週末 10:00 開）',
         alert: '',
-        stay: '建議停留 1.5–2 小時',
-        tip: '位於 iiAS 豐崎 3 樓全室內冷氣空間，微縮火車與光影互動超吸睛，距機場僅 10 分鐘。',
+        stay: '建議停留 1.5 小時',
+        tip: '位於 iias 沖繩豐崎 3 樓全室內冷氣空間，微縮火車與光影互動超吸睛。',
         mapcode: '232 543 400*25',
         phone: '098-851-3200',
         mapQuery: 'Little Universe OKINAWA'
       },
       {
-        name: '沖繩兒童王國',
-        category: 'kids',
-        catLabel: '👶 親子動物園',
-        region: '中部・沖繩市',
-        day: 'Day 2 上午',
-        hours: '09:30–17:30（週二有營業）',
+        name: '許田休息站 (道の駅 許田)',
+        category: 'food',
+        catLabel: '🍩 必買補給站',
+        region: '北部・名護南端',
+        day: 'Day 2 08:15',
+        hours: '08:30–19:00（廁所販賣機 24H）',
         alert: '',
-        stay: '建議停留 3 小時',
-        tip: '09:30 開園先看長頸鹿、大象與可愛動物，11:00 進室內神奇博物館吹冷氣放電。',
-        mapcode: '33 561 798*26',
-        phone: '098-933-4190',
-        mapQuery: '沖縄こどもの国'
+        stay: '停留 25 分鐘',
+        tip: '必買現炸「莎翁（沖繩開口笑）」、乳酪蛋糕、布丁與販賣機抹茶飲品。',
+        mapcode: '206 476 706*58',
+        phone: '0980-54-0880',
+        mapQuery: '道の駅 許田'
       },
       {
-        name: '首里城正殿（2026/11/23 全新開放）',
-        category: 'kids',
-        catLabel: '🏯 歷史必訪大景',
-        region: '那霸・首里',
-        day: 'Day 5 09:00',
-        hours: '08:30–18:00（正殿採預約梯次）',
-        alert: '⚠️ 入內需脫鞋，請自備鞋袋',
-        stay: '建議停留 1.5 小時',
-        tip: '歷經 7 年重建剛於 11/23 開放！務必官網預約 09:00 場次並攜帶塑膠袋裝鞋。',
-        mapcode: '33 161 526*71',
-        phone: '098-886-2020',
-        mapQuery: '首里城公園'
+        name: '古宇利大橋 南端展望台 ＆ 古宇利蝦蝦飯',
+        category: 'food',
+        catLabel: '🌉 絕景＋必吃美食',
+        region: '北部・今歸仁村',
+        day: 'Day 2 12:30',
+        hours: '大橋 24H ／ 蝦蝦飯 11:00–16:00',
+        alert: '',
+        stay: '停留 1 小時 25 分',
+        tip: '上橋前先停南端觀景台拍大橋全景，過橋後吃蒜香奶油蝦蝦飯（可點不辣給寶寶）。',
+        mapcode: '485 692 168*52',
+        phone: '0980-56-1242',
+        mapQuery: 'KOURI SHRIMP'
       },
       {
         name: '萬座毛 象鼻岩',
         category: 'kids',
-        catLabel: '🌊 畢生必看大景',
+        catLabel: '🐘 夕陽絕美大景',
         region: '中部・恩納村',
-        day: 'Day 4 上午',
-        hours: '08:00–20:00',
+        day: 'Day 2 16:00',
+        hours: '08:00–20:00（停車場免費）',
         alert: '',
-        stay: '建議停留 50 分鐘',
-        tip: '海風較大記得幫寶寶戴帽或穿薄風衣，環形步道平坦好推車。',
+        stay: '建議停留 45 分鐘',
+        tip: '下午 4 點夕陽斜照光線最佳，環形步道平坦寬敞推嬰兒車很輕鬆。',
         mapcode: '206 312 039*17',
         phone: '098-966-1280',
         mapQuery: '万座毛'
       },
       {
-        name: '古宇利大橋 南端觀景台',
-        category: 'kids',
-        catLabel: '🌉 畢生必看大景',
-        region: '北部・今歸仁村',
-        day: 'Day 3 中午',
-        hours: '24 小時開放',
+        name: '阿古豬涮涮鍋（我那霸 恩納店）',
+        category: 'food',
+        catLabel: '🐷 必吃阿古豬',
+        region: '中部・恩納村',
+        day: 'Day 2 17:00',
+        hours: '17:00–23:00（建議預約 17:00）',
         alert: '',
-        stay: '建議停留 30 分鐘',
-        tip: '過橋前南端設有免費停車場與觀景台，拍筆直跨海大橋最佳角度。',
-        mapcode: '485 601 893*55',
-        phone: '0980-56-2256',
-        mapQuery: '古宇利大橋 南端展望所'
+        stay: '用餐 90 分鐘',
+        tip: '距萬座毛僅 10–15 分鐘，天色未暗即可抵達，鮮甜阿古豬涮蔬菜寶寶也愛吃。',
+        mapcode: '206 158 096*55',
+        phone: '098-966-1129',
+        mapQuery: '我那覇豚肉店 恩納店'
       },
       {
         name: '燒肉 琉球の牛 那霸國際通店',
         category: 'food',
         catLabel: '🎂 生日慶生必吃',
         region: '那霸・國際通牧志',
-        day: 'Day 3 16:45',
+        day: 'Day 3 17:45',
         hours: '16:30–23:00',
-        alert: '⚠️ 已訂 16:45 (ID: JCGE2L) 逾15分取消',
+        alert: '⚠️ 已訂 17:45 (ID: JCGE2L) 逾15分取消',
         stay: '用餐限時 2 小時',
-        tip: '點餐時可點 0 元越光米給寶寶吃，餐後別忘了主動向店員索取免費小甜點！',
+        tip: '菜單可點 0 元越光米給寶寶吃，餐後別忘了主動向店員索取免費小甜點！',
         mapcode: '33 157 444*63',
         phone: '098-987-6150',
         mapQuery: '焼肉 琉球の牛 那覇国際通り店'
       },
       {
-        name: '琉球新麵 通堂 小祿本店',
-        category: 'food',
-        catLabel: '🍜 必吃美食',
-        region: '那霸・小祿',
-        day: 'Day 1 18:30',
-        hours: '11:00–24:00',
+        name: '泊港漁市場 ＆ 波上宮',
+        category: 'kids',
+        catLabel: '🍣 早市＋神社海灘',
+        region: '那霸市區',
+        day: 'Day 4 08:15',
+        hours: '漁市場 06:00–18:00 ／ 波上宮授與所 09:00 開',
         alert: '',
-        stay: '建議停留 1 小時',
-        tip: '有寬敞榻榻米座位與免費豆芽菜小菜，點一碗清爽女人麵分給寶寶吃剛剛好。',
-        mapcode: '33 095 245*33',
-        phone: '098-857-5577',
-        mapQuery: '琉球新麺 通堂 小禄本店'
+        stay: '兩站共約 1 小時 45 分',
+        tip: '泊港漁市場免費停車吃海鮮早餐，09:10 順遊波上宮買書包御守與波之上海灘踩沙。',
+        mapcode: '33 185 022*00',
+        phone: '098-868-3697',
+        mapQuery: '波上宮'
       },
       {
-        name: '古宇利蝦蝦飯 (KOURI SHRIMP)',
-        category: 'food',
-        catLabel: '🍤 必吃美食',
-        region: '北部・古宇利島',
-        day: 'Day 3 12:15',
-        hours: '11:00–16:00',
-        alert: '',
-        stay: '建議停留 1 小時',
-        tip: '經典蒜香奶油蝦蝦飯，可點不辣原味給 3 歲寶寶吃白飯與鮮蝦。',
-        mapcode: '485 692 168*52',
-        phone: '0980-56-1242',
-        mapQuery: 'KOURI SHRIMP'
-      },
-      {
-        name: 'CAMEL SANDWICH & SMOOTHIE 本部店',
-        category: 'food',
-        catLabel: '🥪 必吃早餐',
-        region: '北部・本部町',
-        day: 'Day 3 08:30',
-        hours: '07:00–14:00',
-        alert: '',
-        stay: '外帶 15 分鐘',
-        tip: '07:00 就營業的超人氣厚切三明治與果昔，就在美麗海水族館南側 3 分鐘車程。',
-        mapcode: '553 046 396*25',
-        phone: '0980-43-5820',
-        mapQuery: 'CAMEL SANDWICH & SMOOTHIE Motobu'
-      },
-      {
-        name: 'hoppepan 人氣麵包店',
-        category: 'food',
-        catLabel: '🥖 必吃美食',
+        name: '港川外人住宅區（12間精選美食與選物）',
+        category: 'minatogawa',
+        catLabel: '🏡 港川12間精選',
         region: '中部・浦添市',
-        day: 'Day 4 16:30',
-        hours: '10:00–19:00',
-        alert: '⚠️ 週一、週二、週三公休（週四有開！）',
-        stay: '外帶 20 分鐘',
-        tip: '招牌鹽奶油捲外酥內軟、奶香濃郁，3 歲寶寶一次可以吃掉一整顆。',
-        mapcode: '33 341 535*22',
-        phone: '098-963-9265',
-        mapQuery: 'hoppepan 浦添'
+        day: 'Day 4 10:25',
+        hours: '多數店家 11:00–18:00（週四全開）',
+        alert: '✨ 週四 hoppepan 麵包也有營業！',
+        stay: '建議停留 2 小時',
+        tip: '【美食甜點】①oHacorte水果塔 ②Cocoroar Cafe舒芙蕾 ③Houki Boshi可麗露 ④鶏そば屋いしぐふー雞湯麵 ⑤OKINAWA CERRADO咖啡 ⑥UFO Burger漢堡；【選物體驗】①THE FLAVOR DESIGN香水DIY ②こどらキッチン ③AMERICAN WAVE ④PORTRIVER MARKET ⑤ENJOY! WEDDING飾品 ⑥RAINBOW SOUL蠟燭。',
+        mapcode: '33 341 002*14',
+        phone: '098-875-2129',
+        mapQuery: '港川ステイツサイドタウン'
       },
       {
-        name: '抹茶カフェ SUGURI',
-        category: 'food',
-        catLabel: '🍵 必吃甜點',
-        region: '那霸・首里山腳',
-        day: 'Day 5 11:00',
-        hours: '10:00–12:00、13:00–16:30',
-        alert: '⚠️ 週四公休（週五有營業！）',
-        stay: '建議停留 45 分鐘',
-        tip: '逛完首里城下山順路喝現刷宇治抹茶拿鐵，店內質感極佳。',
-        mapcode: '33 159 565*06',
-        phone: '098-917-2055',
-        mapQuery: '抹茶カフェ SUGURI'
-      },
-      {
-        name: '幸福鬆餅 沖繩店（瀬長島）',
-        category: 'food',
-        catLabel: '🥞 海景甜點',
-        region: '南部・豐見城瀬長島',
-        day: 'Day 5 14:30 (選配)',
-        hours: '11:00–20:00（提前兩週官網預約）',
-        alert: '⚠️ 留意 15:00 還車時間',
-        stay: '外帶看飛機 30 分',
-        tip: '若採買提早結束可順路外帶原味鬆餅，看那霸機場飛機起降超療癒。',
-        mapcode: '33 002 602*22',
-        phone: '098-851-0009',
-        mapQuery: '幸せのパンケーキ ウミカジテラス沖縄店'
-      },
-      {
-        name: '那霸國際通商店街 ＆ Palette Kumoji',
-        category: 'shopping',
-        catLabel: '🛍️ 購物日 1',
-        region: '那霸市中心',
-        day: 'Day 3 19:00',
-        hours: '10:00–22:00',
+        name: '沖繩兒童王國 (Okinawa Zoo & Museum)',
+        category: 'kids',
+        catLabel: '👶 親子動物園',
+        region: '中部・沖繩市',
+        day: 'Day 4 12:55',
+        hours: '09:30–17:30',
         alert: '',
-        stay: '自由採買',
-        tip: '吃完琉球の牛直接開逛，一網打盡御菓子御殿紅芋塔、鹽屋、藥妝與百貨。',
-        mapcode: '33 156 264*74',
-        phone: '098-867-1171',
-        mapQuery: 'パレットくもじ'
+        stay: '建議停留 2.5 小時',
+        tip: '先逛長頸鹿、大象、河馬與可愛動物區，再到室內「神奇博物館」吹冷氣玩互動設施。',
+        mapcode: '33 561 798*26',
+        phone: '098-933-4190',
+        mapQuery: '沖縄こどもの国'
       },
       {
-        name: 'iiAS 豐崎 ＆ Outlet Mall ASHIBINAA',
+        name: 'AEON Mall Okinawa Rycom（來客夢）',
         category: 'shopping',
         catLabel: '🛍️ 購物日 2',
+        region: '中部・北中城村',
+        day: 'Day 4 15:45',
+        hours: '10:00–22:00（停車場免費）',
+        alert: '',
+        stay: '建議停留 3 小時 15 分',
+        tip: '一樓有巨大熱帶魚水槽，2 樓有沖繩寶可夢中心、童裝與超市，可直接吃完晚餐回那霸。',
+        mapcode: '33 530 406*45',
+        phone: '098-930-0425',
+        mapQuery: 'イオンモール沖縄ライカム'
+      },
+      {
+        name: '首里城公園（2026/11/23 全新正殿）＆ 達摩寺',
+        category: 'kids',
+        catLabel: '🏯 歷史必訪大景',
+        region: '那霸・首里',
+        day: 'Day 5 09:20',
+        hours: '首里城 08:30–19:00 ／ 達摩寺 07:00–18:00',
+        alert: '⚠️ 正殿入內需脫鞋，請自備鞋袋',
+        stay: '兩站共約 2.5 小時',
+        tip: '預約 09:30 正殿場次見證全新朱紅王宮；11:30 順遊達摩寺（寺廟周邊巷道較窄請慢行）。',
+        mapcode: '33 161 526*71',
+        phone: '098-886-2020',
+        mapQuery: '首里城公園'
+      },
+      {
+        name: 'iias 沖繩豐崎 ＆ Ashibinaa Outlet',
+        category: 'shopping',
+        catLabel: '🛍️ 購物日 1 & Day 5',
         region: '南部・豐見城市',
-        day: 'Day 5 12:30',
-        hours: '10:00–21:00（餐廳至 22:00）',
-        alert: '⚠️ 15:00 準時出發還車',
-        stay: '建議停留 2 小時',
-        tip: '距離還車點僅 10 分鐘，有大型超市、藥妝、童裝與美食街，最後補貨最安心。',
+        day: 'Day 3 中午 / Day 5 12:20',
+        hours: 'iias 10:00–21:00 ／ Outlet 10:00–20:00',
+        alert: '⚠️ Day 5 務必 13:20 出發加油還車',
+        stay: 'Day 3 3.5hr / Day 5 1hr',
+        tip: '距豐見城還車門市僅 5–8 分鐘車程，最後一天吃午餐與補貨最安心。',
         mapcode: '232 543 400*25',
         phone: '098-840-6900',
         mapQuery: 'イーアス沖縄豊崎'
@@ -973,20 +1022,20 @@
           { id: 'c1', text: '護照正本（2 大人 + 1 寶寶，確認效期 6 個月以上）', done: false },
           { id: 'c2', text: '台灣駕照正本 ＋ 監理站核發「日文譯本」', done: false },
           { id: 'c3', text: 'Okinawa FunPASS 電子憑證（美麗海/水果樂園/玉泉洞/Little Universe）', done: false },
-          { id: 'c4', text: '首里城正殿 11/27 09:00 官網預約入場憑證', done: false },
-          { id: 'c5', text: '燒肉 琉球の牛 11/25 16:45 預約確認（ID: JCGE2L）', done: false },
-          { id: 'c6', text: '海外旅平險 ＋ 旅遊不便險保單電子檔', done: false }
+          { id: 'c4', text: '首里城正殿 11/27 09:30 官網預約入場憑證', done: false },
+          { id: 'c5', text: '燒肉 琉球の牛 11/25 17:45 預約確認（ID: JCGE2L）', done: false },
+          { id: 'c6', text: '租車預約單（那霸機場 3F C櫃檯對面 11 號大門接駁）', done: false }
         ]
       },
       {
         category: '3歲寶寶隨身與自駕用品',
         items: [
           { id: 'b1', text: '輕便折疊嬰兒推車（機邊托運）', done: false },
-          { id: 'b2', text: '背巾（Day 4 玉泉洞鐘乳石階梯濕滑必備！）', done: false },
+          { id: 'b2', text: '背巾（Day 3 玉泉洞鐘乳石階梯濕滑必備！）', done: false },
           { id: 'b3', text: '脫鞋用塑膠袋（Day 5 首里城正殿入內脫鞋必備！）', done: false },
           { id: 'b4', text: '常備退燒藥、腸胃藥、感冒藥、防蚊液與 OK 繃', done: false },
           { id: 'b5', text: '寶寶保溫水壺、小零食、安撫玩具／貼紙書', done: false },
-          { id: 'b6', text: '薄外套與防風帽（11 月底沖繩海邊風較涼）', done: false }
+          { id: 'b6', text: '薄外套與防風帽（11 月底沖繩海邊與萬座毛風較涼）', done: false }
         ]
       },
       {
@@ -1044,7 +1093,7 @@
     ];
 
     // ==========================================
-    // 5. UTILITY HELPERS (CLIPBOARD, TOAST, TIME)
+    // 5. UTILITY HELPERS
     // ==========================================
     let toastTimeout = null;
     function showToast(text, icon = '✅') {
@@ -1060,7 +1109,6 @@
       }, 2200);
     }
 
-    // Reliable iFrame-compatible clipboard copy using document.execCommand('copy')
     function copyText(text, label = '內容') {
       try {
         const textarea = document.createElement('textarea');
@@ -1088,17 +1136,15 @@
     }
 
     function saveState() {
-      localStorage.setItem('oki_weather', state.weatherMode);
-      localStorage.setItem('oki_meta', JSON.stringify(state.tripMeta));
-      localStorage.setItem('oki_checklist', JSON.stringify(state.checklist));
-      localStorage.setItem('oki_funpass', JSON.stringify(state.funpassRedeemed));
-      localStorage.setItem('oki_rate', String(state.exchangeRate));
-      localStorage.setItem('oki_expenses', JSON.stringify(state.expenses));
+      localStorage.setItem('oki_weather_v2', state.weatherMode);
+      localStorage.setItem('oki_meta_v2', JSON.stringify(state.tripMeta));
+      localStorage.setItem('oki_checklist_v2', JSON.stringify(state.checklist));
+      localStorage.setItem('oki_funpass_v2', JSON.stringify(state.funpassRedeemed));
+      localStorage.setItem('oki_rate_v2', String(state.exchangeRate));
+      localStorage.setItem('oki_expenses_v2', JSON.stringify(state.expenses));
     }
 
-    // Live JST Clock & Countdown Updater
     function updateLiveClocks() {
-      // 1. Japan Standard Time (Asia/Tokyo, UTC+9)
       const jstEl = document.getElementById('jst-clock');
       if (jstEl) {
         try {
@@ -1117,7 +1163,6 @@
         }
       }
 
-      // 2. Countdown to JX302 Departure: 2026-11-23T13:05:00+08:00
       const dEl = document.getElementById('cd-days');
       const hEl = document.getElementById('cd-hours');
       const mEl = document.getElementById('cd-mins');
@@ -1158,7 +1203,7 @@
     }
 
     // ==========================================
-    // 6. SVG VECTOR ILLUSTRATIONS (SUNNY / RAINY)
+    // 6. SVG ILLUSTRATIONS & DAILY ROUTE OVERVIEW MAP
     // ==========================================
     function renderHeroIllustration() {
       const isSunny = state.weatherMode === 'sunny';
@@ -1166,23 +1211,18 @@
 
       return `
         <div class="relative rounded-[18px] border-2 border-[#222222] overflow-hidden" style="background-color: ${skyFill};">
-          <!-- Top-right Weather Mode Toggle Button -->
           <button onclick="toggleWeatherMode()" class="hb-btn absolute top-2.5 right-2.5 z-10 bg-white border-[1.5px] border-[#222222] rounded-full px-3 py-1 text-[11px] font-black flex items-center gap-1 shadow-xs">
             <span>${isSunny ? '☀️' : '🌧️'}</span>
             <span>${isSunny ? '晴天模式' : '雨天模式'}</span>
           </button>
 
-          <!-- Cute Flat Vector Line-Art Okinawa Scene -->
           <svg viewBox="0 0 380 165" class="w-full h-auto block" xmlns="http://www.w3.org/2000/svg">
-            <!-- Ground Track Strip -->
             <rect x="0" y="142" width="380" height="23" fill="#DED3C3" />
             <line x1="0" y1="142" x2="380" y2="142" stroke="#222222" stroke-width="2.2" />
 
             ${isSunny ? `
-              <!-- Bright Yellow Sun -->
               <circle cx="332" cy="44" r="21" fill="#F6D365" stroke="#222222" stroke-width="2.2" />
             ` : `
-              <!-- Rainy Mode Raindrops -->
               <g stroke="#222222" stroke-width="2" stroke-linecap="round">
                 <line x1="120" y1="62" x2="115" y2="74" />
                 <line x1="138" y1="64" x2="133" y2="76" />
@@ -1192,21 +1232,17 @@
               </g>
             `}
 
-            <!-- Cute Outline Airplane Top Left -->
             <g class="animate-float" transform="translate(18, 12)">
               <path d="M8 22 L28 19 L44 6 L51 7 L40 19 L56 18 L62 12 L67 13 L62 22 L66 26 L60 27 L55 24 L38 25 L47 36 L40 37 L27 25 L10 26 C6 26 5 22 8 22 Z"
                     fill="#FFFFFF" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
             </g>
 
-            <!-- Left Puffy Cloud -->
             <path d="M108 54 H164 C169 54 173 50 173 45 C173 40 169 36 164 36 C163 28 156 23 148 23 C142 23 136 26 133 32 C131 30 128 29 125 29 C119 29 114 34 114 40 C109 40 105 44 105 48 C105 51 106 54 108 54 Z"
                   fill="${isSunny ? '#FFFFFF' : '#E2E8F0'}" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
 
-            <!-- Right Puffy Cloud -->
             <path d="M242 56 H286 C290 56 293 53 293 49 C293 45 290 42 286 42 C285 36 280 32 274 32 C269 32 264 35 262 40 C259 38 255 39 253 42 C249 42 246 45 246 49 C246 53 243 56 242 56 Z"
                   fill="${isSunny ? '#FFFFFF' : '#E2E8F0'}" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
 
-            <!-- Left Buildings -->
             <rect x="34" y="84" width="28" height="58" rx="2" fill="#F6D365" stroke="#222222" stroke-width="2.2" />
             <line x1="42" y1="98" x2="54" y2="98" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
             <line x1="42" y1="108" x2="54" y2="108" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
@@ -1216,24 +1252,19 @@
             <line x1="70" y1="95" x2="86" y2="95" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
             <line x1="70" y1="106" x2="86" y2="106" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
 
-            <!-- Cute Round Green Tree -->
             <circle cx="122" cy="129" r="13" fill="#B5D8B3" stroke="#222222" stroke-width="2.2" />
 
-            <!-- Naha Airport Control Tower / Landmark Spire -->
             <line x1="176" y1="44" x2="176" y2="62" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
             <circle cx="176" cy="42" r="4" fill="#F4A69E" stroke="#222222" stroke-width="2" />
             <polygon points="164,62 188,62 198,142 154,142" fill="#D5E4F0" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
 
-            <!-- Right Buildings -->
             <rect x="282" y="88" width="32" height="54" rx="2" fill="#F4B8A8" stroke="#222222" stroke-width="2.2" />
             <rect x="314" y="72" width="34" height="70" rx="2" fill="#B8D4D8" stroke="#222222" stroke-width="2.2" />
             <line x1="323" y1="86" x2="338" y2="86" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
             <line x1="323" y1="97" x2="338" y2="97" stroke="#222222" stroke-width="2.2" stroke-linecap="round" />
 
-            <!-- Cute Pink Okinawa Yui Rail Monorail -->
             <path d="M188 122 C188 117 192 114 198 114 H284 C290 114 294 118 294 124 V142 H182 V132 C182 126 184 122 188 122 Z"
                   fill="#F4A69E" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
-            <!-- Monorail Windows -->
             <rect x="200" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
             <rect x="219" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
             <rect x="238" y="120" width="13" height="9" rx="2" fill="#FFFFFF" stroke="#222222" stroke-width="2" />
@@ -1244,13 +1275,103 @@
       `;
     }
 
+    function renderRouteOverviewCard(dayObj) {
+      const ro = dayObj.routeOverview;
+      if (!ro) return '';
+
+      return `
+        <div class="hb-card p-3.5 bg-[#FFFDF7] space-y-2.5">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-1.5">
+              <span class="bg-[#F6D365] hb-pill px-2.5 py-0.5 text-[11px] font-black">🗺️ 今日路線概覽圖</span>
+            </div>
+            <a href="${ro.gmapsUrl}" target="_blank" rel="noopener noreferrer" class="hb-btn bg-[#222222] text-white rounded-full px-3 py-1 text-[11px] font-black flex items-center gap-1">
+              <span>🧭</span>
+              <span>Google Maps 多點路線</span>
+            </a>
+          </div>
+
+          <!-- Illustrated Okinawa Island Route Map SVG -->
+          <div class="rounded-[16px] border-2 border-[#222222] bg-[#CBE2F6] overflow-hidden relative">
+            <svg viewBox="0 0 360 175" class="w-full h-auto block" xmlns="http://www.w3.org/2000/svg">
+              <!-- Subtle Sea Waves -->
+              <path d="M22 30 Q32 26 42 30 T62 30" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+              <path d="M295 135 Q305 131 315 135 T335 135" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+              <path d="M275 50 Q285 46 295 50" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.75" />
+
+              <!-- Compass Rose -->
+              <g transform="translate(332, 26)">
+                <circle cx="0" cy="0" r="13" fill="#FFFFFF" stroke="#222222" stroke-width="1.6" />
+                <polygon points="0,-8 3,0 0,8 -3,0" fill="#E05252" />
+                <text x="0" y="-15" text-anchor="middle" font-size="8" font-weight="900" fill="#222222">N</text>
+              </g>
+
+              ${ro.isFlightDay ? `
+                <!-- Taiwan Mini Island on Left for Flight Days -->
+                <path d="M36 22 C44 20 54 28 56 42 C58 56 50 72 42 74 C34 72 30 56 32 40 C33 30 32 24 36 22 Z"
+                      fill="#E3EFE0" stroke="#222222" stroke-width="2" stroke-linejoin="round" />
+                <text x="44" y="86" text-anchor="middle" font-size="9" font-weight="900" fill="#222222">台中 RMQ</text>
+                <!-- Flight Arc between Taichung & Naha -->
+                <path d="M56 44 Q100 62 140 124" fill="none" stroke="#222222" stroke-width="1.8" stroke-dasharray="4 4" />
+                <text x="95" y="72" text-anchor="middle" font-size="9" font-weight="900" fill="#222222" transform="rotate(38, 95, 72)">✈️ 星宇直飛</text>
+              ` : `
+                <!-- Region Labels on Left -->
+                <g font-size="9" font-weight="900" fill="#222222" opacity="0.75">
+                  <rect x="12" y="16" width="66" height="18" rx="9" fill="#FFFFFF" stroke="#222222" stroke-width="1.3" />
+                  <text x="45" y="28" text-anchor="middle">北部・名護/本部</text>
+
+                  <rect x="12" y="72" width="66" height="18" rx="9" fill="#FFFFFF" stroke="#222222" stroke-width="1.3" />
+                  <text x="45" y="84" text-anchor="middle">中部・恩納/北谷</text>
+
+                  <rect x="12" y="128" width="66" height="18" rx="9" fill="#FFFFFF" stroke="#222222" stroke-width="1.3" />
+                  <text x="45" y="140" text-anchor="middle">南部・那霸/豐見城</text>
+                </g>
+              `}
+
+              <!-- Stylized Okinawa Main Island Silhouette -->
+              <path d="M254 12 C264 10 272 16 268 26 C262 36 250 48 238 58 C228 66 226 76 222 86 C216 98 228 112 234 128 C238 142 226 156 206 158 C184 160 156 158 140 150 C130 144 132 128 140 116 C148 104 166 94 178 82 C190 70 198 58 206 48 C196 44 176 40 174 30 C172 20 186 16 200 20 C212 24 222 28 232 22 C240 18 246 14 254 12 Z"
+                    fill="#E3EFE0" stroke="#222222" stroke-width="2.2" stroke-linejoin="round" />
+
+              <!-- Kouri Island Mini Dot -->
+              <ellipse cx="233" cy="16" rx="7" ry="4.5" fill="#E3EFE0" stroke="#222222" stroke-width="1.8" />
+
+              <!-- Driving Route Dashed Line -->
+              <path d="${ro.pathD}" fill="none" stroke="#E05252" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4" class="route-dash" />
+
+              <!-- Numbered Route Pins -->
+              ${ro.stops.map(st => `
+                <g transform="translate(${st.x}, ${st.y})">
+                  <circle cx="0" cy="0" r="8.5" fill="${st.color}" stroke="#222222" stroke-width="1.8" />
+                  <text x="0" y="3" text-anchor="middle" font-size="8.5" font-weight="900" fill="#222222">${st.num}</text>
+                </g>
+              `).join('')}
+            </svg>
+          </div>
+
+          <!-- Numbered Legend Chips -->
+          <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+            ${ro.stops.map((st, idx) => `
+              <div class="inline-flex items-center gap-1 bg-white border-[1.5px] border-[#222222] rounded-full px-2 py-0.5 text-[10px] font-black">
+                <span class="w-4 h-4 rounded-full border border-[#222222] flex items-center justify-center text-[9px]" style="background-color: ${st.color};">${st.num}</span>
+                <span>${st.name}</span>
+              </div>
+              ${idx < ro.stops.length - 1 ? '<span class="text-[10px] font-black text-[#888888]">➔</span>' : ''}
+            `).join('')}
+          </div>
+
+          <div class="text-[11px] font-bold text-[#555555] bg-[#F5F3EB] rounded-xl px-3 py-1.5 flex items-center justify-between">
+            <span>🚗 ${ro.totalDrive}</span>
+          </div>
+        </div>
+      `;
+    }
+
     // ==========================================
     // 7. TAB RENDERERS
     // ==========================================
     function renderHomeTab() {
       const isOut = state.flightDir === 'outbound';
       return `
-        <!-- Page Title & Live JST Pill -->
         <div class="flex items-center justify-between pt-1">
           <h1 class="text-[26px] font-black tracking-tight text-[#222222]">首頁</h1>
           <div id="jst-clock" class="bg-white border-2 border-[#222222] rounded-full px-3.5 py-1 text-xs font-black tracking-wide">
@@ -1262,7 +1383,6 @@
         <section class="hb-card p-4">
           ${renderHeroIllustration()}
 
-          <!-- Tags Row -->
           <div class="flex items-center justify-between gap-1.5 mt-3.5 flex-wrap">
             <div class="flex items-center gap-1.5 flex-wrap">
               <span class="bg-[#F8EAE8] hb-pill px-2.5 py-1 text-[11px] font-black text-[#222222]">
@@ -1278,7 +1398,6 @@
             </button>
           </div>
 
-          <!-- Title & Subtitle -->
           <div class="mt-3">
             <h2 class="text-[26px] font-black text-[#222222] leading-tight tracking-tight">
               ${escapeHtml(state.tripMeta.title)}
@@ -1308,7 +1427,6 @@
             </div>
           </div>
 
-          <!-- Countdown Footer Caption -->
           <div class="mt-3 flex items-center justify-between text-xs font-bold text-[#555555]">
             <p id="cd-caption">距離 <span class="underline decoration-2 decoration-[#F6D365] font-black text-[#222222]">JX302</span> 台中起飛 (11/23 13:05)</p>
           </div>
@@ -1328,7 +1446,6 @@
               <span class="w-6 h-6 rounded-full border-2 border-[#222222] bg-white flex items-center justify-center text-xs font-black">➔</span>
               <h3 class="text-lg font-black text-[#222222]">航班資訊</h3>
             </div>
-            <!-- Outbound / Inbound Pill Switcher -->
             <div class="bg-white border-2 border-[#222222] rounded-full p-0.5 flex items-center">
               <button onclick="setFlightDir('outbound')" class="hb-btn px-3.5 py-1 rounded-full text-xs font-black transition ${isOut ? 'bg-[#F6D365] border-[1.5px] border-[#222222] text-[#222222]' : 'text-[#666666] border-[1.5px] border-transparent'}">
                 去程
@@ -1339,7 +1456,7 @@
             </div>
           </div>
 
-          <!-- Flight Card (#F8EAE8 Pink Fill) -->
+          <!-- Flight Card -->
           <div class="bg-[#F8EAE8] border-2 border-[#222222] rounded-[24px] p-4">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
@@ -1351,13 +1468,11 @@
                 <span class="bg-[#222222] text-white rounded-full px-2.5 py-0.5 text-xs font-black">${isOut ? 'JX302' : 'JX303'}</span>
                 <span class="text-[11px] font-bold text-[#555555]">星宇航空</span>
               </div>
-              <!-- Weather Mini Icon -->
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path>
               </svg>
             </div>
 
-            <!-- Airport Times Row -->
             <div class="grid grid-cols-3 items-center mt-4 pt-1">
               <div>
                 <div class="text-[28px] font-black leading-none text-[#222222] tabular-nums">${isOut ? '13:05' : '16:30'}</div>
@@ -1395,9 +1510,12 @@
                 導航
               </button>
             </div>
-            <div class="border-t border-dashed border-[#222222]/25 pt-2 flex items-center justify-between text-[11px]">
-              <span>🚗 <strong class="font-black">11/23 17:00</strong> 那霸機場領車</span>
-              <span>⛽ <strong class="font-black">11/27 15:00</strong> 準時還車</span>
+            <div class="border-t border-dashed border-[#222222]/25 pt-2 space-y-1 text-[11px]">
+              <div>🚪 <strong class="font-black">接機地點：</strong>那霸機場 3 樓 C CHECK-IN 窗口對面 11 號大門</div>
+              <div class="flex items-center justify-between">
+                <span>🚗 <strong class="font-black">11/23 17:00</strong> 豐見城取車</span>
+                <span>⛽ <strong class="font-black">11/27 13:20</strong> 加油還車（14:00 抵機場）</span>
+              </div>
             </div>
           </div>
         </section>
@@ -1406,7 +1524,7 @@
         <section class="grid grid-cols-2 gap-2.5 pt-1">
           <button onclick="switchTab('itinerary')" class="hb-btn hb-card p-3.5 text-left flex items-center justify-between bg-white">
             <div>
-              <div class="text-[11px] font-bold text-[#666666]">5天4夜完整動線</div>
+              <div class="text-[11px] font-bold text-[#666666]">含每日路線概覽圖</div>
               <div class="text-sm font-black text-[#222222] mt-0.5">查看每日行程</div>
             </div>
             <span class="w-8 h-8 rounded-full bg-[#F6D365] border-[1.5px] border-[#222222] flex items-center justify-center text-sm font-black">➔</span>
@@ -1436,7 +1554,6 @@
       ];
 
       return `
-        <!-- Header & Weather Sync Switch -->
         <div class="flex items-center justify-between pt-1">
           <h1 class="text-2xl font-black text-[#222222]">每日行程</h1>
           <button onclick="toggleWeatherMode()" class="hb-btn bg-white border-2 border-[#222222] rounded-full px-3 py-1 text-xs font-black flex items-center gap-1.5">
@@ -1475,9 +1592,12 @@
           ` : ''}
         </div>
 
+        <!-- Daily Route Overview Map Card -->
+        ${renderRouteOverviewCard(dayObj)}
+
         <!-- Timeline Cards -->
         <div class="space-y-3 relative">
-          ${items.map((item, idx) => `
+          ${items.map(item => `
             <div class="hb-card p-3.5 relative">
               <div class="flex items-start justify-between gap-2">
                 <div class="flex items-center gap-2 flex-wrap">
@@ -1486,7 +1606,7 @@
                   </span>
                   <span class="text-[11px] font-bold text-[#666666]">⏱️ ${item.stay}</span>
                 </div>
-                <button onclick="openGoogleMaps('${item.mapQuery.replace(/'/g, "\\'")}')" class="hb-btn shrink-0 bg-[#F5F3EB] hb-pill px-2.5 py-1 text-[11px] font-black flex items-center gap-1">
+                <button onclick="openGoogleMaps('${item.mapQuery.replace(/'/g, "\'")}')" class="hb-btn shrink-0 bg-[#F5F3EB] hb-pill px-2.5 py-1 text-[11px] font-black flex items-center gap-1">
                   <span>📍</span>
                   <span>導航</span>
                 </button>
@@ -1500,13 +1620,12 @@
                 ${item.desc}
               </p>
 
-              <!-- Badges -->
               <div class="flex items-center gap-1.5 flex-wrap mt-2.5">
                 ${item.badges.map(badge => {
                   let bg = '#F5F3EB';
                   if (badge.includes('FunPASS')) bg = '#E3EFE0';
                   else if (badge.includes('🎂') || badge.includes('⚠️')) bg = '#F8EAE8';
-                  else if (badge.includes('🛍️')) bg = '#F6D365';
+                  else if (badge.includes('🛍️') || badge.includes('🏡')) bg = '#F6D365';
                   else if (badge.includes('☔')) bg = '#CBE2F6';
                   return `<span class="hb-pill px-2.5 py-0.5 text-[10px] font-black" style="background-color: ${bg};">${badge}</span>`;
                 }).join('')}
@@ -1519,8 +1638,9 @@
 
     function renderSpotsTab() {
       const filters = [
-        { id: 'all', label: '全部 (17)' },
+        { id: 'all', label: '全部精選' },
         { id: 'funpass', label: '🎫 FunPASS (4)' },
+        { id: 'minatogawa', label: '🏡 港川12店' },
         { id: 'kids', label: '👶 親子大景' },
         { id: 'food', label: '🍖 必吃美食' },
         { id: 'shopping', label: '🛍️ 購物(限2日)' }
@@ -1536,7 +1656,6 @@
           <span class="text-[11px] font-black bg-white hb-pill px-2.5 py-1">含車機 MapCode</span>
         </div>
 
-        <!-- Horizontal Filter Pills -->
         <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
           ${filters.map(f => {
             const active = state.spotFilter === f.id;
@@ -1548,21 +1667,47 @@
           }).join('')}
         </div>
 
-        <!-- Spots List -->
+        <!-- Dedicated Minatogawa 12-Shop Guide Card when filtered or at top -->
+        ${state.spotFilter === 'minatogawa' ? `
+          <div class="hb-card p-4 bg-[#FFFDF7] space-y-3">
+            <h2 class="text-base font-black text-[#222222]">🏡 港川外人住宅 12 間精選口袋名單</h2>
+            <div class="space-y-2 text-xs font-bold">
+              <div class="bg-[#F8EAE8] border-[1.5px] border-[#222222] rounded-2xl p-3 space-y-1">
+                <div class="font-black text-sm mb-1">🍰 人氣甜點・咖啡・正餐（6間）</div>
+                <div>① <strong>oHacorte 水果塔</strong>｜人氣 No.1 甜點店</div>
+                <div>② <strong>Cocoroar Cafe</strong>｜超人氣舒芙蕾鬆餅咖啡廳</div>
+                <div>③ <strong>Houki Boshi ほうき星</strong>｜可麗露專門店</div>
+                <div>④ <strong>鶏そば屋 いしぐふー</strong>｜雞湯沖繩麵店</div>
+                <div>⑤ <strong>OKINAWA CERRADO COFFEE</strong>｜咖啡豆專門店</div>
+                <div>⑥ <strong>UFO Burger & Sandwich CAFE</strong>｜人氣美式漢堡</div>
+              </div>
+              <div class="bg-[#E3EFE0] border-[1.5px] border-[#222222] rounded-2xl p-3 space-y-1">
+                <div class="font-black text-sm mb-1">🛍️ 質感選物・手作體驗（6間）</div>
+                <div>① <strong>THE FLAVOR DESIGN OKINAWA</strong>｜客製化香水 DIY</div>
+                <div>② <strong>こどらキッチン OKINAWA</strong>｜手作甜點與生活選物</div>
+                <div>③ <strong>AMERICAN WAVE</strong>｜復古美式選物店</div>
+                <div>④ <strong>PORTRIVER MARKET</strong>｜南國風選物雜貨店</div>
+                <div>⑤ <strong>ENJOY! WEDDING (NN Hand Made)</strong>｜手作飾品小店</div>
+                <div>⑥ <strong>RAINBOW SOUL OKINAWA</strong>｜必逛手作蠟燭體驗店</div>
+              </div>
+            </div>
+          </div>
+        ` : ''}
+
         <div class="space-y-3">
           ${filtered.map(s => `
             <div class="hb-card p-3.5 space-y-2.5">
               <div class="flex items-start justify-between gap-2">
                 <div>
                   <div class="flex items-center gap-1.5 flex-wrap">
-                    <span class="hb-pill px-2.5 py-0.5 text-[10px] font-black ${s.category === 'funpass' ? 'bg-[#E3EFE0]' : s.category === 'food' ? 'bg-[#F8EAE8]' : s.category === 'shopping' ? 'bg-[#F6D365]' : 'bg-[#CBE2F6]'}">
+                    <span class="hb-pill px-2.5 py-0.5 text-[10px] font-black ${s.category === 'funpass' ? 'bg-[#E3EFE0]' : s.category === 'food' ? 'bg-[#F8EAE8]' : s.category === 'shopping' || s.category === 'minatogawa' ? 'bg-[#F6D365]' : 'bg-[#CBE2F6]'}">
                       ${s.catLabel}
                     </span>
                     <span class="text-[11px] font-bold text-[#666666]">${s.region}・${s.day}</span>
                   </div>
                   <h3 class="text-base font-black text-[#222222] mt-1.5">${s.name}</h3>
                 </div>
-                <button onclick="openGoogleMaps('${s.mapQuery.replace(/'/g, "\\'")}')" class="hb-btn shrink-0 bg-[#F6D365] hb-pill px-3 py-1 text-xs font-black">
+                <button onclick="openGoogleMaps('${s.mapQuery.replace(/'/g, "\'")}')" class="hb-btn shrink-0 bg-[#F6D365] hb-pill px-3 py-1 text-xs font-black">
                   地圖 ➔
                 </button>
               </div>
@@ -1570,10 +1715,9 @@
               <div class="text-[11px] font-bold text-[#555555] space-y-1">
                 <div>🕒 營業：${s.hours} ｜ ⏱️ ${s.stay}</div>
                 ${s.alert ? `<div class="text-[#E05252] font-black">${s.alert}</div>` : ''}
-                <div class="bg-[#F5F3EB] rounded-xl p-2 text-[#222222]">💡 ${s.tip}</div>
+                <div class="bg-[#F5F3EB] rounded-xl p-2 text-[#222222] leading-relaxed">💡 ${s.tip}</div>
               </div>
 
-              <!-- Car GPS MapCode & Phone Copy Bar -->
               <div class="grid grid-cols-2 gap-2 pt-0.5">
                 <button onclick="copyText('${s.mapcode}', 'MapCode')" class="hb-btn bg-white border-[1.5px] border-[#222222] rounded-xl px-2.5 py-1.5 text-left flex items-center justify-between">
                   <div>
@@ -1613,7 +1757,6 @@
           <button onclick="resetChecklist()" class="hb-btn bg-white hb-pill px-3 py-1 text-[11px] font-black">重置勾選</button>
         </div>
 
-        <!-- Progress Card -->
         <div class="hb-card p-4 bg-[#E3EFE0]">
           <div class="flex items-center justify-between text-xs font-black mb-2">
             <span>準備完成度（2大人 + 3歲寶寶）</span>
@@ -1624,7 +1767,6 @@
           </div>
         </div>
 
-        <!-- Add Custom Item -->
         <div class="hb-card p-3 flex items-center gap-2">
           <input id="new-check-input" type="text" placeholder="新增自訂打包物品（如：寶寶牙刷、太陽眼鏡）" class="flex-1 text-xs font-bold bg-[#F5F3EB] border-[1.5px] border-[#222222] rounded-xl px-3 py-2 focus:outline-none" onkeydown="if(event.key==='Enter') addCheckItem()" />
           <button onclick="addCheckItem()" class="hb-btn bg-[#F6D365] border-[1.5px] border-[#222222] rounded-xl px-3.5 py-2 text-xs font-black shrink-0">
@@ -1632,7 +1774,6 @@
           </button>
         </div>
 
-        <!-- Categorized Lists -->
         <div class="space-y-3">
           ${state.checklist.map((cat, cIdx) => `
             <div class="hb-card p-3.5 space-y-2">
@@ -1675,7 +1816,6 @@
           <span class="text-[11px] font-black bg-[#F6D365] hb-pill px-2.5 py-1">匯率・記帳・日文</span>
         </div>
 
-        <!-- 1. Live Currency Converter -->
         <section class="hb-card p-4 space-y-3">
           <div class="flex items-center justify-between">
             <h2 class="text-base font-black flex items-center gap-1.5">💴 日幣即時匯率換算</h2>
@@ -1696,7 +1836,6 @@
             </div>
           </div>
 
-          <!-- Quick Presets & Tax Free Toggle -->
           <div class="flex items-center justify-between gap-1 flex-wrap">
             <div class="flex items-center gap-1">
               ${[1000, 5000, 10000, 30000].map(amt => `
@@ -1711,7 +1850,6 @@
           </div>
         </section>
 
-        <!-- 2. Expense Tracker -->
         <section class="hb-card p-4 space-y-3">
           <div class="flex items-center justify-between">
             <h2 class="text-base font-black">🧾 旅費簡易記帳本</h2>
@@ -1753,7 +1891,6 @@
           `}
         </section>
 
-        <!-- 3. Japanese Point-and-Show Cards -->
         <section class="space-y-2.5">
           <div class="flex items-center justify-between">
             <h2 class="text-base font-black">🗣️ 自駕與親子日文指差卡</h2>
@@ -1777,10 +1914,10 @@
 
     function renderInfoTab() {
       const fpList = [
-        { key: 'churaumi', name: '沖繩美麗海水族館', day: 'Day 3 (11/25) 09:00', area: '本部町' },
-        { key: 'fruits', name: 'OKINAWA 水果樂園', day: 'Day 3 (11/25) 13:50', area: '名護市' },
-        { key: 'okinawaworld', name: '沖繩世界（含玉泉洞）', day: 'Day 4 (11/26) 13:30', area: '南城市' },
-        { key: 'littleuniverse', name: 'Little Universe OKINAWA', day: 'Day 5 (11/27) 12:30', area: 'iiAS 豐崎 3F' }
+        { key: 'churaumi', name: '沖繩美麗海水族館', day: 'Day 2 (11/24) 09:25', area: '本部町' },
+        { key: 'fruits', name: 'OKINAWA 水果樂園', day: 'Day 2 (11/24) 14:20', area: '名護市' },
+        { key: 'okinawaworld', name: '沖繩世界（含玉泉洞）', day: 'Day 3 (11/25) 09:00', area: '南城市' },
+        { key: 'littleuniverse', name: 'Little Universe OKINAWA', day: 'Day 3 (11/25) 中午', area: 'iiAS 豐崎 3F' }
       ];
       const redeemedCount = Object.values(state.funpassRedeemed).filter(Boolean).length;
 
@@ -1790,7 +1927,7 @@
           <span class="text-[11px] font-black bg-[#F8EAE8] hb-pill px-2.5 py-1">一鍵複製資訊</span>
         </div>
 
-        <!-- 1. Birthday Yakiniku Reservation Card -->
+        <!-- 1. Birthday Yakiniku Reservation Card (Updated to 17:45) -->
         <section class="hb-card p-4 bg-[#F8EAE8] space-y-3">
           <div class="flex items-center justify-between">
             <span class="bg-[#222222] text-white rounded-full px-3 py-0.5 text-xs font-black">🎂 生日燒肉確定預約</span>
@@ -1801,7 +1938,7 @@
 
           <div>
             <h2 class="text-lg font-black text-[#222222]">燒肉 琉球の牛 那霸國際通店</h2>
-            <p class="text-xs font-black text-[#E05252] mt-0.5">2026年11月25日 (週三) 16:45｜成人 2 名 ＋ 兒童 1 名</p>
+            <p class="text-xs font-black text-[#E05252] mt-0.5">2026年11月25日 (週三) 17:45｜成人 2 名 ＋ 兒童 1 名</p>
           </div>
 
           <div class="bg-white border-[1.5px] border-[#222222] rounded-2xl p-3 space-y-2 text-xs font-bold">
@@ -1816,7 +1953,7 @@
           </div>
 
           <div class="bg-white/90 border-[1.5px] border-[#E05252] rounded-xl p-2.5 text-[11px] font-bold text-[#222222] leading-relaxed">
-            ⚠️ <strong class="text-[#E05252]">重要規定：</strong>座位限時 2 小時；逾預約時間 15 分鐘（<strong>17:00</strong>）未到將直接取消，未通知取消費每人 ¥10,000！<br/>
+            ⚠️ <strong class="text-[#E05252]">重要規定：</strong>座位限時 2 小時；逾預約時間 15 分鐘（<strong>18:00</strong>）未到將直接取消，未通知取消費每人 ¥10,000！<br/>
             🎁 <strong>免費福利：</strong>菜單可點 0 元長野縣產越光米；用餐結束後請主動向店員索取免費小甜點！
           </div>
         </section>
@@ -1848,18 +1985,22 @@
 
         <!-- 3. Hotel & Car Rental Summary -->
         <section class="hb-card p-4 space-y-2.5 text-xs font-bold">
-          <h2 class="text-base font-black text-[#222222]">🏨 住宿與自駕摘要</h2>
+          <h2 class="text-base font-black text-[#222222]">🏨 住宿與自駕取還車資訊</h2>
           <div class="bg-[#F5F3EB] rounded-2xl p-3 space-y-1.5">
             <div class="flex items-center justify-between">
               <span class="font-black text-sm">THE NEST那覇（連住 4 晚）</span>
               <button onclick="openGoogleMaps('THE NEST NAHA')" class="hb-btn bg-white hb-pill px-2.5 py-0.5 text-[10px] font-black">地圖</button>
             </div>
-            <div class="text-[#555555]">入住：2026/11/23 (一) 17:00 後 ｜ 退房：2026/11/27 (五) 08:45</div>
+            <div class="text-[#555555]">入住：2026/11/23 (一) 17:20 ｜ 退房：2026/11/27 (五) 09:00</div>
           </div>
-          <div class="bg-[#F5F3EB] rounded-2xl p-3 space-y-1">
-            <div class="font-black text-[#222222]">🚗 那霸機場取還車時間</div>
-            <div class="text-[#555555]">取車：11/23 (一) 17:00（確認兒童座椅＋車身拍照）</div>
-            <div class="text-[#555555]">還車：11/27 (五) 15:00（加滿 Regular 汽油、保留收據）</div>
+          <div class="bg-[#F5F3EB] rounded-2xl p-3 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="font-black text-[#222222]">🚗 取還車門市（豐見城田頭）</span>
+              <button onclick="openGoogleMaps('155-13 Tagami, Tomigusuku, Okinawa')" class="hb-btn bg-white hb-pill px-2.5 py-0.5 text-[10px] font-black">門市地圖</button>
+            </div>
+            <div class="text-[#555555]">📍 155-13 Tagami, Tomigusuku, Okinawa</div>
+            <div class="text-[#222222]">🚪 <strong>機場接駁：</strong>那霸機場 3 樓 C CHECK-IN 窗口對面 11 號大門</div>
+            <div class="text-[#555555]">取車：11/23 (一) 17:00 ｜ 還車：11/27 (五) 13:20（加滿 Regular 汽油、14:00 抵機場）</div>
           </div>
         </section>
       `;
@@ -1872,7 +2013,6 @@
           <span class="text-[11px] font-black bg-[#F8EAE8] text-[#E05252] border-[1.5px] border-[#E05252] rounded-full px-2.5 py-1">安心備用</span>
         </div>
 
-        <!-- 1. Japan Emergency Numbers -->
         <section class="bg-white border-2 border-[#E05252] rounded-[22px] p-4 space-y-3">
           <h2 class="text-base font-black text-[#E05252] flex items-center gap-1.5">🚨 日本緊急救援電話</h2>
           <div class="grid grid-cols-2 gap-2.5">
@@ -1898,7 +2038,6 @@
           </div>
         </section>
 
-        <!-- 2. Taiwan Representative Office in Naha -->
         <section class="hb-card p-4 space-y-2.5">
           <h2 class="text-base font-black text-[#222222]">🇹🇼 台北駐日經濟文化代表處那霸分處</h2>
           <p class="text-[11px] font-bold text-[#555555]">護照遺失補辦、旅外國人急難救助聯絡窗口：</p>
@@ -1914,7 +2053,6 @@
           </div>
         </section>
 
-        <!-- 3. Car Accident SOP -->
         <section class="hb-card p-4 space-y-2.5">
           <h2 class="text-base font-black text-[#222222]">🚗 沖繩自駕擦撞／事故處理 4 步驟</h2>
           <ol class="space-y-2 text-xs font-bold text-[#222222]">
@@ -1933,7 +2071,6 @@
           </ol>
         </section>
 
-        <!-- 4. Pediatric Emergency -->
         <section class="hb-card p-4 space-y-2 text-xs font-bold">
           <h2 class="text-base font-black text-[#222222]">👶 3歲寶寶夜間／假日急診參考</h2>
           <div class="bg-[#CBE2F6]/60 rounded-xl p-3 space-y-1">
@@ -1964,7 +2101,6 @@
 
     function switchTab(tabName) {
       state.activeTab = tabName;
-      // Update top nav active styles
       document.querySelectorAll('.nav-tab').forEach(btn => {
         const isTarget = btn.getAttribute('data-tab') === tabName;
         if (isTarget) {
@@ -2033,7 +2169,6 @@
       renderCurrentTab();
     }
 
-    // Checklist Actions
     function toggleCheckItem(cIdx, iIdx) {
       state.checklist[cIdx].items[iIdx].done = !state.checklist[cIdx].items[iIdx].done;
       saveState();
@@ -2067,7 +2202,6 @@
       showToast('已重置所有勾選項目', '🔄');
     }
 
-    // FunPASS Redemption Toggle
     function toggleFunpass(key) {
       state.funpassRedeemed[key] = !state.funpassRedeemed[key];
       saveState();
@@ -2075,7 +2209,6 @@
       showToast(state.funpassRedeemed[key] ? '已標記為核銷使用！' : '已改回待使用狀態', '🎫');
     }
 
-    // Tools: Currency & Expense
     function updateRate(val) {
       const num = parseFloat(val);
       if (num > 0) {
@@ -2125,7 +2258,6 @@
       renderCurrentTab();
     }
 
-    // Edit Modal Controls
     function openEditModal() {
       document.getElementById('edit-title').value = state.tripMeta.title;
       document.getElementById('edit-subtitle').value = state.tripMeta.subtitle;
@@ -2165,7 +2297,6 @@
       showToast('已恢復預設旅程設定', '🔄');
     }
 
-    // Phrase Modal Controls
     function openPhraseModal(idx) {
       const p = PHRASE_CARDS[idx];
       document.getElementById('pm-badge').textContent = p.tag;
@@ -2183,9 +2314,6 @@
       modal.classList.remove('flex');
     }
 
-    // ==========================================
-    // 9. INITIALIZATION ON WINDOW LOAD
-    // ==========================================
     window.onload = function () {
       switchTab('home');
       setInterval(updateLiveClocks, 1000);
