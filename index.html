@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>沖繩親子自駕遊 v3｜2026.11.23 — 11.27 旅遊手帳</title>
+  <title>沖繩親子自駕遊 v3.1｜2026.11.23 — 11.27 旅遊手帳（含 hoppepan）</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts: Plus Jakarta Sans & Noto Sans TC -->
@@ -358,14 +358,14 @@
 
   <script>
     // ==========================================
-    // 1. STATE & PERSISTENT STORAGE (v3)
+    // 1. STATE & PERSISTENT STORAGE (v3.1)
     // ==========================================
     const DEFAULT_META = {
       title: '沖繩親子自駕遊',
       subtitle: '2026.11.23 — 11.27・5天4夜',
       regions: '那霸・名護・恩納・北谷・南城',
       travelers: '2 大人 + 1 寶寶 (3歲)',
-      memo: '11/25 16:45 琉球の牛生日大餐｜FunPASS 四大景點制霸'
+      memo: '11/25 16:45 琉球の牛生日大餐｜11/26 順路 hoppepan 麵包'
     };
 
     let state = {
@@ -1093,24 +1093,25 @@
       },
       4: {
         dayLabel: 'Day 4 (11/26 四)',
-        title: '泊港早餐・波上宮・港川・兒童王國・來客夢',
+        title: '泊港早餐・波上宮・hoppepan・港川・兒童王國・來客夢',
         shoppingTag: '🛍️ 購物日 2（AEON 來客夢）',
         shoppingColor: '#F6D365',
-        rainyNote: '☔ 雨天備案啟動：泊港漁市場有遮雨棚；港川外人住宅改直接進選好的咖啡廳/餐廳內用（避開戶外久逛）；下午「沖繩兒童王國」主攻室內神奇博物館，15:45 直接進全室內「AEON 來客夢」吹冷氣逛街吃晚餐！',
+        rainyNote: '☔ 雨天備案啟動：泊港漁市場有遮雨棚；10:15 順路下車快速外帶「hoppepan」人氣麵包後，港川外人住宅改直接進選好的咖啡廳/餐廳內用（避開戶外久逛）；下午「沖繩兒童王國」主攻室內神奇博物館，15:50 直接進全室內「AEON 來客夢」吹冷氣逛街吃晚餐！',
         routeOverview: {
-          summary: 'THE NEST → 泊港漁市場 → 波上宮 → 港川外人住宅(12間精選) → 沖繩兒童王國 → AEON 來客夢 → 回飯店',
+          summary: 'THE NEST → 泊港漁市場 → 波上宮 → hoppepan 麵包 → 港川外人住宅(12間精選) → 沖繩兒童王國 → AEON 來客夢 → 回飯店',
           totalDrive: '全天那霸～中部順向不回頭，總車程約 1 小時 45 分（約 62 km）',
-          gmapsUrl: 'https://www.google.com/maps/dir/THE+NEST+NAHA/泊いゆまち/波上宮/港川ステイツサイドタウン/沖縄こどもの国/イオンモール沖縄ライカム/THE+NEST+NAHA',
+          gmapsUrl: 'https://www.google.com/maps/dir/THE+NEST+NAHA/泊いゆまち/波上宮/hoppepan,+2-chōme-10-10+Uchima,+Urasoe,+Okinawa/港川ステイツサイドタウン/沖縄こどもの国/イオンモール沖縄ライカム/THE+NEST+NAHA',
           stops: [
             { num: '起', name: 'THE NEST 那霸', x: 156, y: 126, color: '#E3EFE0' },
             { num: '1', name: '泊港漁市場 早餐', x: 161, y: 118, color: '#F8EAE8' },
             { num: '2', name: '波上宮・波之上海灘', x: 153, y: 121, color: '#CBE2F6' },
-            { num: '3', name: '港川外人住宅 午餐', x: 172, y: 106, color: '#F6D365' },
-            { num: '4', name: '沖繩兒童王國', x: 202, y: 94, color: '#E3EFE0' },
-            { num: '5', name: 'AEON 來客夢購物晚餐', x: 198, y: 102, color: '#F6D365' }
+            { num: '3', name: 'hoppepan 人氣麵包', x: 165, y: 112, color: '#F8EAE8' },
+            { num: '4', name: '港川外人住宅 午餐', x: 172, y: 106, color: '#F6D365' },
+            { num: '5', name: '沖繩兒童王國', x: 202, y: 94, color: '#E3EFE0' },
+            { num: '6', name: 'AEON 來客夢購物晚餐', x: 198, y: 102, color: '#F6D365' }
           ],
           isFlightDay: false,
-          pathD: 'M156,126 L161,118 L153,121 Q163,113 172,106 Q188,99 202,94 L198,102 Q176,114 156,126'
+          pathD: 'M156,126 L161,118 L153,121 Q159,116 165,112 L172,106 Q188,99 202,94 L198,102 Q176,114 156,126'
         },
         sunny: [
           {
@@ -1170,37 +1171,47 @@
             ]
           },
           {
-            time: '10:25 – 12:25',
-            title: '3. 港川外人住宅區（午餐＋咖啡＋選物）',
-            desc: '車程 25 分鐘。10:30 先拍照逛選物店，11:00 進餐廳吃午餐！推薦名單：【美食甜點】①oHacorte水果塔 ②Cocoroar Cafe舒芙蕾 ③Houki Boshi可麗露 ④鶏そば屋いしぐふー雞湯沖繩麵 ⑤OKINAWA CERRADO咖啡 ⑥UFO Burger漢堡；【選物體驗】①THE FLAVOR DESIGN香水DIY ②こどらキッチン ③AMERICAN WAVE復古選物 ④PORTRIVER MARKET ⑤ENJOY! WEDDING飾品 ⑥RAINBOW SOUL蠟燭（週四 hoppepan 麵包也有開！）。',
-            badges: ['🏡 12間精選名店', '🥖 週四hoppepan有開'],
-            stay: '停留 2 小時',
-            mapQuery: '港川ステイツサイドタウン',
+            time: '10:15 – 10:35',
+            title: '3. hoppepan（ほっぺぱん）人氣麵包店外帶',
+            desc: '從波上宮往北前往港川外人住宅的必經浦添路線（車程約 12–15 分鐘，完全零繞路！）。Google 4.5★（820則評論），週一～三公休，週四 10:00 剛開門出爐品項最齊全！外帶招牌鹽奶油捲、紅豆奶油餐包與現烤吐司，放車上當 3 歲寶寶下午點心或隔天早餐超方便。',
+            badges: ['🥖 順路零繞路', '⭐ Google 4.5★', '👶 寶寶車上點心'],
+            stay: '外帶 20 分',
+            mapQuery: 'hoppepan 沖縄県浦添市内間2-10-10',
             nearby: [
-              {
-                id: 'd4_nb4',
-                name: 'hoppepan 人氣麵包店（週四有營業！）',
-                dist: '距港川外人住宅 · 車程 5 分鐘',
-                hours: '10:00–19:00（週一～三公休）',
-                desc: '特地排在週四順路！招牌鹽奶油捲外酥內軟，買幾顆放車上當寶寶下午點心。',
-                mapcode: '33 341 535*22',
-                mapQuery: 'hoppepan 浦添'
-              },
               {
                 id: 'd4_nb5',
                 name: '浦添大公園（超大型親子遊具區 C 區）',
-                dist: '距港川外人住宅 · 車程 7 分鐘',
+                dist: '距 hoppepan · 車程 5 分鐘',
                 hours: '09:00–21:00',
-                desc: '分為 1–3 歲幼童區與 3–6 歲兒童區，設施新穎安全，是當地爸媽最愛的放電公園。',
+                desc: '分為 1–3 歲幼童區與 3–6 歲兒童區，設施新穎安全，就在浦添順路沿線。',
                 mapcode: '33 312 045*44',
                 mapQuery: '浦添大公園 Cゾーン'
               }
             ]
           },
           {
-            time: '12:55 – 15:30',
-            title: '4. 沖繩兒童王國（建議停留 2.5 小時）',
-            desc: '走國道 330 號約 25–30 分鐘抵達（孩子可在車上小睡）。09:30–17:30 營業，先看長頸鹿、大象、河馬與可愛動物區，再到室內「神奇博物館」吹冷氣玩互動科學設施。',
+            time: '10:45 – 12:35',
+            title: '4. 港川外人住宅區（午餐＋咖啡＋選物）',
+            desc: '從 hoppepan 往北續行僅 6–8 分鐘車程！先拍照逛選物店，11:00 進餐廳吃午餐！推薦名單：【美食甜點】①oHacorte水果塔 ②Cocoroar Cafe舒芙蕾 ③Houki Boshi可麗露 ④鶏そば屋いしぐふー雞湯沖繩麵 ⑤OKINAWA CERRADO咖啡 ⑥UFO Burger漢堡；【選物體驗】①THE FLAVOR DESIGN香水DIY ②こどらキッチン ③AMERICAN WAVE復古選物 ④PORTRIVER MARKET ⑤ENJOY! WEDDING飾品 ⑥RAINBOW SOUL蠟燭。',
+            badges: ['🏡 12間精選名店', '🚗 距麵包店僅7分'],
+            stay: '停留 1 小時 50 分',
+            mapQuery: '港川ステイツサイドタウン',
+            nearby: [
+              {
+                id: 'd4_nb4',
+                name: 'oHacorte 港川本店（水果塔專賣）',
+                dist: '港川外人住宅內 · 步行 1 分鐘',
+                hours: '11:30–19:00',
+                desc: '白色木屋與庭院造景，當季新鮮水果塔口感清爽不甜膩。',
+                mapcode: '33 341 002*14',
+                mapQuery: 'オハコルテ 港川店'
+              }
+            ]
+          },
+          {
+            time: '13:05 – 15:35',
+            title: '5. 沖繩兒童王國（建議停留 2.5 小時）',
+            desc: '走國道 330 號往東北約 25–30 分鐘抵達（孩子可在車上小睡）。09:30–17:30 營業，先看長頸鹿、大象、河馬與可愛動物區，再到室內「神奇博物館」吹冷氣玩互動科學設施。',
             badges: ['👶 3歲寶寶最愛', '⏱️ 停留2.5小時'],
             stay: '停留 2.5 小時',
             mapQuery: '沖縄こどもの国',
@@ -1217,11 +1228,11 @@
             ]
           },
           {
-            time: '15:45 – 19:00',
-            title: '5. AEON Mall Okinawa Rycom（購物日 2 ＋ 晚餐）',
+            time: '15:50 – 19:00',
+            title: '6. AEON Mall Okinawa Rycom（購物日 2 ＋ 晚餐）',
             desc: '車程僅 10–15 分鐘，免費停車！一樓有巨大熱帶魚水槽，還有「沖繩寶可夢中心」、童裝、藥妝與超市，直接在美食街或餐廳吃完晚餐。',
             badges: ['🛍️ 購物日 2', '⚡ 寶可夢中心'],
-            stay: '停留 3 小時 15 分',
+            stay: '停留 3 小時 10 分',
             mapQuery: 'イオンモール沖縄ライカム',
             nearby: [
               {
@@ -1415,7 +1426,7 @@
     };
 
     // ==========================================
-    // 3. SPOTS & FOOD DIRECTORY (UPDATED 16:45 YAKINIKU)
+    // 3. SPOTS & FOOD DIRECTORY (WITH HOPPEPAN)
     // ==========================================
     const SPOTS_DATA = [
       {
@@ -1473,6 +1484,20 @@
         mapcode: '232 543 400*25',
         phone: '098-851-3200',
         mapQuery: 'Little Universe OKINAWA'
+      },
+      {
+        name: 'hoppepan（ほっぺぱん）人氣麵包店',
+        category: 'food',
+        catLabel: '🥖 順路必買麵包',
+        region: '中部・浦添市内間',
+        day: 'Day 4 (週四) 10:15',
+        hours: '10:00–19:00（週一～三公休｜售完提早打烊）',
+        alert: '✨ 排在波上宮 → 港川中間，順路完全零繞路！',
+        stay: '外帶約 15–20 分鐘',
+        tip: 'Google 4.5★（820則評論，¥1,000–2,000）。10:00 剛開門出爐品項最齊全，推薦鹽奶油捲、紅豆奶油餐包與現烤吐司，放車上當 3 歲寶寶點心超讚。',
+        mapcode: '33 341 535*22',
+        phone: '098-988-9343',
+        mapQuery: 'hoppepan 沖縄県浦添市内間2-10-10'
       },
       {
         name: '燒肉 琉球の牛 那霸國際通店',
@@ -1563,11 +1588,11 @@
         category: 'minatogawa',
         catLabel: '🏡 港川12間精選',
         region: '中部・浦添市',
-        day: 'Day 4 10:25',
+        day: 'Day 4 10:45',
         hours: '多數店家 11:00–18:00（週四全開）',
-        alert: '✨ 週四 hoppepan 麵包也有營業！',
-        stay: '建議停留 2 小時',
-        tip: '【美食甜點】①oHacorte水果塔 ②Cocoroar Cafe舒芙蕾 ③Houki Boshi可麗露 ④鶏そば屋いしぐふー雞湯麵 ⑤OKINAWA CERRADO咖啡 ⑥UFO Burger漢堡；【選物體驗】①THE FLAVOR DESIGN香水DIY ②こどらキッチン ③AMERICAN WAVE ④PORTRIVER MARKET ⑤ENJOY! WEDDING飾品 ⑥RAINBOW SOUL蠟燭。',
+        alert: '✨ 剛買完 hoppepan 麵包開車 7 分鐘即達！',
+        stay: '建議停留 1 小時 50 分',
+        tip: '【美食甜點】①oHacorte水果塔 ②Cocoroar Cafe舒芙蕾 ③Houki Boshi可麗露 ④鶏そば屋いしぐふー雞湯沖繩麵 ⑤OKINAWA CERRADO咖啡 ⑥UFO Burger漢堡；【選物體驗】①THE FLAVOR DESIGN香水DIY ②こどらキッチン ③AMERICAN WAVE ④PORTRIVER MARKET ⑤ENJOY! WEDDING飾品 ⑥RAINBOW SOUL蠟燭。',
         mapcode: '33 341 002*14',
         phone: '098-875-2129',
         mapQuery: '港川ステイツサイドタウン'
@@ -1577,7 +1602,7 @@
         category: 'kids',
         catLabel: '👶 親子動物園',
         region: '中部・沖繩市',
-        day: 'Day 4 12:55',
+        day: 'Day 4 13:05',
         hours: '09:30–17:30',
         alert: '',
         stay: '建議停留 2.5 小時',
@@ -1591,11 +1616,11 @@
         category: 'shopping',
         catLabel: '🛍️ 購物日 2',
         region: '中部・北中城村',
-        day: 'Day 4 15:45',
+        day: 'Day 4 15:50',
         hours: '10:00–22:00（停車場免費）',
         alert: '',
-        stay: '建議停留 3 小時 15 分',
-        tip: '一樓有巨大熱帶魚水槽，2 樓有沖繩寶可夢中心、童裝與超市，可直接吃完晚餐回那霸。',
+        stay: '建議停留 3 小時 10 分',
+        tip: '一樓有巨大熱帶魚水槽，2 樓有沖繩寶可夢中心、童裝、藥妝與超市，可直接吃完晚餐回那霸。',
         mapcode: '33 530 406*45',
         phone: '098-930-0425',
         mapQuery: 'イオンモール沖縄ライカム'
@@ -2016,7 +2041,7 @@
         ? ro.stops[state.highlightedStopIdx]
         : null;
 
-      // Crisp, anatomically accurate Okinawa Main Island SVG path (Cape Hedo -> Motobu -> Manzamo -> Chatan -> Naha -> Itoman -> Chinen -> Katsuren -> Nago)
+      // Crisp, anatomically accurate Okinawa Main Island SVG path
       const okinawaMainPath = `
         M 278 12
         L 284 24 L 272 42 L 256 56 L 234 76 L 220 88
@@ -2119,7 +2144,7 @@
               ${activeStop ? `
                 <!-- Floating Callout Badge on Map when a Pin is Selected -->
                 <g transform="translate(180, 14)">
-                  <rect x="-78" y="-10" width="156" height="20" rx="10" fill="#222222" stroke="#FFFFFF" stroke-width="1.5" />
+                  <rect x="-86" y="-10" width="172" height="20" rx="10" fill="#222222" stroke="#FFFFFF" stroke-width="1.5" />
                   <text x="0" y="3.5" text-anchor="middle" font-size="9.5" font-weight="900" fill="#F6D365">
                     📍 ${activeStop.num}. ${activeStop.name}
                   </text>
@@ -2335,7 +2360,7 @@
         { d: 1, label: 'Day 1', date: '11/23' },
         { d: 2, label: 'Day 2', date: '11/24' },
         { d: 3, label: 'Day 3 🎂', date: '11/25' },
-        { d: 4, label: 'Day 4', date: '11/26' },
+        { d: 4, label: 'Day 4 🥖', date: '11/26' },
         { d: 5, label: 'Day 5', date: '11/27' }
       ];
 
@@ -2411,8 +2436,8 @@
                 ${item.badges.map(badge => {
                   let bg = '#F5F3EB';
                   if (badge.includes('FunPASS')) bg = '#E3EFE0';
-                  else if (badge.includes('🎂') || badge.includes('⚠️')) bg = '#F8EAE8';
-                  else if (badge.includes('🛍️') || badge.includes('🏡')) bg = '#F6D365';
+                  else if (badge.includes('🎂') || badge.includes('⚠️') || badge.includes('🥖')) bg = '#F8EAE8';
+                  else if (badge.includes('🛍️') || badge.includes('🏡') || badge.includes('⭐')) bg = '#F6D365';
                   else if (badge.includes('☔')) bg = '#CBE2F6';
                   return `<span class="hb-pill px-2.5 py-0.5 text-[10px] font-black" style="background-color: ${bg};">${badge}</span>`;
                 }).join('')}
@@ -2673,7 +2698,7 @@
               <option value="🚗 交通停車">🚗 交通</option>
               <option value="🎫 門票體驗">🎫 體驗</option>
             </select>
-            <input id="exp-title" type="text" placeholder="項目（如：蝦蝦飯）" class="col-span-4 border-[1.5px] border-[#222222] rounded-xl px-2.5 py-2 text-xs font-bold bg-white" />
+            <input id="exp-title" type="text" placeholder="項目（如：hoppepan）" class="col-span-4 border-[1.5px] border-[#222222] rounded-xl px-2.5 py-2 text-xs font-bold bg-white" />
             <input id="exp-amt" type="number" placeholder="日幣 ¥" class="col-span-4 border-[1.5px] border-[#222222] rounded-xl px-2.5 py-2 text-xs font-black bg-white" />
           </div>
           <button onclick="addExpense()" class="w-full hb-btn bg-[#F6D365] border-2 border-[#222222] rounded-xl py-2 text-xs font-black">
@@ -2695,7 +2720,7 @@
               `).join('')}
             </div>
           ` : `
-            <p class="text-[11px] font-bold text-[#888888] text-center py-1">尚無記帳紀錄，可隨時記下燒肉、加油或伴手禮花費</p>
+            <p class="text-[11px] font-bold text-[#888888] text-center py-1">尚無記帳紀錄，可隨時記下燒肉、麵包、加油或伴手禮花費</p>
           `}
         </section>
 
